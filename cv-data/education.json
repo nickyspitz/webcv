@@ -1,0 +1,32 @@
+		[ 
+			{ 	
+				"startDate": "03.2009", 
+				"endDate": "02.2013",
+				"location": "Hamburg, DE",
+				"title": "Bachelor-Abschluss, Maschinenbau", 
+                "subtext": "Hochschule f&uuml;r Angewandte Wissenschaft Hamburg",
+				"details": [{"detailsHeader": "FACHRICHTUNG", "details": "Maschinenbau Konstruktion und Entwicklung"}]
+			},
+			{ 	
+				"startDate": "03.2008", 
+				"endDate": "02.2009",
+				"location": "Konstanz, DE",
+				"title": "Student im Ausl&auml;nderstudienkolleg", "subtext": "",
+				"details": [{"detailsHeader": "AUSZEICHNUNG", "details": "Bester Student"}]
+			},
+			{ 	
+				"startDate": "09.2003", 
+				"endDate": "05.2007",
+				"location": "Atlanta, USA",
+				"title": "Uni-Student", "subtext": "Georgia State University",
+				"details": [ { "detailsHeader": "F&Auml;CHER", "details": "Deutsch, Philosophie, Mathematik" } ]
+			},
+			{ 	
+				"startDate": "08.1999", 
+				"endDate": "06.2003",
+				"location": "Atlanta, USA",
+				"title": "High School Student", "subtext": "Druid Hills High School",
+				"details": [ { "detailsHeader": "ABSCHLUSSNOTE", "details": "3.8 Grade Point Average entspricht 1,2 in deutscher Deutung" } ]
+			}
+		]
+

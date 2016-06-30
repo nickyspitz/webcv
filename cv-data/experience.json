@@ -1,0 +1,276 @@
+[ 
+	{ 	
+	"startDate": "08.2013", 
+	"endDate": "aktuell",
+	"location": 
+		{
+			"de": "Z&uuml;rich, CH" , 
+			"en": "Zurich, CH" 
+		},
+	"title": 
+		{
+			"de": "Projektleiter, Programmierer", 
+			"en": "Project Manager / Software Engineer"
+		},
+	"employer": 
+		{
+			"de": "SoftART Z&uuml;rich AG",
+			"en": "SoftART Zurich AG"
+		},
+		
+	"details" : 
+	 [ 
+		{ 
+			"header": 
+			{
+				"de": "PROJEKTLEITUNG", 
+				"en": "PROJECT MANAGEMENT"
+			},
+			"description": 
+			{
+				"de" : "Realisierung technischer Software-Projekte relevant zur Turbinenmaschinenauslegung, CAD-Automatisierung",
+				"en" : "Unified a mix of client needs, technical capabilities and budgetary constraints to lead the direction of the development of technical software applications for the design and design automation of turbine machinery."
+			}
+		},
+				{ 
+			"header": 
+			{
+				"de": "PROGRAMMIERUNG", 
+				"en": "PROGRAMMING"
+			},
+			"description": 
+			{
+				"de" : "Realisierung von Software-Applikationen auf der C#-.NET Plattform. Wartung von BScript-Interpreter, eine hauseigene Skriptsprache für Flächenmodellierung",
+				"en" : "Implementation of technical software projects on the C#-.NET. Maintenance and expansion of the BScript interpreter, a custom scripting language for 3D surface manipulation"
+			}
+		},
+				{ 
+			"header": 
+			{
+				"de": "ROBOTER-PROGRAMMIERUNG", 
+				"en": "ROBOT PROGRAMMING"
+			},
+			"description": 
+			{
+				"de" : "methodische Erstellung und Inbetriebnahme von Roboterprogrammen (auf ABB Robotern), welche für industrielle Schweiss- und Beschichtungsprozesse eingesetzt werden",
+				"en" : "Offline-Programming and commissioning of industrial robots (ABB) for coating and welding from free-form surfaces of turbine componentry"
+			}
+		},
+		{ 
+			"header": 
+			{
+				"de": "BETREUUNG", 
+				"en": "ADVISING"
+			},
+			"description": 
+			{
+				"de" : "Einführung und Unterstützung von Mitarbeitern zu Themen der Software-Entwicklung: u.A. zu Versionierung (git, svn), SCRUM und objektorientierten Denkweisen",
+				"en" : "<b>Einführung und Unterstützung von Mitarbeitern zu Themen der Software-Entwicklung: u.A. zu Versionierung (git, svn), SCRUM und objektorientierten Denkweisen</b>"
+			}
+		}
+	 ],
+	 "skills" : 
+	 [
+		{
+			"skillKey" : "C#",
+			"weight" : 0.6
+		},
+		{
+			"skillKey" : "Project Management",
+			"weight" : 0.4
+		}
+	 ]
+	},
+	{ 	
+		"startDate": "08.2012", 
+		"endDate": "01.2013",
+		"location": 
+		{
+			"de": "Z&uuml;rich, CH" , 
+			"en": "Zurich, CH" 
+		},
+		"title": {
+			"de":"Bachelorand, Abteilung CAD Tools", 
+			"en":"Bachelor Thesis Student"
+		},
+		"employer": 
+		{
+			"de":"MAN Diesel & Turbo Schweiz AG",
+			"en":"MAN Diesel & Turbo Schweiz AG"		
+		},
+		"details": 
+		[ 
+		{ 
+			"header": 
+			{
+				"de": "BACHELORTHESIS", 
+				"en": "BACHELOR THESIS"
+			},
+			"description": 
+			{
+				"de" : "Konzipierung und Umsetzung einer komplexen Software-Applikation",
+				"en" : "<b>Konzipierung und Umsetzung einer komplexen Software-Applikation</b>"
+			}
+		},
+		{ 
+			"header": 
+			{
+				"de": "TITEL", 
+				"en": "TITLE"
+			},
+			"description": 
+			{
+				"de" : "<i>Objektorientierte Programmierung der Aufbereitung von Wellenstr&auml;ngen f&uuml;r rotordynamische Berechnungen</i>",
+				"en" : "<i>Object-Oriented Programming for the Simplified Modelling of Drivetrains for Rotordynamic Calculations</i>"
+			}
+		}],
+		"skills" : 
+		[
+		 { 
+			"skillKey" : "C#",
+			"weight" : 1.4
+		 },
+		 {
+			"skillKey" : "MechEng: Rotor Dynamics",
+			"weight" : 1
+		 }
+		]
+	},
+		{ 	
+		"startDate": "01.2003", 
+		"endDate": "05.2013",
+		"location": 
+		{
+			"de": "US, DE" , 
+			"en": "USA, GERMANY" 
+		},
+		"title": 
+		{
+			"de": "Software-Ingenieur", 
+			"en": "Software Architecht, Engineer"
+		},
+		"employer": 
+		{
+			"de": "selbstständig",
+			"en": "self-employed"		
+		},
+		"details": 
+		[ 
+		{ 
+			"header": 
+			{
+				"de": "FULL-STACK ENTWICKLER", 
+				"en": "FULL-STACK DEVELOPER"
+			},
+			"description": 
+			{
+				"de" : "Konzipierung, Planung und Entwicklung hauptsächlich webbasierter Applikationen (siehe <i>Technologie</i>). Auftragsumfang zwischen 100h und 1000h.",
+				"en" : "Design and Development of web-based applications (see <i>Technology</i> in a myriad of business contexts"
+			}
+		}],
+		"skills" : 
+		[
+		 { 
+			"skillKey" : "Ruby on Rails",
+			"weight" : 1.4
+		 },
+		 {
+			"skillKey" : "git",
+			"weight" : 0.5
+		 }
+		]
+	},
+	{ 	
+		"startDate": "02.2009", 
+		"endDate": "05.2012",
+		"title": 
+		{
+			"de": "Datenanalytiker, Renningenieur", 
+			"en": "Data-Analyst, Racecar Engineer"
+		},
+		"location": 
+		{
+			"de": "EUROPAWEIT" , 
+			"en": "EUROPE-WIDE" 
+		},
+		"employer": 
+		{
+			"de": "freiberuflich in Rennserien FIA GT3, ADAC GT Masters, VLN Langstrecke",
+			"en": "freelance in the FIA GT3, ADAC GT Masters, VLN Langstrecke race series"		
+		},
+		"details": 
+		[ 
+		{ 
+			"header": 
+			{
+				"de": "", 
+				"en": ""
+			},
+			"description": 
+			{
+				"de" : "Training bei 2D Messsystemen in Karlsruhe; Analyse von Fahrdaten, Autobetreuung (Fahrwerkseinstellungen, Bestimmung von Reifen, etc) sowie Fahrerbetreuung am Rennwochenende",
+				"en" : "Training with <i>2D Messsystemen GmbH</i>; Analysis of driving data, car setup (suspension, tires, etc), driver support (track discussion etc)"
+			}
+		}
+		],
+		"skills" : 
+		[
+		 { 
+			"skillKey" : "Racecar engineering",
+			"weight" : 5
+		 },
+		 { 
+			"skillKey" : "MechEng Math (DGL)",
+			"weight" : 2
+		 },
+		 {
+			"skillKey" : "Data analysis",
+			"weight" : 0.5
+		 }
+		]
+	},
+		{ 	
+		"startDate": "01.2003", 
+		"endDate": "05.2013",
+		"title": 
+		{
+			"de": "was", 
+			"en": "was"
+		},
+		"location": 
+		{
+			"de": "wo" , 
+			"en": "wo" 
+		},
+		"employer": 
+		{
+			"de": "xx",
+			"en": "xx"		
+		},
+		"details": 
+		[ 
+		{ 
+			"header": 
+			{
+				"de": "DETAILTITLE", 
+				"en": "DETAILTITLE"
+			},
+			"description": 
+			{
+				"de" : "desc",
+				"en" : "desc"
+			}
+		}],
+		"skills" : 
+		[
+		 { 
+			"skillKey" : "Ruby on Rails",
+			"weight" : 1.4
+		 },
+		 {
+			"skillKey" : "git",
+			"weight" : 0.5
+		 }
+		]
+	}
+]

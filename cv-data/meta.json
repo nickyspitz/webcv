@@ -1,0 +1,22 @@
+{
+	"labelResume" : 
+	{
+		"en" : "c.v.",
+		"de" : "c.v."
+	},
+	"labelExperience" : 
+	{
+		"en" : "experience",
+		"de" : "erfahrung"
+	},
+	"labelEducation" : 
+	{
+		"en" : "education",
+		"de" : "schulischer werdegang"
+	},
+	"textAbout" : 
+	{
+		"en" : "I was sick of having a PDF resumé",
+		"de" : "Diese Seite ist ein kleines Experiment, da ich keine Lust mehr hatte, mein CV als nicht skalierbares PDF weiterzuf&uuml;hren. Mittels <a href=\"http://getbootstrap.com\">bootstrap</a> und <a href=\"\">Google Fonts</a> sieht's nun netter aus, <a href=\"\">pure.js</a> liefert mir die Templating-M&ouml;glichkeiten, welche ich gesucht habe. Die Daten befinden sich in normgerechten JSON-Format hier hier und hier und erm&ouml;glichen mir eine schlichte Mehrsprachigkeit."
+	}	
+}

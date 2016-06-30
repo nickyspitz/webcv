@@ -1,0 +1,384 @@
+
+<html>
+<head>
+	<title>nickspitzer.com</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script src="js/pure.js"></script>
+	<script src="js/d3.v2.min.js"></script>
+
+	<link href="css/google-fonts.css" rel="stylesheet"> 
+	<link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<style>
+.awesome-font { font-family: 'Lato', sans-serif; }
+.awesome-font-header { font-family: 'Montserrat', sans-serif; }
+.btn:focus,.btn:active { outline: none !important; } 
+</style>
+</head>
+
+<body onLoad="Initialize('de');">
+
+<br>
+<div class="container-fluid">
+
+ <div class="cv-header-info">
+  <div class="row">
+    <div class="col-sm-6 awesome-font-header">
+			<h1>NICK SPITZER &nbsp;&nbsp;&nbsp;<span class="label label-success" style="size:12px;vertical-align:middle;">C.V.</span> </h1>
+		</div>
+    <div class="col-sm-2 awesome-font">
+		<h6 class="info">
+			<span class="infoName">-name-</span><br>
+			<span class="infoBirthday"></span><br>
+			<span class="infoNationality"></span><br>
+		</h6>
+		</div>
+    <div class="col-sm-2 awesome-font">
+		<h6>
+			<span class="infoAddress1"></span><br>
+			<span class="infoAddress2"></span><br>
+			<span class="infoAddress3"></span><br>
+			<br>
+			<span class="infoPhone"></span><br>
+		</h6>
+		</div>
+  </div>
+
+  <div class="row">
+		<div class="col-sm-10">
+			<div class="page-header">
+				<h3><span class="infoStatement">statement</span></h3>
+			</div>
+  		</div>
+  </div>
+ </div>
+
+  <div class="row">
+    <div class="col-sm-2 awesome-font-header">
+			<h2><span class="label label-primary">ERFAHRUNG</span></h2>
+		</div>
+  </div>
+
+  <div id="experience-table">
+  <div class="row info-row">
+		<div class="col-sm-2 awesome-font">
+			<h5>	
+				<span class="startDate">-</span> bis <span class="endDate">-</span> <br> 
+				<small class="location_name">-</small>
+			</h5>
+		</div>
+		<div class="col-sm-4 awesome-font">
+		  	<h4>
+				<span class="title">-</span> <br>
+				<small class="employer">-</small>
+			</h4>
+		</div>
+		<div class="col-sm-4 awesome-font details-list-div">
+			<h5 class="details-list">
+				<small class="details-header">-</small> <br>
+				<span class="details">-</span><br>
+			</h5>
+		</div>
+  </div>
+  </div>
+
+<!--
+  <div class="row">
+    <div class="col-sm-2 awesome-font-header">
+			<h3><span class="label label-primary">SCHULISCHER WERDEGANG</span></h3>
+		</div>
+  </div>
+
+  <div class="education-table">
+  <div class="row info-row">
+		<div class="col-sm-2 awesome-font">
+			<h5>	
+				<span class="startDate">%Timeframe%</span> bis <span class="endDate">%Timeframe%</span> <br> 
+				<small class="location_name"> Location </small>
+			</h5>
+		</div>
+		<div class="col-sm-4 awesome-font">
+		  	<h4>
+				<span class="title">Title</span> <br>
+				<small class="employer"> Subtext</small>
+			</h4>
+		</div>
+		<div class="col-sm-4 awesome-font details-list">
+			<h5>
+				<small class="details-header">-</small> <br>
+				<span class="details">-</span><br>
+			</h5>
+		</div>
+  </div>
+  </div>
+-->
+  <div class="row">
+	<div class="col-sm-10">
+	<div class="panel">
+	
+		<div class="panel-body">
+			<p>Diese Seite ist ein kleines Experiment, da ich keine Lust mehr hatte, mein CV als nicht skalierbares PDF weiterzuf&uuml;hren. 
+	Mittels <a href="http://getbootstrap.com">bootstrap</a> und <a href="">Google Fonts</a> sieht's nun netter aus, <a href="">pure.js</a> liefert mir die Templating-M&ouml;glichkeiten, welche ich gesucht habe. Die Daten befinden sich in normgerechten JSON-Format hier hier und hier und erm&ouml;glichen mir eine schlichte Mehrsprachigkeit.
+			</p>
+
+		<div class="btn-group btn-group-sm" role="group" aria-label="...">
+	  		<button type="button" class="btn btn-default language-btn" id="btn-en" onClick="SetLanguage('en');">English</button>
+	  		<button type="button" class="btn btn-warning language-btn" id="btn-de" onClick="SetLanguage('de');">Deutsch</button>
+		</div>
+	
+		</div>
+	
+	</div>
+
+  	</div>
+   </div>
+
+</div>
+
+<script>
+
+var personalInfoJson;
+var experienceJson;
+var experienceHtml;
+
+function Initialize(language) 
+{
+
+	// grab the template HTML
+	experienceHtml = document.querySelector('#experience-table').innerHTML;
+
+	$.when(
+		$.getJSON('cv-data/personal-info.json', function(json) { personalInfoJson = json; }),
+		$.getJSON('cv-data/experience.json', function(json) { experienceJson = json; })
+	).then(
+		function() 
+		{
+			SetLanguage(language);
+		}
+	);
+
+}
+
+function SetLanguage(language) 
+{
+
+	// Highlight correct language button
+	$('.language-btn').removeClass('btn-warning');
+	$('.language-btn').removeClass('btn-default');
+	$('#btn-'+language).addClass('btn-warning');
+
+
+	// Clear the details list (it will duplicate itself otherwise)
+	$('#experience-table').innerHTML = experienceHtml;
+
+	var directive = {
+		'div.info-row':{
+			'infoItem<-':{ //for each entry in the json array name the element 'infoItem'
+			'span.startDate': 'infoItem.startDate', 
+			'span.endDate': 'infoItem.endDate', 
+			'small.location_name': function() { return this.location[language]; }, 
+			'span.title':  function() { return this.title[language]; }, 
+			'small.employer': function() { return this.employer[language]; },
+			'h5.details-list': 
+				{
+					'detail<-infoItem.details':
+					{
+	     				'small.details-header': function() { return this.header[language]; },
+		        		'span.details': function() { return this.description[language]; }
+					}
+				}
+	    }
+		}
+	};
+	
+	$p( 'div.cv-header-info' ).render( personalInfoJson, 
+	{
+		'span.infoName' : 'infoName',
+		'span.infoBirthday' : 'infoBirthday',
+		'span.infoNationality' : 'infoNationality',
+		'span.infoAddress1' : 'infoAddress1',
+		'span.infoAddress2' : 'infoAddress2',
+		'span.infoAddress3' : 'infoAddress3',
+		'span.infoPhone' : 'infoPhone',
+		'span.infoStatement' : 'statement',
+	});
+
+	$p( 'div#experience-table' ).render( experienceJson, directive );
+
+
+//	$.getJSON('cv-data/experience-test.json').then( function(json) { }).fail(function() { console.log("Json load failed for experience table!"); });
+
+	DrawStreamGraph();
+}
+
+function DrawStreamGraph()
+{
+
+	var skillsHash = {};
+
+	var currentDate = new Date();
+	var spanMonths = currentDate.getMonth() + currentDate.getFullYear()*12 - (2001*12);
+
+	experienceJson.forEach(function(e) 
+	{
+		
+		startDate = e.startDate.split(".");
+		if (e.endDate == 'aktuell')
+		{
+			endDate = [ currentDate.getMonth(), currentDate.getFullYear() ];
+		} 
+		else 
+		{
+			endDate = e.endDate.split(".");
+		}
+		var startMonth = Number(startDate[1])*12 + Number(startDate[0]) - (2001*12);
+		var diffMonths = (Number(endDate[1]) - Number(startDate[1])) * 12 + (Number(endDate[0]) - Number(startDate[0]));
+	
+		console.log(startMonth + " " + diffMonths);
+
+		e.skills.forEach(function(skill)
+		{
+
+			if (skillsHash[skill.skillKey] == undefined)
+			{
+				skillsHash[skill.skillKey] = {
+					"name" : skill.skillKey,
+					"values" : new Array(spanMonths)
+				};
+			} 
+
+			if (Array.isArray(skill.weight))
+			{
+
+				var skillArrayLength = skill.weight.length - 1;
+			
+				var monthsPerNode = diffMonths / skillArrayLength;
+	
+				for (i = 0; i < diffMonths; i++)
+				{
+	
+					// Linear interpolation fun
+					var location = Math.floor(skillArrayLength * i/diffMonths);
+					var skillStartWeight = skill.weight[location];
+					var skillEndWeight = skill.weight[location+1];
+					var distanceBetweenPoints = (i - location*monthsPerNode)/monthsPerNode;
+					var val = skillStartWeight + distanceBetweenPoints * (skillEndWeight - skillStartWeight)
+	
+					skillsHash[skill.skillKey].values[startMonth + i] = 
+					{ 
+						"x" : startMonth + i,
+						"y" : val,
+						"y0" : 0
+					};
+				}
+	
+
+			} 
+			else 
+			{
+				// Apply the same skill weight to the entire period at the job
+				for (i = 0; i < diffMonths; i++)
+				{
+	
+					skillsHash[skill.skillKey].values[startMonth + i] = 
+					{ 
+						"x" : startMonth + i,
+						"y" : skill.weight,
+						"y0" : 0
+					};
+				}
+	
+			}
+
+
+
+
+
+		});
+
+
+	});
+
+	// Fill out our skills hash
+	console.log(Object.keys(skillsHash));
+	Object.keys(skillsHash).forEach(function(skillKey)
+	{
+
+		for (i=0; i<skillsHash[skillKey].values.length; i++)
+		{
+
+			if (skillsHash[skillKey].values[i] == undefined)
+			{
+				skillsHash[skillKey].values[i] = {
+					"x" : i,
+					"y" : 0,
+					"y0" : 0
+				};
+			}
+		}
+	});
+
+	console.log(skillsHash);
+
+
+	var skillsData = Object.keys(skillsHash).map(function(skillKey) { return skillsHash[skillKey]; });
+	var width = 960, height = 500;
+	
+	var xScale = d3.scale.linear() 
+		// .domain([0, skillsData.length - 1])
+		.domain([0, spanMonths])
+		.range([0, width]);
+	
+	var yScale = d3.scale.linear()
+		//.domain([0, d3.max(skillsData, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); })])
+		.domain([0,5])
+		.range([height, 0]);
+	
+	var color = d3.scale.linear().range(["#99ccff", "#2b547e"]);
+	
+	var area = d3.svg.area()
+		.interpolate("bundle")
+		.x(function(d) { return xScale(d.x); })
+		.y0(function(d) { return yScale(d.y0); })
+		.y1(function(d) { return yScale(d.y0 + d.y); });
+	
+	var svg = d3.select("body").append("svg")
+		.attr("width", width)
+		.attr("height", height);
+
+	var stack = d3.layout.stack()
+		.offset("wiggle")
+		.values(function(entry) { return entry.values; });
+
+	console.log(skillsData);
+	console.log(stack(skillsData));
+
+	svg.selectAll("path")
+		.data(skillsData)
+		.enter()
+		.append("path")
+		.attr("d", function(d) { return area(d.values); })
+		.style("fill", function() { return color(Math.random()); })
+//
+//  var node = div.datum(root).selectAll(".node")
+//      .data(treemap.nodes)
+//    .enter().append("div")
+//      .attr("class", "node")
+//      .call(position)
+//      .style("background", function(d) { return d.children ? color(d.name) : null; })
+//      .text(function(d) { return d.children ? null : d.name; });
+//	
+}
+
+
+//$.getJSON('cv-data/education.json', function(json) { $p( 'div.education-table' ).render( json, directive ); });
+</script>
+
+</body>
+</html>
+ 
