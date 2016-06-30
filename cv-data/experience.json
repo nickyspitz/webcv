@@ -73,11 +73,11 @@
 	 [
 		{
 			"skillKey" : "C#",
-			"weight" : 0.6
+			"weight" : [ 0.8, 1.2, 0.9, 1]
 		},
 		{
 			"skillKey" : "Project Management",
-			"weight" : 0.4
+			"weight" : 0.5
 		}
 	 ]
 	},
@@ -128,7 +128,7 @@
 		[
 		 { 
 			"skillKey" : "C#",
-			"weight" : 1.4
+			"weight" : 1
 		 },
 		 {
 			"skillKey" : "MechEng: Rotor Dynamics",
@@ -172,7 +172,7 @@
 		[
 		 { 
 			"skillKey" : "Ruby on Rails",
-			"weight" : 1.4
+			"weight" : [0, 0.5, 1, 1.5]
 		 },
 		 {
 			"skillKey" : "git",
@@ -216,12 +216,12 @@
 		"skills" : 
 		[
 		 { 
-			"skillKey" : "Racecar engineering",
-			"weight" : 5
+			"skillKey" : "MechEng: Racecar engineering",
+			"weight" : 1
 		 },
 		 { 
-			"skillKey" : "MechEng Math (DGL)",
-			"weight" : 2
+			"skillKey" : "MechEng: Math (Dynamik/DGL)",
+			"weight" : 1
 		 },
 		 {
 			"skillKey" : "Data analysis",
@@ -265,7 +265,7 @@
 		[
 		 { 
 			"skillKey" : "Ruby on Rails",
-			"weight" : 1.4
+			"weight" : 1
 		 },
 		 {
 			"skillKey" : "git",
