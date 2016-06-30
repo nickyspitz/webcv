@@ -7,7 +7,7 @@ function DrawStreamGraph(experienceJson)
 	var currentDate = new Date();
 	var spanMonths = currentDate.getMonth() + currentDate.getFullYear()*12 - (2001*12);
 
-	experienceJson.forEach(function(e) 
+	experienceJson.forEach(function(e,iExperience) 
 	{
 		
 		startDate = e.startDate.split(".");
@@ -22,16 +22,18 @@ function DrawStreamGraph(experienceJson)
 		var startMonth = Number(startDate[1])*12 + Number(startDate[0]) - (2001*12);
 		var diffMonths = (Number(endDate[1]) - Number(startDate[1])) * 12 + (Number(endDate[0]) - Number(startDate[0]));
 	
-		console.log(startMonth + " " + diffMonths);
+		console.log(iExperience);
 
-		e.skills.forEach(function(skill)
+		e.skills.forEach(function(skill,iSkill)
 		{
 
 			if (skillsHash[skill.skillKey] == undefined)
 			{
 				skillsHash[skill.skillKey] = {
 					"name" : skill.skillKey,
-					"values" : new Array(spanMonths)
+					"values" : new Array(spanMonths),
+					"startMonth" : startMonth,
+					"order" : iSkill
 				};
 			} 
 
@@ -101,7 +103,13 @@ function DrawStreamGraph(experienceJson)
 		}
 	});
 
-	console.log(skillsHash);
+	var colors = new Array(Object.keys(skillsHash).length);
+	var color = d3.scale.linear().range(["#99ccff", "#2b547e"]);
+	for (i=0;i<Object.keys(skillsHash).length;i++)
+	{
+		colors[i] = color(Math.random());
+	}
+	
 
 	var skillsData = Object.keys(skillsHash).map(function(skillKey) { return skillsHash[skillKey]; });
 	var width = 960, height = 400;
@@ -115,13 +123,14 @@ function DrawStreamGraph(experienceJson)
 		.offset("wiggle")
 		.values(function(entry) { return entry.values; });
 
-	var yMax = d3.max(stack(skillsData), function(skill) { return d3.max(skill.values, function(month) { return month.y0 + month.y; }); });
+	var stackedData = stack(skillsData);
+
+	var yMax = d3.max(stackedData, function(skill) { return d3.max(skill.values, function(month) { return month.y0 + month.y; }); });
 
 	var yScale = d3.scale.linear()
 		.domain([0, yMax])
 		.range([height, 0]);
 	
-	var color = d3.scale.linear().range(["#99ccff", "#2b547e"]);
 	
 	var area = d3.svg.area()
 		.interpolate("bundle")
@@ -130,14 +139,29 @@ function DrawStreamGraph(experienceJson)
 		.y1(function(d) { return yScale(d.y0 + d.y); });
 	
 	var svg = d3.select("body").append("svg")
-		.attr("width", width)
+		.attr("width", "80%")
 		.attr("height", height);
 
 	svg.selectAll("path")
-		.data(stack(skillsData))
+		.data(stackedData)
 		.enter()
 		.append("path")
 		.attr("d", function(d) { return area(d.values); })
-		.style("fill", function() { return color(Math.random()); });
+		.style("fill", function(d,i) { return colors[i]; });
+
+	var labeling = svg.selectAll("text")
+		.data(stackedData)
+		.enter()
+		.append("text");
+
+	var xLabel = 120;
+	var labels = labeling
+		.attr("x", function(d) { return xScale(d.startMonth);})
+		.attr("y", function(d,i) { 
+			//return yScale(d.values[d.startMonth].y0 + (d.values[d.startMonth].y + d.values[d.startMonth].y0)/2); 
+			return yMax+5 + d.order*20;
+		})
+		.text(function(d) { return d.name;})
+		.attr("fill", function(d,i) { return colors[i]; });
 
 }

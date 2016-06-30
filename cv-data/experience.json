@@ -230,46 +230,46 @@
 		]
 	},
 		{ 	
-		"startDate": "01.2003", 
-		"endDate": "05.2013",
+		"startDate": "09.2010", 
+		"endDate": "03.2011",
 		"title": 
 		{
-			"de": "was", 
+			"de": "Praktikant, Hydraulik-Entwicklung", 
 			"en": "was"
 		},
 		"location": 
 		{
-			"de": "wo" , 
-			"en": "wo" 
+			"de": "Hamburg, DE" , 
+			"en": "Hamburg, Germany" 
 		},
 		"employer": 
 		{
-			"de": "xx",
-			"en": "xx"		
+			"de": "STILL GmbH",
+			"en": "STILL GmbH"		
 		},
 		"details": 
 		[ 
 		{ 
 			"header": 
 			{
-				"de": "DETAILTITLE", 
-				"en": "DETAILTITLE"
+				"de": "IM VERSUCH", 
+				"en": "R&D TESTING"
 			},
 			"description": 
 			{
-				"de" : "desc",
-				"en" : "desc"
+				"de" : "Auslegung, Modellbildung und Simulation hydraulischer Hebesysteme von Gabelstaplern. Von Konzipieren bis hin zur Versuchsdurchführung inklusive Endauswertung",
+				"en" : "Design, Modelling and Simulation of prototype hydraulic systems for forklifts. Primary goal of energy reclamation; from conception to implementation to the final evaluation."
 			}
 		}],
 		"skills" : 
 		[
 		 { 
-			"skillKey" : "Ruby on Rails",
+			"skillKey" : "MechEng: Hydraulic systems",
 			"weight" : 1
 		 },
 		 {
-			"skillKey" : "git",
-			"weight" : 0.5
+			"skillKey" : "MATLAB, MATLAB-Simulink",
+			"weight" : 1
 		 }
 		]
 	}
