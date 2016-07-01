@@ -112,10 +112,15 @@ function DrawStreamGraph(experienceJson)
 	
 
 	var skillsData = Object.keys(skillsHash).map(function(skillKey) { return skillsHash[skillKey]; });
-	var width = 960, height = 400;
+	var height = 400;
 	
+	var svg = d3.select(".streamgraphContainer").append("svg")
+		.attr("width", "100%")
+		.attr("height", height);
+
+	var width = $("svg").width();
+
 	var xScale = d3.scale.linear() 
-		// .domain([0, skillsData.length - 1])
 		.domain([0, spanMonths])
 		.range([0, width]);
 	
@@ -138,10 +143,6 @@ function DrawStreamGraph(experienceJson)
 		.y0(function(d) { return yScale(d.y0); })
 		.y1(function(d) { return yScale(d.y0 + d.y); });
 	
-	var svg = d3.select("body").append("svg")
-		.attr("width", "80%")
-		.attr("height", height);
-
 	svg.selectAll("path")
 		.data(stackedData)
 		.enter()
