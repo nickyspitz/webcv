@@ -66,7 +66,7 @@
 		</div>
   </div>
 
-  <div id="experience-table">
+  <div class="experience-table">
   <div class="row info-row">
 		<div class="col-sm-2 awesome-font">
 			<h5>	
@@ -129,7 +129,7 @@ function Initialize(language)
 {
 
 	// grab the template HTML
-	experienceHtml = document.querySelector('#experience-table').innerHTML;
+	experienceHtml = $('.experience-table').html();
 
 	$.when(
 		$.getJSON('cv-data/personal-info.json', function(json) { personalInfoJson = json; }),
@@ -138,6 +138,7 @@ function Initialize(language)
 		function() 
 		{
 			SetLanguage(language);
+			DrawStreamGraph(experienceJson);
 		}
 	);
 
@@ -153,7 +154,7 @@ function SetLanguage(language)
 
 
 	// Clear the details list (it will duplicate itself otherwise)
-	$('#experience-table').innerHTML = experienceHtml;
+	$('.experience-table').html(experienceHtml);
 
 	var directive = {
 		'div.info-row':{
@@ -187,15 +188,14 @@ function SetLanguage(language)
 		'span.infoStatement' : 'statement',
 	});
 
-	$p( 'div#experience-table' ).render( experienceJson, directive );
+	$p( 'div.experience-table' ).render( experienceJson, directive );
 
 
-//	$.getJSON('cv-data/experience-test.json').then( function(json) { }).fail(function() { console.log("Json load failed for experience table!"); });
+//	JSON FAILED CODE: $.getJSON('cv-data/experience-test.json').then( function(json) { }).fail(function() { console.log("Json load failed for experience table!"); });
+//	FOR EDUCATION TABLE: $.getJSON('cv-data/education.json', function(json) { $p( 'div.education-table' ).render( json, directive ); });
 
-	DrawStreamGraph(experienceJson);
 }
 
-//$.getJSON('cv-data/education.json', function(json) { $p( 'div.education-table' ).render( json, directive ); });
 </script>
 
 </body>
