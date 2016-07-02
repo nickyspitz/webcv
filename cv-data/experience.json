@@ -73,7 +73,7 @@
 	 [
 		{
 			"skillKey" : "C#",
-			"weight" : [ 0.8, 1.2, 0.9, 1]
+			"weight" : [ 0.8, 1.2, 0.9, 1, 0]
 		},
 		{
 			"skillKey" : "Project Management",

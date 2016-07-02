@@ -125,7 +125,7 @@ function DrawStreamGraph(experienceJson)
 		.range([0, width]);
 	
 	var stack = d3.layout.stack()
-		.offset("wiggle")
+		.offset("silhouette")
 		.values(function(entry) { return entry.values; });
 
 	var stackedData = stack(skillsData);
@@ -164,5 +164,55 @@ function DrawStreamGraph(experienceJson)
 		})
 		.text(function(d) { return d.name;})
 		.attr("fill", function(d,i) { return colors[i]; });
+
+  svg.selectAll(".layer")
+      .data(stackedData)
+    	.enter().append("path")
+      .attr("class", "layer")
+      .attr("d", function(d) { return area(d.values); })
+      .style("fill", function(d, i) { return colors[i]; });
+
+	svg.selectAll(".layer")
+    .attr("opacity", 1)
+
+    .on("mouseover", function(d, i) {
+      svg.selectAll(".layer").transition()
+      .duration(250)
+      .attr("opacity", function(d, j) {
+        return j != i ? 0.6 : 1;
+    	})
+	 })
+
+	.on("mousemove", function(d, i) {
+//      mousex = d3.mouse(this);
+//      mousex = mousex[0];
+//      var invertedx = x.invert(mousex);
+//      invertedx = invertedx.getMonth() + invertedx.getDate();
+//      var selected = (d.values);
+//      for (var k = 0; k < selected.length; k++) {
+//        datearray[k] = selected[k].date
+//        datearray[k] = datearray[k].getMonth() + datearray[k].getDate();
+//      }
+//
+//      mousedate = datearray.indexOf(invertedx);
+//      pro = d.values[mousedate].value;
+//
+      d3.select(this)
+      .classed("hover", true)
+      .attr("stroke", "black")
+      .attr("stroke-width", "0.5px");
+      
+    })
+	.on("mouseout", function(d, i) {
+     svg.selectAll(".layer")
+      .transition()
+      .duration(250)
+      .attr("opacity", "1");
+
+      d3.select(this)
+      .classed("hover", false)
+      .attr("stroke-width", "0px");
+
+  	});
 
 }
