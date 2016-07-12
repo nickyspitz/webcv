@@ -20,6 +20,62 @@
 .awesome-font { font-family: 'Lato', sans-serif; }
 .awesome-font-header { font-family: 'Montserrat', sans-serif; }
 .btn:focus,.btn:active { outline: none !important; } 
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
+.layer 
+{
+	opacity:0.6;
+}
+.axis 
+{
+	font-size:8pt;
+	fill:none;
+}
+.x.axis line
+{
+	stroke:#fff;	
+}
+div.tooltip {	
+   position: absolute;			
+   text-align: left;			
+   width: 320px;					
+   height: 78px;					
+   padding: 4px;				
+   font: 10px sans-serif;		
+   background: lightsteelblue;	
+   border: 0px;		
+   border-radius: 8px;			
+   pointer-events: none;			
+}
+
 </style>
 </head>
 
@@ -89,6 +145,15 @@
   </div>
   </div>
 
+
+  <div class="row">
+	 <div class="col-sm-8 streamgraph-text" style="color:#2b547e;">
+		Mouse over for skill description!
+    </div>
+	 <div class="col-sm-10 streamgraphContainer">
+    </div>
+  </div>
+
   <div class="row">
 	 <div class="col-sm-10">
 	  <div class="panel">
@@ -109,12 +174,6 @@
 
    </div>
   </div>
-
-  <div class="row">
-	 <div class="col-sm-10 streamgraphContainer">
-   </div>
-  </div>
-
 
 
 </div>
@@ -138,7 +197,7 @@ function Initialize(language)
 		function() 
 		{
 			SetLanguage(language);
-			DrawStreamGraph(experienceJson);
+			DrawStreamGraph(experienceJson, language);
 		}
 	);
 

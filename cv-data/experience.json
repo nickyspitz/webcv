@@ -72,12 +72,27 @@
 	 "skills" : 
 	 [
 		{
-			"skillKey" : "C#",
-			"weight" : [ 0.8, 1.2, 0.9, 1, 0]
+			"skillKey" : "Programming",
+			"weight" : [ 3.5, 4, 5 ],
+			"context" : "C#"
 		},
 		{
 			"skillKey" : "Project Management",
-			"weight" : 0.5
+			"weight" : [ 3.5, 4, 2 ],
+			"context" : "Running shit"
+		},
+		{
+			"skillKey" : "Engineering",
+			"weight" : [ 3, 2, 3 ],
+			"context" : "Turbines"
+		}
+	 ],
+	 "technologies" :
+	 [
+		{
+			"name" : "C# .NET",
+			"weight" : [2, 5, 5, 5],
+			"context" : ""
 		}
 	 ]
 	},
@@ -127,18 +142,20 @@
 		"skills" : 
 		[
 		 { 
-			"skillKey" : "C#",
-			"weight" : 1
+			"skillKey" : "Programming",
+			"weight" : 6,
+			"context" : "C#"
 		 },
 		 {
-			"skillKey" : "MechEng: Rotor Dynamics",
-			"weight" : 1
+			"skillKey" : "Engineering",
+			"weight" : 4,
+			"context" : "Rotor Dynamics"
 		 }
 		]
 	},
 		{ 	
 		"startDate": "01.2003", 
-		"endDate": "05.2013",
+		"endDate": "07.2012",
 		"location": 
 		{
 			"de": "US, DE" , 
@@ -171,13 +188,15 @@
 		"skills" : 
 		[
 		 { 
-			"skillKey" : "Ruby on Rails",
-			"weight" : [0, 0.5, 1, 1.5]
+			"skillKey" : "Programming",
+			"weight" : [5, 4, 1, 1, 1, 3],
+			"context" : "Perl + modperl, Ruby on Rails"
 		 },
-		 {
-			"skillKey" : "git",
-			"weight" : 0.5
+ 		 {
+			"skillKey" : "Project Management",
+			"weight" : [2, 2, 1, 1, 3]
 		 }
+
 		]
 	},
 	{ 	
@@ -216,16 +235,13 @@
 		"skills" : 
 		[
 		 { 
-			"skillKey" : "MechEng: Racecar engineering",
-			"weight" : 1
-		 },
-		 { 
-			"skillKey" : "MechEng: Math (Dynamik/DGL)",
-			"weight" : 1
+			"skillKey" : "Engineering",
+			"weight" : 1.5,
+			"context" : "Racecar setup, Math (Dynamik/DGL)"
 		 },
 		 {
 			"skillKey" : "Data analysis",
-			"weight" : 0.5
+			"weight" : 1
 		 }
 		]
 	},
@@ -235,7 +251,7 @@
 		"title": 
 		{
 			"de": "Praktikant, Hydraulik-Entwicklung", 
-			"en": "was"
+			"en": "Intern, Hydraulics R&D"
 		},
 		"location": 
 		{
@@ -264,13 +280,10 @@
 		"skills" : 
 		[
 		 { 
-			"skillKey" : "MechEng: Hydraulic systems",
-			"weight" : 1
-		 },
-		 {
-			"skillKey" : "MATLAB, MATLAB-Simulink",
-			"weight" : 1
+			"skillKey" : "Engineering",
+			"weight" : 1,
+			"context": "Hydraulic Systems"
 		 }
-		]
+  	    ]
 	}
 ]
