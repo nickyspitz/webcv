@@ -10,7 +10,7 @@
 	"title": 
 		{
 			"de": "Projektleiter, Programmierer", 
-			"en": "Project Manager / Software Engineer"
+			"en": "Project Manager, Software Engineer"
 		},
 	"employer": 
 		{
@@ -29,7 +29,7 @@
 			"description": 
 			{
 				"de" : "Realisierung technischer Software-Projekte relevant zur Turbinenmaschinenauslegung, CAD-Automatisierung",
-				"en" : "Unified a mix of client needs, technical capabilities and budgetary constraints to lead the direction of the development of technical software applications for the design and design automation of turbine machinery."
+				"en" : "Unified a mix of client needs, technical capabilities and budgetary constraints to lead the development of technical software applications for the design and design automation of turbine machinery"
 			}
 		},
 				{ 
@@ -41,7 +41,7 @@
 			"description": 
 			{
 				"de" : "Realisierung von Software-Applikationen auf der C#-.NET Plattform. Wartung von BScript-Interpreter, eine hauseigene Skriptsprache für Flächenmodellierung",
-				"en" : "Implementation of technical software projects on the C#-.NET. Maintenance and expansion of the BScript interpreter, a custom scripting language for 3D surface manipulation"
+				"en" : "Implementation of technical software projects in C#-.NET. Maintenance and expansion of the BScript interpreter, a custom scripting language for 3D surface manipulation"
 			}
 		},
 				{ 
@@ -53,7 +53,7 @@
 			"description": 
 			{
 				"de" : "methodische Erstellung und Inbetriebnahme von Roboterprogrammen (auf ABB Robotern), welche für industrielle Schweiss- und Beschichtungsprozesse eingesetzt werden",
-				"en" : "Offline-Programming and commissioning of industrial robots (ABB) for coating and welding from free-form surfaces of turbine componentry"
+				"en" : "Offline-Programming and commissioning of industrial robots (ABB) for coating and welding based on free-form surfaces of turbine componentry"
 			}
 		},
 		{ 
@@ -64,8 +64,8 @@
 			},
 			"description": 
 			{
-				"de" : "Einführung und Unterstützung von Mitarbeitern zu Themen der Software-Entwicklung: Theorie der (objektorientierten) Software-Architektur, Versionierung (git, svn), Arbeitsmethodik (SCRUM, etc)",
-				"en" : "Technical teaching (courses, individual instruction) regarding software development: (object-oriented) software architechture, versioning systems, work processes (SCRUM, etc)"
+				"de" : "Einführung und Unterstützung von Mitarbeitern zu Themen der Software-Entwicklung: Theorie der (objektorientierten) Software-Architektur, Versionierung (git, svn), Arbeitsmethodik (Scrum, etc)",
+				"en" : "Technical teaching (courses, individual instruction) regarding software development: (object-oriented) software architechture, versioning systems, work processes"
 			}
 		}
 	 ],
@@ -79,7 +79,11 @@
 		{
 			"skillKey" : "Project Management",
 			"weight" : [ 3.5, 4, 2 ],
-			"context" : "SCRUM, Konzipierung, Einsatzplanung"
+			"context" : 
+			{
+				"de" : "Scrum, Konzipierung, Einsatzplanung für technische Software-Anwendungen",
+				"en" : "Coordination of client demands, budget and technical feasability to produce technical software appplications in a Scrum-based environment"
+			}
 		},
 		{
 			"skillKey" : "Engineering",
@@ -132,7 +136,7 @@
 			"description": 
 			{
 				"de" : "Konzipierung und Umsetzung einer komplexen Software-Applikation",
-				"en" : "<b>Konzipierung und Umsetzung einer komplexen Software-Applikation</b>"
+				"en" : "Planning and execution of a complex software application (C#, data model architecture)"
 			}
 		},
 		{ 
@@ -144,7 +148,7 @@
 			"description": 
 			{
 				"de" : "<i>Objektorientierte Programmierung der Aufbereitung von Wellenstr&auml;ngen f&uuml;r rotordynamische Berechnungen</i>",
-				"en" : "<i>Object-Oriented Programming for the Simplified Modelling of Drivetrains for Rotordynamic Calculations</i>"
+				"en" : "<i>Object-Oriented Application for the Simplified Modelling of Drivetrains for Rotordynamic Calculations</i>"
 			}
 		}],
 		"skills" : 
@@ -169,9 +173,9 @@
 		 }
 		]
 	},
-		{ 	
+	{ 	
 		"startDate": "01.2003", 
-		"endDate": "07.2012",
+		"endDate": "08.2012",
 		"location": 
 		{
 			"de": "US, DE" , 
@@ -180,7 +184,7 @@
 		"title": 
 		{
 			"de": "Software-Ingenieur", 
-			"en": "Software Architecht, Engineer"
+			"en": "Software Architect, Engineer"
 		},
 		"employer": 
 		{
@@ -198,14 +202,14 @@
 			"description": 
 			{
 				"de" : "Konzipierung, Planung und Entwicklung hauptsächlich webbasierter Applikationen (siehe <i>Technologie</i>). Auftragsumfang zwischen 100h und 1000h.",
-				"en" : "Design and Development of web-based applications (see <i>Technology</i> in a myriad of business contexts"
+				"en" : "Design and Development of web-based database applications (see <i>Skills</i>) in a myriad of business contexts"
 			}
 		}],
 		"skills" : 
 		[
 		 { 
 			"skillKey" : "Programming",
-			"weight" : [5, 4, 1, 1, 1, 3],
+			"weight" : [5, 3, 1, 0, 0, 1, 1, 0.5, 0.5, 3],
 			"context" : 
 			{ 
 				"de" : "Perl + modperl, Ruby on Rails",
@@ -214,15 +218,87 @@
 		 },
  		 {
 			"skillKey" : "Project Management",
-			"weight" : [2, 2, 1, 1, 3],
+			"weight" : [0.5, 1, 1, 1, 1, 1, 1, 1, 0, 2],
 			"context" : 
 			{ 
-				"de" : "Einsatzplanung, Koordination als Freiberuflicher Student",
-				"en" : "Time management and balance as a working student"
+				"de" : "Projekt-Akquisition, Einsatzplanung (z.T. als Freiberuflicher Student)",
+				"en" : "Project acquisition, resource planning management (partly while studying)"
+			}
+		 },
+		 { 
+			"skillKey" : "Database / Data Science / Analysis",
+			"weight" : [0, 2, 1, 2, 2, 2, 2, 1, 1, 0, 3],
+			"context" : 
+			{ 
+				"de" : "relationale Datenbank-Architektur (Oracle, PostgreSQL and mySQL) für Netzhandel-Applikationen",
+				"en" : "relational database design (Oracle, PostgreSQL and mySQL) for e-commerce applications"
 			}
 		 }
 
 		]
+	},
+	{ 	
+		"startDate": "09.2010", 
+		"endDate": "03.2011",
+		"title": 
+		{
+			"de": "Praktikant, Hydraulik-Entwicklung", 
+			"en": "Engineering Intern, Hydraulics R&D"
+		},
+		"location": 
+		{
+			"de": "Hamburg, DE" , 
+			"en": "Hamburg, Germany" 
+		},
+		"employer": 
+		{
+			"de": "STILL GmbH",
+			"en": "STILL GmbH"		
+		},
+		"details": 
+		[ 
+		{ 
+			"header": 
+			{
+				"de": "IM VERSUCH", 
+				"en": "R&D TESTING"
+			},
+			"description": 
+			{
+				"de" : "Auslegung, Modellbildung und Simulation hydraulischer Hebesysteme von Gabelstaplern. Von Konzipieren bis hin zur Versuchsdurchführung inklusive Endauswertung",
+				"en" : "Design, Modelling and Simulation of prototype hydraulic systems for forklifts. Primary goal of energy reclamation; from conception to implementation to the final evaluation."
+			}
+		}],
+		"skills" : 
+		[
+		 { 
+			"skillKey" : "Engineering",
+			"weight" : 3,
+			"context": 
+			{ 
+				"de" : "Modellierung, Prototypenbau von Hydrauliksystemen",
+				"en" : "Modeling and Prototyping Hydraulic Systems"
+			}
+		 },
+		 		 {
+			"skillKey" : "Database / Data Science / Analysis",
+			"weight" : 2,
+			"context" :
+			{ 
+				"de" : "Ausführliche Datenauswertung von Messergebnissen (MATLAB)",
+				"en" : "Detailed sensor data analysis from testing using MATLAB"
+			}
+		 },
+		 { 
+			"skillKey" : "Programming",
+			"weight" : 2,
+			"context" : 
+			{ 
+				"de" : "MATLAB-Simulink",
+				"en" : "MATLAB-Simulink"
+			}
+		 }
+  	    ]
 	},
 	{ 	
 		"startDate": "02.2009", 
@@ -253,7 +329,7 @@
 			"description": 
 			{
 				"de" : "Training bei 2D Messsystemen in Karlsruhe; Analyse von Fahrdaten, Autobetreuung (Fahrwerkseinstellungen, Bestimmung von Reifen, etc) sowie Fahrerbetreuung am Rennwochenende",
-				"en" : "Training with <i>2D Messsystemen GmbH</i>; Analysis of driving data, car setup (suspension, tires, etc), driver support (track discussion etc)"
+				"en" : "Training with <i>2D Messsystemen GmbH</i>; Analysis of driving data, car setup (suspension, tires, etc), driver coaching and support"
 			}
 		}
 		],
@@ -269,7 +345,7 @@
 			}
 		 },
 		 {
-			"skillKey" : "Data analysis",
+			"skillKey" : "Database / Data Science / Analysis",
 			"weight" : 1,
 			"context" :
 			{ 
@@ -279,49 +355,194 @@
 		 }
 		]
 	},
-		{ 	
-		"startDate": "09.2010", 
-		"endDate": "03.2011",
+	{ 	
+		"startDate": "03.2005", 
+		"endDate": "06.2007",
 		"title": 
 		{
-			"de": "Praktikant, Hydraulik-Entwicklung", 
-			"en": "Intern, Hydraulics R&D"
+			"de": "Gründer, Geschäftsführer", 
+			"en": "Founder, CEO"
 		},
 		"location": 
 		{
-			"de": "Hamburg, DE" , 
-			"en": "Hamburg, Germany" 
+			"de": "Zentralamerika - Atlanta, USA" , 
+			"en": "Central America + Atlanta, USA" 
 		},
 		"employer": 
 		{
-			"de": "STILL GmbH",
-			"en": "STILL GmbH"		
+			"de": "PanAm Offroad, Inc.",
+			"en": "PanAm Offroad, Inc."		
 		},
 		"details": 
 		[ 
 		{ 
 			"header": 
 			{
-				"de": "IM VERSUCH", 
-				"en": "R&D TESTING"
+				"de": "IMPORT+EXPORT", 
+				"en": "IMPORT+EXPORT"
 			},
 			"description": 
 			{
-				"de" : "Auslegung, Modellbildung und Simulation hydraulischer Hebesysteme von Gabelstaplern. Von Konzipieren bis hin zur Versuchsdurchführung inklusive Endauswertung",
+				"de" : "Auto-Import-Betrieb zwischen Zentralamerika und USA (13 Autos insge.). Überholung und Verkauf von Autos in den USA",
 				"en" : "Design, Modelling and Simulation of prototype hydraulic systems for forklifts. Primary goal of energy reclamation; from conception to implementation to the final evaluation."
 			}
 		}],
 		"skills" : 
 		[
 		 { 
-			"skillKey" : "Engineering",
-			"weight" : 1,
+			"skillKey" : "Project Management",
+			"weight" : 3,
 			"context": 
 			{ 
-				"de" : "",
-				"en" : "Hydraulic Systems"
+				"de" : "Geschäftsführer eines KMUs",
+				"en" : "Owner and manager of start-up"
+			}
+		 },
+		 { 
+			"skillKey" : "Mechanical Knowledge",
+			"weight" : 2,
+			"context": 
+			{ 
+				"de" : "Schweissen, Drehen",
+				"en" : "Welding and machining"
+			}
+		 }
+  	    ]
+	},
+	{ 	
+		"startDate": "10.2004", 
+		"endDate": "08.2007",
+		"title": 
+		{
+			"de": "Rennwagenmechaniker", 
+			"en": "Racecar Technician"
+		},
+		"location": 
+		{
+			"de": "USA" , 
+			"en": "USA" 
+		},
+		"employer": 
+		{
+			"de": "freiberuflich",
+			"en": "freelance"		
+		},
+		"details": 
+		[ 
+		{ 
+			"header": 
+			{
+				"de": "amerikanische Le Mans Serie / GT2", 
+				"en": "American Le Mans Series / GT2"
+			},
+			"description": 
+			{
+				"de" : "Mitarbeit in der Werkstatt (Entwicklung) und an der Rennstrecke (Boxenteam)",
+				"en" : "Technical assistance at the racetrack for race weekends (pit crew) as well as occasional assistance in the workshop"
+			}
+		}],
+		"skills" : 
+		[
+		 { 
+			"skillKey" : "Mechanical Knowledge",
+			"weight" : 2,
+			"context": 
+			{ 
+				"de" : "Rennwagen-Reparatur in Stresssituationen (Porsche, Ferrari)",
+				"en" : "Racecar repair work in high-pressure race scenarios (Porsche, Ferrari)"
+			}
+		 }
+  	    ]
+	},	
+	{ 	
+		"startDate": "07.2004", 
+		"endDate": "05.2005",
+		"title": 
+		{
+			"de": "Auszubildender, Kfz-Mechaniker", 
+			"en": "Automotive Apprentice, Technician"
+		},
+		"location": 
+		{
+			"de": "Atlanta, USA" , 
+			"en": "Atlanta, USA" 
+		},
+		"employer": 
+		{
+			"de": "Decatur Automotive Center, Inc.",
+			"en": "Decatur Automotive Center, Inc."		
+		},
+		"details": 
+		[ 
+		{ 
+			"header": 
+			{
+				"de": "", 
+				"en": ""
+			},
+			"description": 
+			{
+				"de" : "viermonatige Ausbildung, anschließend als Vollzeitmechaniker übernommen worden",
+				"en" : "Four-month technician training program, subsequently hired as a full-time automotive technician. Responsible for a  wide-variety ofmaintenance tasks on primarily German and Japanese vehicles"
+			}
+		}],
+		"skills" : 
+		[
+		 { 
+			"skillKey" : "Mechanical Knowledge",
+			"weight" : 6,
+			"context": 
+			{ 
+				"de" : "Kenntnisse der Auto-Reparatur, Schweissen, Drehen",
+				"en" : "Automotive repair, Welding and machining"
+			}
+		 }
+  	    ]
+	},
+	{ 	
+		"startDate": "06.2000", 
+		"endDate": "12.2003",
+		"title": 
+		{
+			"de": "Hardware-Entwickler", 
+			"en": "Hardware-Entwickler"
+		},
+		"location": 
+		{
+			"de": "Atlanta, USA" , 
+			"en": "Atlanta, USA" 
+		},
+		"employer": 
+		{
+			"de": "Earthlink, Inc.",
+			"en": "Earthlink, Inc."		
+		},
+		"details": 
+		[ 
+		{ 
+			"header": 
+			{
+				"de": "NACH DER SCHULE (20h/w)", 
+				"en": "AFTER SCHOOL (20h/w)"
+			},
+			"description": 
+			{
+				"de" : "Wartung des internen Netzwerks, Programmierung: Geschäftsoptimierungs- und Automatisierungsaufgaben, Online-Shop",
+				"en" : "Responsible for hardware test procedures, communication with modem manufacturers with regard to specifications"
+			}
+		}],
+		"skills" : 
+		[
+		 { 
+			"skillKey" : "Programming",
+			"weight" : 5,
+			"context" : 
+			{ 
+				"de" : "C, Perl",
+				"en" : "C, Perl"
 			}
 		 }
   	    ]
 	}
+
 ]

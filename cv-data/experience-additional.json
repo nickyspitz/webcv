@@ -1,0 +1,45 @@
+{ 	
+		"startDate": "07.2002", 
+		"endDate": "07.2007",
+		"title": 
+		{
+			"de": "Netzwerk-Ingenieur, Programmierer", 
+			"en": "Network Engineer, Programmer"
+		},
+		"location": 
+		{
+			"de": "Atlanta, USA" , 
+			"en": "Atlanta, USA" 
+		},
+		"employer": 
+		{
+			"de": "Vision Computers, Inc.",
+			"en": "Vision Computers, Inc."		
+		},
+		"details": 
+		[ 
+		{ 
+			"header": 
+			{
+				"de": "", 
+				"en": ""
+			},
+			"description": 
+			{
+				"de" : "Wartung des internen Netzwerks, Programmierung: Geschäftsoptimierungs- und Automatisierungsaufgaben, Online-Shop",
+				"en" : "Maintanence of internal network. Programming on various platforms (.NET, Perl): business optimization, automation and online shop."
+			}
+		}],
+		"skills" : 
+		[
+		 { 
+			"skillKey" : "Programming",
+			"weight" : 1,
+			"context" : 
+			{ 
+				"de" : "ASP.Net, Perl",
+				"en" : "ASP.Net, Perl"
+			}
+		 }
+  	    ]
+	},

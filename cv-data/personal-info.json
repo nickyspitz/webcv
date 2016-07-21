@@ -7,5 +7,9 @@
 	"infoAddress3": "Suisse",
 	"infoPhone": "+41 76 500 4994",
 	"statement_old": "Meine breit gef&auml;cherte Berufserfahrung sowie meine schnelle Auffassungsgabe unterst&uuml;tzen mich bei den t&auml;glichen Herausforderungen meiner Arbeit",
-	"statement": "Das halbe Leben lange schon realisiere ich erfolgreich technische Projekte verschiedenster Art. Ich freue mich, meine solide und vielfältige Industrieerfahrung bei komplexen Problemstellungen einzusetzen, um schlichte, robuste und elegante Lösungen zu erzielen."
+	"statement": 
+	{
+		"de" : "Das halbe Leben lange schon realisiere ich erfolgreich technische Projekte verschiedenster Art. Ich freue mich, meine solide und vielfältige Industrieerfahrung bei komplexen Problemstellungen einzusetzen, um schlichte, robuste und elegante Lösungen zu erzielen.",
+		"en" : "With half-a-life of experience bringing a wide berth of technical projects to fruiton, I thrive on the challenge of producing elegant technical solutions."
+	}
 }

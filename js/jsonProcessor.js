@@ -63,13 +63,22 @@ function ProcessJson(experienceJson, graphStartYear, language)
 					var distanceBetweenPoints = (i - location*monthsPerNode)/monthsPerNode;
 					var val = skillStartWeight + distanceBetweenPoints * (skillEndWeight - skillStartWeight)
 	
-					skillsHash[skill.skillKey].values[startMonth + i] = 
-					{ 
-						"x" : startMonth + i,
-						"y" : val,
-						"y0" : 0,
-						"context" : contextText
-					};
+					if (skillsHash[skill.skillKey].values[startMonth + i] != undefined)
+					{
+						skillsHash[skill.skillKey].values[startMonth + i].y += skill.weight;
+						skillsHash[skill.skillKey].values[startMonth + i].context = contextText;
+					} 
+					else 
+					{
+						skillsHash[skill.skillKey].values[startMonth + i] = 
+						{ 
+							"x" : startMonth + i,
+							"y" : val,
+							"y0" : 0,
+							"context" : contextText
+						};
+					}
+
 				}
 	
 
@@ -80,13 +89,22 @@ function ProcessJson(experienceJson, graphStartYear, language)
 				for (i = 0; i < diffMonths; i++)
 				{
 	
-					skillsHash[skill.skillKey].values[startMonth + i] = 
-					{ 
-						"x" : startMonth + i,
-						"y" : skill.weight,
-						"y0" : 0,
-						"context" : contextText
-					};
+					if (skillsHash[skill.skillKey].values[startMonth + i] != undefined)
+					{
+						skillsHash[skill.skillKey].values[startMonth + i].y += skill.weight;
+						skillsHash[skill.skillKey].values[startMonth + i].context = contextText;
+					} 
+					else
+					{		
+						skillsHash[skill.skillKey].values[startMonth + i] = 
+						{ 
+							"x" : startMonth + i,
+							"y" : skill.weight,
+							"y0" : 0,
+							"context" : contextText
+						};
+					}
+
 				}
 	
 			}

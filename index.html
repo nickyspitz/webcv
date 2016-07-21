@@ -19,61 +19,19 @@
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
 <style>
+
 .awesome-font { font-family: 'Lato', sans-serif; }
 .awesome-font-header { font-family: 'Montserrat', sans-serif; }
 .btn:focus,.btn:active { outline: none !important; } 
 
-.d3-tip {
-  line-height: 1;
-  font-weight: bold;
-  padding: 12px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  border-radius: 2px;
-}
 
-/* Creates a small triangle extender for the tooltip */
-.d3-tip:after {
-  box-sizing: border-box;
-  display: inline;
-  font-size: 10px;
-  width: 100%;
-  line-height: 1;
-  color: rgba(0, 0, 0, 0.8);
-  content: "\25BC";
-  position: absolute;
-  text-align: center;
-}
+.axis { font-size:8pt; fill:none; }
+.x.axis line { stroke:#fff;	}
+.tick line { opacity:0.2; }
+.tick text { font-size:12px; stroke:blue; }
 
-/* Style northward tooltips differently */
-.d3-tip.n:after {
-  margin: -1px 0 0 0;
-  top: 100%;
-  left: 0;
-}
-
-.axis 
-{
-	font-size:8pt;
-	fill:none;
-}
-
-.x.axis line
-{
-	stroke:#fff;	
-}
-
-.tick line 
-{
-	opacity:0.2;
-}
-.tick text
-{
-	font-size:12px;
-	stroke:blue;
-}
-
-div.tooltip {	
+div.tooltip 
+{	
    position: absolute;			
    text-align: left;			
    width: 400px;					
@@ -85,6 +43,7 @@ div.tooltip {
 	background-color:#eeeeee;
 	line-height:12px;
 }
+
 p.tooltip-header 
 {
 	padding:3px;
@@ -93,19 +52,42 @@ p.tooltip-header
 	line-height:30px;
 	font-weight:bold;
 }
-
+#year 
+{
+	position:absolute;
+	text-align:center;
+	z-index:20;
+	width:60px;
+	height:20px;
+	top:0px;
+	background-color:#fff;
+}
+#vertical
+{
+position:absolute;
+z-index:19;
+width:1px;
+height:400px;
+top:10px;
+bottom:0px;
+left:0px;
+background:#fff;
+}
+a.lang-selected { font-weight:bold;}
+a.lang-selection:hover { color:#D26924; }
 </style>
 </head>
 
-<body onLoad="Initialize('de');">
-
+<body onLoad="Initialize('en');">
+<div class="tooltip" id="tooltip"></div>
 <br>
 <div class="container-fluid">
 
  <div class="cv-header-info">
   <div class="row">
     <div class="col-sm-6 awesome-font-header">
-			<h1>NICK SPITZER &nbsp;&nbsp;&nbsp;<span class="label label-success" style="size:12px;vertical-align:middle;">C.V.</span> </h1>
+			<h1>NICK SPITZER &nbsp;&nbsp;&nbsp;<span class="label label-primary" style="size:12px;vertical-align:middle;">C.V.</span></h1>
+			<small style="text-align:right;">&nbsp;<a href="" onClick="SetLanguage('en');return false;" class="lang-selection" id="lang-en">EN</a>/<a href="" onClick="SetLanguage('de');return false;" class="lang-selection" id="lang-de">DE</a></small> 
 		</div>
     <div class="col-sm-2 awesome-font">
 		<h6 class="info">
@@ -114,7 +96,7 @@ p.tooltip-header
 			<span class="infoNationality"></span><br>
 		</h6>
 		</div>
-    <div class="col-sm-2 awesome-font">
+    <div class="col-sm-2 awesome-font" style="text-align:right;">
 		<h6>
 			<span class="infoAddress1"></span><br>
 			<span class="infoAddress2"></span><br>
@@ -123,6 +105,13 @@ p.tooltip-header
 			<span class="infoPhone"></span><br>
 		</h6>
 		</div>
+  </div>
+
+  <div class="row">
+	<div class="col-sm-10 streamgraphContainer">
+	<div id="vertical"></div>
+	<div id="year"></div>
+	<svg style="z-index:-1;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg"></svg></div>
   </div>
 
   <div class="row">
@@ -136,7 +125,7 @@ p.tooltip-header
 
   <div class="row">
     <div class="col-sm-2 awesome-font-header">
-			<h2><span class="label label-primary">ERFAHRUNG</span></h2>
+			<h2><span class="label label-success">ERFAHRUNG</span></h2>
 		</div>
   </div>
 
@@ -144,7 +133,7 @@ p.tooltip-header
   <div class="row info-row">
 		<div class="col-sm-2 awesome-font">
 			<h5>	
-				<span class="startDate">-</span> bis <span class="endDate">-</span> <br> 
+				<span class="startDate">-</span> - <span class="endDate">-</span> <br> 
 				<small class="location_name">-</small>
 			</h5>
 		</div>
@@ -163,11 +152,6 @@ p.tooltip-header
   </div>
   </div>
 
-
-  <div class="row">
-	<div class="col-sm-10 streamgraphContainer">
-	<svg style="z-index:-1;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg"></svg></div>
-  </div>
 
   <div class="row">
 	 <div class="col-sm-10">
@@ -211,8 +195,15 @@ function Initialize(language)
 	).then(
 		function() 
 		{
+		 	// var userLang = navigator.language || navigator.userLanguage; 
+			// alert ("The language is: " + userLang);
 			SetLanguage(language);
-			CreateStreamGraph(experienceJson, language);
+
+			var skillsHash = ProcessJson(experienceJson, 2000, language); 
+			DrawStreamGraph(skillsHash, 2000); 
+
+			// Redraw
+			ReattachData(experienceJson, 2000, language);
 		}
 	);
 
@@ -226,6 +217,8 @@ function SetLanguage(language)
 	$('.language-btn').removeClass('btn-default');
 	$('#btn-'+language).addClass('btn-warning');
 
+	$('.lang-selection').removeClass('lang-selected');
+	$('#lang-'+language).addClass('lang-selected');
 
 	// Clear the details list (it will duplicate itself otherwise)
 	$('.experience-table').html(experienceHtml);
@@ -259,14 +252,14 @@ function SetLanguage(language)
 		'span.infoAddress2' : 'infoAddress2',
 		'span.infoAddress3' : 'infoAddress3',
 		'span.infoPhone' : 'infoPhone',
-		'span.infoStatement' : 'statement',
+		'span.infoStatement' : function() { return this.statement[language]; },
 	});
 
 	$p( 'div.experience-table' ).render( experienceJson, directive );
 
-	// Redraw
-	ReattachData(experienceJson,language);
 
+	// Redraw
+	ReattachData(experienceJson, 2000, language);
 
 //	JSON FAILED CODE: $.getJSON('cv-data/experience-test.json').then( function(json) { }).fail(function() { console.log("Json load failed for experience table!"); });
 //	FOR EDUCATION TABLE: $.getJSON('cv-data/education.json', function(json) { $p( 'div.education-table' ).render( json, directive ); });

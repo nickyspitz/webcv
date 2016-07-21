@@ -16,7 +16,7 @@
 	},
 	"textAbout" : 
 	{
-		"en" : "I was sick of having a PDF resumé",
+		"en" : "Looking to delve into the realm of client-based web application programming",
 		"de" : "Diese Seite ist ein kleines Experiment, da ich keine Lust mehr hatte, mein CV als nicht skalierbares PDF weiterzuf&uuml;hren. Mittels <a href=\"http://getbootstrap.com\">bootstrap</a> und <a href=\"\">Google Fonts</a> sieht's nun netter aus, <a href=\"\">pure.js</a> liefert mir die Templating-M&ouml;glichkeiten, welche ich gesucht habe. Die Daten befinden sich in normgerechten JSON-Format hier hier und hier und erm&ouml;glichen mir eine schlichte Mehrsprachigkeit."
 	}	
 }
