@@ -60,12 +60,12 @@
 			"header": 
 			{
 				"de": "BETREUUNG", 
-				"en": "ADVISING"
+				"en": "TEACHING+SUPERVISION"
 			},
 			"description": 
 			{
-				"de" : "Einführung und Unterstützung von Mitarbeitern zu Themen der Software-Entwicklung: u.A. zu Versionierung (git, svn), SCRUM und objektorientierten Denkweisen",
-				"en" : "<b>Einführung und Unterstützung von Mitarbeitern zu Themen der Software-Entwicklung: u.A. zu Versionierung (git, svn), SCRUM und objektorientierten Denkweisen</b>"
+				"de" : "Einführung und Unterstützung von Mitarbeitern zu Themen der Software-Entwicklung: Theorie der (objektorientierten) Software-Architektur, Versionierung (git, svn), Arbeitsmethodik (SCRUM, etc)",
+				"en" : "Technical teaching (courses, individual instruction) regarding software development: (object-oriented) software architechture, versioning systems, work processes (SCRUM, etc)"
 			}
 		}
 	 ],
@@ -74,17 +74,21 @@
 		{
 			"skillKey" : "Programming",
 			"weight" : [ 3.5, 4, 5 ],
-			"context" : "C#"
+			"context" : "C#/.NET in Visual Studio"
 		},
 		{
 			"skillKey" : "Project Management",
 			"weight" : [ 3.5, 4, 2 ],
-			"context" : "Running shit"
+			"context" : "SCRUM, Konzipierung, Einsatzplanung"
 		},
 		{
 			"skillKey" : "Engineering",
 			"weight" : [ 3, 2, 3 ],
-			"context" : "Turbines"
+			"context" : 
+			{ 
+				"de" : "Industrierobotik, Wasserturbinen, Flächenmodellierung",
+				"en" : "Industrial robotics, hydro turbines, surface modelling"
+			}
 		}
 	 ],
 	 "technologies" :
@@ -92,7 +96,11 @@
 		{
 			"name" : "C# .NET",
 			"weight" : [2, 5, 5, 5],
-			"context" : ""
+			"context" : 
+			{ 
+				"de" : "",
+				"en" : ""
+			}
 		}
 	 ]
 	},
@@ -144,12 +152,20 @@
 		 { 
 			"skillKey" : "Programming",
 			"weight" : 6,
-			"context" : "C#"
+			"context" : 
+			{ 
+				"de" : "C#",
+				"en" : "C#"
+			}
 		 },
 		 {
 			"skillKey" : "Engineering",
 			"weight" : 4,
-			"context" : "Rotor Dynamics"
+			"context" : 
+			{ 
+				"de" : "",
+				"en" : "Rotor Dynamics"
+			}
 		 }
 		]
 	},
@@ -190,11 +206,20 @@
 		 { 
 			"skillKey" : "Programming",
 			"weight" : [5, 4, 1, 1, 1, 3],
-			"context" : "Perl + modperl, Ruby on Rails"
+			"context" : 
+			{ 
+				"de" : "Perl + modperl, Ruby on Rails",
+				"en" : "Perl + modperl, Ruby on Rails"
+			}
 		 },
  		 {
 			"skillKey" : "Project Management",
-			"weight" : [2, 2, 1, 1, 3]
+			"weight" : [2, 2, 1, 1, 3],
+			"context" : 
+			{ 
+				"de" : "Einsatzplanung, Koordination als Freiberuflicher Student",
+				"en" : "Time management and balance as a working student"
+			}
 		 }
 
 		]
@@ -237,11 +262,20 @@
 		 { 
 			"skillKey" : "Engineering",
 			"weight" : 1.5,
-			"context" : "Racecar setup, Math (Dynamik/DGL)"
+			"context" : 
+			{ 
+				"de" : "Fahrwerk-Abstimmungen, Mathe (Dynamik/DGL)",
+				"en" : "Racecar setup, Math (DGL)"
+			}
 		 },
 		 {
 			"skillKey" : "Data analysis",
-			"weight" : 1
+			"weight" : 1,
+			"context" :
+			{ 
+				"de" : "",
+				"en" : ""
+			}
 		 }
 		]
 	},
@@ -282,7 +316,11 @@
 		 { 
 			"skillKey" : "Engineering",
 			"weight" : 1,
-			"context": "Hydraulic Systems"
+			"context": 
+			{ 
+				"de" : "",
+				"en" : "Hydraulic Systems"
+			}
 		 }
   	    ]
 	}
