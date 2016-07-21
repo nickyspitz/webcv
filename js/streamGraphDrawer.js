@@ -32,7 +32,8 @@ function DrawStreamGraph(skillsHash, graphStartYear)
 	colors[2] = "#6CBE6C";
 	colors[3] = "#CE5C1D";
 	colors[4] = "#8EC0F2";
-	colors = ["#E34A33", "#FC8D59", "#FDBB84", "#FDD49E", "#FEF0D9"];
+
+	colors = ["#E34A33", "#e26234","#FC8D59", "#FDBB84", "#FDD49E", "#FEF0D9"];
 
 	// Initial setup of our svg
 	var height = 400;

@@ -74,7 +74,11 @@
 		{
 			"skillKey" : "Programming",
 			"weight" : [ 3.5, 4, 5 ],
-			"context" : "C#/.NET in Visual Studio"
+			"context" : 
+			{
+				"en" : "C#/.NET in Visual Studio",
+				"de" : "C#/.NET in Visual Studio"
+			}
 		},
 		{
 			"skillKey" : "Project Management",
@@ -209,7 +213,7 @@
 		[
 		 { 
 			"skillKey" : "Programming",
-			"weight" : [5, 3, 1, 0, 0, 1, 1, 0.5, 0.5, 3],
+			"weight" : [3, 5, 1, 0, 0, 1, 1, 0.5, 0.5, 3],
 			"context" : 
 			{ 
 				"de" : "Perl + modperl, Ruby on Rails",
@@ -233,7 +237,16 @@
 				"de" : "relationale Datenbank-Architektur (Oracle, PostgreSQL and mySQL) für Netzhandel-Applikationen",
 				"en" : "relational database design (Oracle, PostgreSQL and mySQL) for e-commerce applications"
 			}
-		 }
+		 },
+		 {
+			"skillKey" : "IT Skills",
+			"weight" : [2, 1, 0, 0, 0, 0, 0, 0.5, 1, 1],
+			"context" : 
+			{
+				"en" : "Network setup and admin under Redhat, Slackware and Debian linux",
+				"de" : "Redhat, Slackware und Debian linux"
+			}
+		}
 
 		]
 	},
@@ -535,11 +548,20 @@
 		[
 		 { 
 			"skillKey" : "Programming",
-			"weight" : 5,
+			"weight" : 4,
 			"context" : 
 			{ 
 				"de" : "C, Perl",
 				"en" : "C, Perl"
+			}
+		 },
+		 { 
+			"skillKey" : "IT Skills",
+			"weight" : 1.5,
+			"context" : 
+			{ 
+				"de" : "Netzwerk-, DSL-Hardware, etc",
+				"en" : "DSL Hardware and general electronics hacking"
 			}
 		 }
   	    ]
