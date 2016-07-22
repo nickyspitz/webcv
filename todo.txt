@@ -1,0 +1,6 @@
+Add education
+Add hobbies as streamgraph over the years
+Add "Design" as skill (json)
+	- logo/brand design (QM)
+	- applications: AdobeI, AdobePs
+
