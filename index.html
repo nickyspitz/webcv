@@ -20,7 +20,7 @@
 
 </head>
 
-<body onLoad="Initialize('en');">
+<body onLoad="Initialize();">
 <div class="tooltip" id="tooltip"></div>
 
 <div class="container-fluid">
@@ -114,7 +114,7 @@ var experienceJson;
 var metaJson;
 var experienceHtml;
 
-function Initialize(language) 
+function Initialize() 
 {
 
 	// grab the template HTML
@@ -127,8 +127,13 @@ function Initialize(language)
 	).then(
 		function() 
 		{
-		 	// var userLang = navigator.language || navigator.userLanguage; 
+		 	var userLang = navigator.language || navigator.userLanguage; 
 			// alert ("The language is: " + userLang);
+			
+			var language = "en";
+			if (userLang.toLowerCase().indexOf("de") > -1)
+				language = "de";
+			
 			SetLanguage(language);
 
 			var skillsHash = ProcessJson(experienceJson, 2000, language); 
@@ -145,10 +150,6 @@ function SetLanguage(language)
 {
 
 	// Highlight correct language button
-	$('.language-btn').removeClass('btn-warning');
-	$('.language-btn').removeClass('btn-default');
-	$('#btn-'+language).addClass('btn-warning');
-
 	$('.lang-selection').removeClass('lang-selected');
 	$('#lang-'+language).addClass('lang-selected');
 
@@ -197,7 +198,6 @@ function SetLanguage(language)
 	ReattachData(experienceJson, 2000, language);
 
 //	JSON FAILED CODE: $.getJSON('cv-data/experience-test.json').then( function(json) { }).fail(function() { console.log("Json load failed for experience table!"); });
-//	FOR EDUCATION TABLE: $.getJSON('cv-data/education.json', function(json) { $p( 'div.education-table' ).render( json, directive ); });
 
 }
 </script>
