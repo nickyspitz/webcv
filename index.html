@@ -16,79 +16,13 @@
 	<link href="css/google-fonts.css" rel="stylesheet"> 
 	<link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/cv.css">
 
-<style>
-
-.awesome-font { font-family: 'Lato', sans-serif; }
-.awesome-font-header { font-family: 'Montserrat', sans-serif; }
-.btn:focus,.btn:active { outline: none !important; } 
-
-.axis { font-size:8pt; fill:none; }
-.x.axis line { stroke:#fff;	}
-.tick line { opacity:0.2; }
-.tick text { font-size:12px; stroke:blue; }
-
-div.tooltip 
-{	
-   position: absolute;			
-   text-align: left;			
-   width: 600px;					
-   height: 78px;					
-   padding: 0px;				
-   font-size: 8pt;		
-   border: 0px;		
-   pointer-events: none;			
-	background-color:#eeeeee;
-	line-height:12px;
-}
-
-p.tooltip-header 
-{
-	padding:3px;
-	font-family: 'Montserrat', sans-serif; 
-	font-size:16pt;
-	line-height:30px;
-	font-weight:bold;
-}
-
-div#startYear
-{
-	position:absolute;
-	font-size:6pt;
-	font-weight:bold;
-}
-
-svg#svg { border-left:0.5px #fff solid;}
-#year 
-{
-	position:absolute;
-	text-align:center;
-	z-index:20;
-	width:60px;
-	height:20px;
-	top:0px;
-	background-color:#fff;
-}
-#vertical
-{
-	position:absolute;
-	z-index:19;
-	width:1px;
-	height:400px;
-	top:10px;
-	bottom:0px;
-	left:0px;
-	background:#fff;
-}
-a.lang-selected { font-weight:bold;}
-a.lang-selection:hover { color:#D26924; }
-span.skill-spotlight { font-weight:bold; }
-</style>
 </head>
 
 <body onLoad="Initialize('en');">
 <div class="tooltip" id="tooltip"></div>
-<br>
+
 <div class="container-fluid">
 
  <div class="cv-header-info">
@@ -99,7 +33,7 @@ span.skill-spotlight { font-weight:bold; }
 		</div>
     <div class="col-sm-2 awesome-font">
 		<h6 class="info">
-			<span class="infoName">-name-</span><br>
+			<span class="infoName"></span><br>
 			<span class="infoBirthday"></span><br>
 			<span class="infoNationality"></span><br>
 		</h6>
@@ -126,16 +60,16 @@ span.skill-spotlight { font-weight:bold; }
 
   <div class="row">
 	<div class="col-sm-10 streamgraphContainer">
-	<div id="vertical"></div>
-	<div id="year"></div>
-	<div id="startYear"></div>
-	<svg style="z-index:-1;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg"></svg></div>
+		<div id="vertical"></div>
+		<div id="year"></div>
+		<div id="startYear"></div>
+		<svg style="z-index:-1;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg"></svg>
+	</div>
 	<br>
   </div>
 
   <div class="row">
-    <div class="col-sm-8 awesome-font-header"></div>
-    <div class="col-sm-2 awesome-font-header"> <h2><span class="label label-success">ERFAHRUNG</span></h2> </div>
+    <div class="col-sm-10 awesome-font-header meta-experience"> <h2><span class="label label-success experience-label">ERFAHRUNG</span></h2> </div>
   </div>
 
   <div class="experience-table">
@@ -161,28 +95,15 @@ span.skill-spotlight { font-weight:bold; }
   </div>
   </div>
 
-
   <div class="row">
-	 <div class="col-sm-10">
-	  <div class="panel">
-	
-		<div class="panel-body">
-			<p>Diese Seite ist ein kleines Experiment, da ich keine Lust mehr hatte, mein CV als nicht skalierbares PDF weiterzuf&uuml;hren. 
-	Mittels <a href="http://getbootstrap.com">bootstrap</a> und <a href="">Google Fonts</a> sieht's nun netter aus, <a href="">pure.js</a> liefert mir die Templating-M&ouml;glichkeiten, welche ich gesucht habe. Die Daten befinden sich in normgerechten JSON-Format hier hier und hier und erm&ouml;glichen mir eine schlichte Mehrsprachigkeit.
-			</p>
-
-			<div class="btn-group btn-group-sm" role="group" aria-label="...">
-	  		<button type="button" class="btn btn-default language-btn" id="btn-en" onClick="SetLanguage('en');">English</button>
-	  		<button type="button" class="btn btn-warning language-btn" id="btn-de" onClick="SetLanguage('de');">Deutsch</button>
-			</div>
-	
+	<div class="col-sm-10">
+	  <div class="meta-about">
+			<br><br>
+			<h3><span class="cv-about"></span></h3>
 		</div>
-	
-	  </div>
-
-   </div>
+		<br>
+  	</div>
   </div>
-
 
 </div>
 
@@ -190,6 +111,7 @@ span.skill-spotlight { font-weight:bold; }
 
 var personalInfoJson;
 var experienceJson;
+var metaJson;
 var experienceHtml;
 
 function Initialize(language) 
@@ -200,7 +122,8 @@ function Initialize(language)
 
 	$.when(
 		$.getJSON('cv-data/personal-info.json', function(json) { personalInfoJson = json; }),
-		$.getJSON('cv-data/experience.json', function(json) { experienceJson = json; })
+		$.getJSON('cv-data/experience.json', function(json) { experienceJson = json; }),
+		$.getJSON('cv-data/meta.json', function(json) { metaJson = json; })
 	).then(
 		function() 
 		{
@@ -252,14 +175,17 @@ function SetLanguage(language)
 		}
 	};
 	
+	$p( 'div.meta-experience' ).render( metaJson, { 'span.experience-label' : function() { return this.labelExperience[language]; }, });
+	$p( 'div.meta-about' ).render( metaJson, { 'span.cv-about' : function() { return this.textAbout[language]; }, });
+
 	$p( 'div.cv-header-info' ).render( personalInfoJson, 
 	{
 		'span.infoName' : 'infoName',
-		'span.infoBirthday' : 'infoBirthday',
-		'span.infoNationality' : 'infoNationality',
+		'span.infoBirthday' : function() { return this.infoBirthday[language]; },
+		'span.infoNationality' : function() { return this.infoNationality[language]; },
 		'span.infoAddress1' : 'infoAddress1',
 		'span.infoAddress2' : 'infoAddress2',
-		'span.infoAddress3' : 'infoAddress3',
+		'span.infoAddress3' : function() { return this.infoAddress3[language]; },
 		'span.infoPhone' : 'infoPhone',
 		'span.infoStatement' : function() { return this.statement[language]; },
 	});

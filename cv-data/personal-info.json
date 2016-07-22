@@ -1,12 +1,23 @@
 {
 	"infoName": "Nicholas Anton Spitzer",
-	"infoBirthday": "Geboren 03.10.1984",
-	"infoNationality": "Staatsb&uuml;rger DE, US",
+	"infoBirthday": 
+	{
+		"de" : "Geboren 03.10.1984",
+		"en" : "Born 03 Oct 1984"
+	},
+	"infoNationality": 
+	{
+		"de" : "Staatsb&uuml;rger DE, US",
+		"en" : "Citizen of Germany, USA"
+	},
 	"infoAddress1": "Brauerstrasse 16",
 	"infoAddress2": "8004 Z&uuml;rich",
-	"infoAddress3": "Suisse",
+	"infoAddress3": 
+	{
+		"de" : "Schweiz",
+		"en" : "Switzerland"
+	},
 	"infoPhone": "+41 76 500 4994",
-	"statement_old": "Meine breit gef&auml;cherte Berufserfahrung sowie meine schnelle Auffassungsgabe unterst&uuml;tzen mich bei den t&auml;glichen Herausforderungen meiner Arbeit",
 	"statement": 
 	{
 		"de" : "Das halbe Leben lange realisiere ich erfolgreich technische Projekte verschiedenster Art. Ich freue mich, meine solide und vielfältige Industrieerfahrung bei komplexen Problemstellungen einzusetzen, um schlichte, robuste und elegante Lösungen zu erzielen. Hier sieht man, wie ich meine letzten 16 Jahre verbracht habe:",

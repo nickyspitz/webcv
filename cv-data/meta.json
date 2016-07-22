@@ -16,7 +16,7 @@
 	},
 	"textAbout" : 
 	{
-		"en" : "Looking to delve into the realm of client-based web application programming",
-		"de" : "Diese Seite ist ein kleines Experiment, da ich keine Lust mehr hatte, mein CV als nicht skalierbares PDF weiterzuf&uuml;hren. Mittels <a href=\"http://getbootstrap.com\">bootstrap</a> und <a href=\"\">Google Fonts</a> sieht's nun netter aus, <a href=\"\">pure.js</a> liefert mir die Templating-M&ouml;glichkeiten, welche ich gesucht habe. Die Daten befinden sich in normgerechten JSON-Format hier hier und hier und erm&ouml;glichen mir eine schlichte Mehrsprachigkeit."
+		"en" : "This page is a little experiment to come away from the traditional, non-scalable PDF resumé we all seem to be so fond of. I took it as an opportunity to delve into the realm of <b>client-side web application programming</b>: <a href=\"http://getbootstrap.com\">bootstrap</a> offers a good visual base and universal UX compatibility, <a href=\"\">Google Fonts</a> helps, too, and <a href=\"\">pure.js</a> ties it all together with decent templating options. All the data is stored in JSON format: <a href=\"cv-data/experience.json\">here</a>, <a href=\"cv-data/meta.json\">here</a> and <a href=\"cv-data/personal-info.json\">here</a>.",
+		"de" : "Diese Seite ist ein kleines Experiment, da ich keine Lust mehr hatte, mein CV als nicht skalierbares PDF weiterzuf&uuml;hren. Mittels <a href=\"http://getbootstrap.com\">bootstrap</a> und <a href=\"\">Google Fonts</a> sieht's nun netter aus, <a href=\"\">pure.js</a> liefert mir die Templating-M&ouml;glichkeiten, welche ich gesucht habe. Die Daten zu dieser Seite befinden sich in normgerechten JSON-Format <a href=\"cv-data/experience.json\">hier</a>, <a href=\"cv-data/meta.json\">hier</a> and <a href=\"cv-data/personal-info.json\">hier</a>."
 	}	
 }
