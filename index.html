@@ -12,7 +12,6 @@
 
 	<script src="js/streamGraphDrawer.js"></script>
 	<script src="js/jsonProcessor.js"></script>
-	<script src="js/nicksDataPlotter.js"></script>
 
 	<link href="css/google-fonts.css" rel="stylesheet"> 
 	<link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -24,7 +23,6 @@
 .awesome-font-header { font-family: 'Montserrat', sans-serif; }
 .btn:focus,.btn:active { outline: none !important; } 
 
-
 .axis { font-size:8pt; fill:none; }
 .x.axis line { stroke:#fff;	}
 .tick line { opacity:0.2; }
@@ -34,7 +32,7 @@ div.tooltip
 {	
    position: absolute;			
    text-align: left;			
-   width: 400px;					
+   width: 600px;					
    height: 78px;					
    padding: 0px;				
    font-size: 8pt;		
@@ -52,6 +50,15 @@ p.tooltip-header
 	line-height:30px;
 	font-weight:bold;
 }
+
+div#startYear
+{
+	position:absolute;
+	font-size:6pt;
+	font-weight:bold;
+}
+
+svg#svg { border-left:0.5px #fff solid;}
 #year 
 {
 	position:absolute;
@@ -64,17 +71,18 @@ p.tooltip-header
 }
 #vertical
 {
-position:absolute;
-z-index:19;
-width:1px;
-height:400px;
-top:10px;
-bottom:0px;
-left:0px;
-background:#fff;
+	position:absolute;
+	z-index:19;
+	width:1px;
+	height:400px;
+	top:10px;
+	bottom:0px;
+	left:0px;
+	background:#fff;
 }
 a.lang-selected { font-weight:bold;}
 a.lang-selection:hover { color:#D26924; }
+span.skill-spotlight { font-weight:bold; }
 </style>
 </head>
 
@@ -107,26 +115,27 @@ a.lang-selection:hover { color:#D26924; }
 		</div>
   </div>
 
-  <div class="row">
-	<div class="col-sm-10 streamgraphContainer">
-	<div id="vertical"></div>
-	<div id="year"></div>
-	<svg style="z-index:-1;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg"></svg></div>
-  </div>
 
   <div class="row">
-		<div class="col-sm-10">
-			<div class="page-header">
-				<h3><span class="infoStatement">statement</span></h3>
-			</div>
-  		</div>
+	<div class="col-sm-10">
+		<h3><span class="infoStatement">statement</span></h3>
+		<br>
+  	</div>
   </div>
  </div>
 
   <div class="row">
-    <div class="col-sm-2 awesome-font-header">
-			<h2><span class="label label-success">ERFAHRUNG</span></h2>
-		</div>
+	<div class="col-sm-10 streamgraphContainer">
+	<div id="vertical"></div>
+	<div id="year"></div>
+	<div id="startYear"></div>
+	<svg style="z-index:-1;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg"></svg></div>
+	<br>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-8 awesome-font-header"></div>
+    <div class="col-sm-2 awesome-font-header"> <h2><span class="label label-success">ERFAHRUNG</span></h2> </div>
   </div>
 
   <div class="experience-table">

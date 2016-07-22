@@ -63,7 +63,7 @@ function DrawStreamGraph(skillsHash, graphStartYear)
 		.orient('left')
 		.tickSize(1)
 		.ticks(1);
-          
+       
 	var area = d3.svg.area()
 		.interpolate(areaInterpolation)
 		.x(function(d) { return xScale(d.x); })
@@ -77,7 +77,12 @@ function DrawStreamGraph(skillsHash, graphStartYear)
       .attr("d", function(d) { return area(d.values); })
       .style("fill", function(d, i) { return colors[i]; })
 
-	attachListeners(xScale, graphStartYear);
+	var startYearDiv = d3.select('#startYear');
+	startYearDiv.html("01."+graphStartYear)
+      	.style("left", ($('#svg').offset().left+2) + "px")		
+         .style("top", "0px");
+
+  	attachListeners(xScale, graphStartYear);
 
 }
 
@@ -110,24 +115,27 @@ function attachListeners(xScale, graphStartYear)
 {
 
 	var svg = d3.select('#svg');
-	var div = d3.select('#tooltip');
+	var tooltip = d3.select('#tooltip');
 	var year = d3.select("#year");
+	var startYear = d3.select("#startYear");
+	var vertical = d3.select("#vertical");
 
 	svg.selectAll(".layer")
-    .on("mouseover", function(d, i) {
+    .on("mouseenter", function(d, i) {
 
-      svg.selectAll(".layer").transition()
-      	.duration(250)
-      	.attr("opacity", function(d,j) { return j != i ? 0.6 : 1; });
+      svg.selectAll(".layer")
+			.transition()
+  	   	.duration(100)
+      	.style("opacity", function(d,j) { return j != i ? 0.6 : 1; });
 
-		div.transition()		
+		tooltip.transition()		
         	.duration(200)		
       	.style("opacity", 0.95);		
 
 		var mouseMonth = Math.floor(xScale.invert(d3.mouse(this)[0]));
 		var areaColor = d3.rgb(d3.select(this).attr("style"));
 		var divHtml = getTooltipText(d, mouseMonth, areaColor);
-		div.html(divHtml)
+		tooltip.html(divHtml)
       	.style("border", "1px " + areaColor.toString() + " solid")		
       	.style("left", $('#svg').offset().left + "px")		
          .style("top", ($('#svg').offset().top+300) + "px")
@@ -151,57 +159,62 @@ function attachListeners(xScale, graphStartYear)
 		var clientRect = svg[0][0].getBoundingClientRect();
 		var mouseMonth = Math.floor(xScale.invert(d3.mouse(this)[0]));
 		var areaColor = d3.rgb(d3.select(this).attr("style"));
-		div.html(getTooltipText(d, mouseMonth, areaColor))	
+		tooltip.html(getTooltipText(d, mouseMonth, areaColor))	
 
 		year.html(((mouseMonth % 12)+1) + "." + (graphStartYear + Math.floor(mouseMonth/12)));
 
 	})
 
-	.on("mouseout", function(d, i) {
-     svg.selectAll(".layer")
-      .transition()
-      .duration(250)
-      .attr("opacity", "1");
+	.on("mouseleave", function(d, i) {
 
       d3.select(this)
       .classed("hover", false)
       .attr("stroke-width", "0px");
 
-		div.transition()		
+		d3.selectAll(".layer").transition()
+      .duration(250)
+      .style("opacity", "1");
+
+		tooltip.transition()		
         	.duration(200)		
       	.style("opacity", 0);		
 
   	});
 	 
-	// Attach listeners
-	var vertical = d3.select("#vertical");
-	var year = d3.select("#year");
-
-  	d3.select(".streamgraphContainer")
-      .on("mousemove", function(){  
-         mousex = d3.mouse(this)[0]+ 5;
-         mousey = d3.mouse(this)[1]+ 5;
+	svg.on("mousemove", function(){  
+         mousex = d3.event.pageX - 3;
+         mousey = d3.mouse(this)[1]+ 20;
 
          vertical.style("left", mousex + "px" ); 
+         vertical.style("opacity", 0.9); 
 
          year.style("left", mousex + "px" ); 
-         year.style("top", mousey  + "px" ); 
+         year.style("top", "0px" ); 
+			year.style("opacity",0.9);
+			var mouseMonth = Math.floor(xScale.invert(d3.mouse(this)[0]));
+			year.html(((mouseMonth % 12)+1) + "." + (graphStartYear + Math.floor(mouseMonth/12)));
 
 		})
-      .on("mouseover", function(){  
-         mousex = d3.mouse(this)[0]+ 5;
-         mousey = d3.mouse(this)[1]+ 5;
+      .on("mouseenter", function(){  
+         mousex = d3.event.pageX - 3;
+         mousey = d3.mouse(this)[1]+ 20;
 
          vertical.style("left", mousex + "px"); 
+         vertical.style("opacity", 0.9); 
 
          year.style("left", mousex + "px" ); 
-         year.style("top", mousey  + "px" ); 
+         year.style("top", "0px" ); 
 			year.style("opacity",0.9);
-		})
-      .on("mouseout", function(){  
-			year.style("opacity",0);
-		});
 
+         startYear.style("opacity", 1); 
+			svg.style("border-left","0.5px #dddddd solid");
+		})
+      .on("mouseleave", function(){  
+			year.style("opacity",0);
+         vertical.style("opacity", 0); 
+         startYear.style("opacity", 0); 
+			svg.style("border-left","0.5px #fff solid");
+		});
 
 }
 
@@ -209,24 +222,41 @@ function attachListeners(xScale, graphStartYear)
 
 function getTooltipText(d, mouseMonth, areaColor)
 {
-	var ttLineCount = 2;
-	var divHtml = "<p class='tooltip-header' style='background:"+areaColor.toString()+"'>" + d.name + "</p>";
-	divHtml += "<div style='padding:3px;'>";
-	d.contexts.forEach(function(context) {
 
-		if (context == d.values[mouseMonth].context) 
+	var divHtml = "<p class='tooltip-header' style='background:"+areaColor.toString()+"'>" + d.name + "</p>";
+	divHtml += "<div style='padding:3px;padding-top:0px;'>";
+
+	d.contexts.forEach(function(context) {
+		
+
+		var bold = false;
+		if (Array.isArray(d.values[mouseMonth].context))
 		{
-			divHtml += "<b>" +context + "</b><br>";	
+			if ($.inArray(context, d.values[mouseMonth].context) > -1) 
+				bold = true;
+		} 
+		else
+		{
+			if (context == d.values[mouseMonth].context) 
+				bold = true;
+		}
+
+		if (bold) 
+		{
+			divHtml += "<span class='skill-spotlight'>* " +context.split(':')[2] + "</span> ";	
+			divHtml += "<span class='skill-spotlight'>[" +context.split(':')[0] + "]</span> ";	
+//			divHtml += "<span class='skill-spotlight'><u>" +context.split(':')[1] + "</u></span> ";	
+			divHtml += "<br>";	
 		}
 		else
-		{			
-			divHtml += context + "<br>";	
-		}
-		ttLineCount++;
+			divHtml += "- " + context.split(':')[2] + "<br>";	
+
 	});
+
 	divHtml += "</div>";
    
 	return divHtml;
+
 }
 
 

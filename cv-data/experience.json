@@ -76,8 +76,8 @@
 			"weight" : [ 3.5, 4, 5 ],
 			"context" : 
 			{
-				"en" : "C#/.NET in Visual Studio",
-				"de" : "C#/.NET in Visual Studio"
+				"en" : "C#/.NET + Visual Studio for mechanical engineering applications",
+				"de" : "C#/.NET + Visual Studio für technische Anwendung des Maschinenbaus"
 			}
 		},
 		{
@@ -90,24 +90,12 @@
 			}
 		},
 		{
-			"skillKey" : "Engineering",
+			"skillKey" : "Mechanical Engineering",
 			"weight" : [ 3, 2, 3 ],
 			"context" : 
 			{ 
 				"de" : "Industrierobotik, Wasserturbinen, Flächenmodellierung",
 				"en" : "Industrial robotics, hydro turbines, surface modelling"
-			}
-		}
-	 ],
-	 "technologies" :
-	 [
-		{
-			"name" : "C# .NET",
-			"weight" : [2, 5, 5, 5],
-			"context" : 
-			{ 
-				"de" : "",
-				"en" : ""
 			}
 		}
 	 ]
@@ -162,17 +150,17 @@
 			"weight" : 6,
 			"context" : 
 			{ 
-				"de" : "C#",
-				"en" : "C#"
+				"de" : "C#/.NET + Visual Studio: Programm für rotordynamische Berechnung",
+				"en" : "C#/.NET + Visual Studio: program for rotordynamics"
 			}
 		 },
 		 {
-			"skillKey" : "Engineering",
+			"skillKey" : "Mechanical Engineering",
 			"weight" : 4,
 			"context" : 
 			{ 
-				"de" : "",
-				"en" : "Rotor Dynamics"
+				"de" : "Software-Erstellung für die Berechnung rotordynamischer Effekte grösserer Kompressorenmaschinen",
+				"en" : "Programmed software for the calculation of rotordynamic effects for large compressor machines"
 			}
 		 }
 		]
@@ -213,16 +201,16 @@
 		[
 		 { 
 			"skillKey" : "Programming",
-			"weight" : [3, 5, 1, 0, 0, 1, 1, 0.5, 0.5, 3],
+			"weight" : [3, 5, 1, 0, 0, 0.5, 1, 0.5, 0.5, 3],
 			"context" : 
 			{ 
-				"de" : "Perl + modperl, Ruby on Rails",
-				"en" : "Perl + modperl, Ruby on Rails"
+				"de" : "Web-Applikationen mit Einsatz von Perl + modperl, Ruby on Rails und PostgreSQL/mySQL/Oracle",
+				"en" : "Web applications using Perl + modperl, Ruby on Rails and PostgreSQL/mySQL/Oracle"
 			}
 		 },
  		 {
 			"skillKey" : "Project Management",
-			"weight" : [0.5, 1, 1, 1, 1, 1, 1, 1, 0, 2],
+			"weight" : [0.5, 1, 0, 1, 1, 1, 1, 1, 0, 2],
 			"context" : 
 			{ 
 				"de" : "Projekt-Akquisition, Einsatzplanung (z.T. als Freiberuflicher Student)",
@@ -231,7 +219,7 @@
 		 },
 		 { 
 			"skillKey" : "Database / Data Science / Analysis",
-			"weight" : [0, 2, 1, 2, 2, 2, 2, 1, 1, 0, 3],
+			"weight" : [3, 0, 0, 0, 0.5, 2, 2, 1, 1, 0, 3],
 			"context" : 
 			{ 
 				"de" : "relationale Datenbank-Architektur (Oracle, PostgreSQL and mySQL) für Netzhandel-Applikationen",
@@ -243,8 +231,8 @@
 			"weight" : [2, 1, 0, 0, 0, 0, 0, 0.5, 1, 1],
 			"context" : 
 			{
-				"en" : "Network setup and admin under Redhat, Slackware and Debian linux",
-				"de" : "Redhat, Slackware und Debian linux"
+				"en" : "Linux in server environments (apache, sendmail, DNS), network setup and admin",
+				"de" : "Linux für den Server (apache, sendmail, DNS), Netzwerk-Einrichtung und -Wartung"
 			}
 		}
 
@@ -256,7 +244,7 @@
 		"title": 
 		{
 			"de": "Praktikant, Hydraulik-Entwicklung", 
-			"en": "Engineering Intern, Hydraulics R&D"
+			"en": "Mechanical Engineering Intern, Hydraulics R&D"
 		},
 		"location": 
 		{
@@ -285,7 +273,7 @@
 		"skills" : 
 		[
 		 { 
-			"skillKey" : "Engineering",
+			"skillKey" : "Mechanical Engineering",
 			"weight" : 3,
 			"context": 
 			{ 
@@ -349,7 +337,7 @@
 		"skills" : 
 		[
 		 { 
-			"skillKey" : "Engineering",
+			"skillKey" : "Mechanical Engineering",
 			"weight" : 1.5,
 			"context" : 
 			{ 
@@ -362,8 +350,8 @@
 			"weight" : 1,
 			"context" :
 			{ 
-				"de" : "",
-				"en" : ""
+				"de" : "Auswertung der Rennwagen-Fahrdaten und Fahrerverhalten zwecks Fahrertraining",
+				"en" : "Analysis of racecar sensor data, driver data for the purpose of driver coaching"
 			}
 		 }
 		]
@@ -407,17 +395,26 @@
 			"weight" : 3,
 			"context": 
 			{ 
-				"de" : "Geschäftsführer eines KMUs",
-				"en" : "Owner and manager of start-up"
+				"de" : "Geschäftsführer eines KMUs, Autoimport und Verkauf: Logistik zwischen Mittelamerika und USA, Verkauf",
+				"en" : "Owner and manager of auto-import start-up: transport logistics, marketing, planning"
 			}
 		 },
 		 { 
-			"skillKey" : "Mechanical Knowledge",
-			"weight" : 2,
+			"skillKey" : "Manual Mechanical Skills",
+			"weight" : [1, 0],
 			"context": 
 			{ 
 				"de" : "Schweissen, Drehen",
 				"en" : "Welding and machining"
+			}
+		 },
+		 { 
+			"skillKey" : "Mechanical Engineering",
+			"weight" : [1, 0],
+			"context": 
+			{ 
+				"de" : "Auslegung/Design für Aufrüstungen für 40er-Serie Toyota LandCruiser: Scheibenbremsen, Servolenkung, Klimaanlage",
+				"en" : "Design and testing of hardware modifications for 40 series Toyota LandCruiser: disc brakes, air conditioning and power steering "
 			}
 		 }
   	    ]
@@ -457,7 +454,7 @@
 		"skills" : 
 		[
 		 { 
-			"skillKey" : "Mechanical Knowledge",
+			"skillKey" : "Manual Mechanical Skills",
 			"weight" : 2,
 			"context": 
 			{ 
@@ -502,7 +499,7 @@
 		"skills" : 
 		[
 		 { 
-			"skillKey" : "Mechanical Knowledge",
+			"skillKey" : "Manual Mechanical Skills",
 			"weight" : 6,
 			"context": 
 			{ 
@@ -514,7 +511,7 @@
 	},
 	{ 	
 		"startDate": "06.2000", 
-		"endDate": "12.2003",
+		"endDate": "01.2003",
 		"title": 
 		{
 			"de": "Hardware-Entwickler", 
@@ -562,6 +559,15 @@
 			{ 
 				"de" : "Netzwerk-, DSL-Hardware, etc",
 				"en" : "DSL Hardware and general electronics hacking"
+			}
+		 },
+		  		 {
+			"skillKey" : "Project Management",
+			"weight" : [0.5, 1, 1, 1, 1, 1, 1, 1, 0, 2],
+			"context" : 
+			{ 
+				"de" : "Absprache mit DSL-Modem-Herstellern, Koordination von User-Testen (100+ Personen beta-Tests)",
+				"en" : "Communication with DSL modem vendors, coordination of user testing (100+ person beta-tests)"
 			}
 		 }
   	    ]

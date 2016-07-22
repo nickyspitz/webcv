@@ -10,13 +10,10 @@ function ProcessJson(experienceJson, graphStartYear, language)
 		
 		startDate = e.startDate.split(".");
 		if (e.endDate == 'aktuell')
-		{
 			endDate = [ currentDate.getMonth(), currentDate.getFullYear() ];
-		} 
 		else 
-		{
 			endDate = e.endDate.split(".");
-		}
+
 		var startMonth = Number(startDate[1])*12 + Number(startDate[0]) - (graphStartYear*12);
 		var diffMonths = (Number(endDate[1]) - Number(startDate[1])) * 12 + (Number(endDate[0]) - Number(startDate[0]));
 	
@@ -24,7 +21,7 @@ function ProcessJson(experienceJson, graphStartYear, language)
 		{
 
 			//var contextText = e.title[language] + " at " + e.employer[language] + ": " + skill.context;
-			var contextText = e.startDate + " - " + e.endDate + ": " + skill.context[language];
+			var contextText = e.startDate + " - " + e.endDate + ":"+ e.title[language] +":" + skill.context[language];
 
 			if (skillsHash[skill.skillKey] == undefined)
 			{
@@ -34,8 +31,6 @@ function ProcessJson(experienceJson, graphStartYear, language)
 					"values" : new Array(spanMonths(graphStartYear)),
 					"startMonth" : startMonth,
 					"contexts" : [ contextText ] 
-					//"globalOrder" : iExperience,
-					//"localOrder" : iSkill,
 				};
 			} 
 			else 
@@ -48,7 +43,7 @@ function ProcessJson(experienceJson, graphStartYear, language)
 
 			if (Array.isArray(skill.weight))
 			{
-
+				// Perform linear interpolation of the skill weight over the time of this skill context
 				var skillArrayLength = skill.weight.length - 1;
 			
 				var monthsPerNode = diffMonths / skillArrayLength;
@@ -56,31 +51,19 @@ function ProcessJson(experienceJson, graphStartYear, language)
 				for (i = 0; i < diffMonths; i++)
 				{
 	
-					// Linear interpolation fun
 					var location = Math.floor(skillArrayLength * i/diffMonths);
 					var skillStartWeight = skill.weight[location];
 					var skillEndWeight = skill.weight[location+1];
 					var distanceBetweenPoints = (i - location*monthsPerNode)/monthsPerNode;
 					var val = skillStartWeight + distanceBetweenPoints * (skillEndWeight - skillStartWeight)
 	
+					// See if we've already used that skill in another context at this point in time!
 					if (skillsHash[skill.skillKey].values[startMonth + i] != undefined)
-					{
-						skillsHash[skill.skillKey].values[startMonth + i].y += skill.weight;
-						skillsHash[skill.skillKey].values[startMonth + i].context = contextText;
-					} 
+						addToSkill(skillsHash[skill.skillKey].values[startMonth + i], skill.weight, contextText); 
 					else 
-					{
-						skillsHash[skill.skillKey].values[startMonth + i] = 
-						{ 
-							"x" : startMonth + i,
-							"y" : val,
-							"y0" : 0,
-							"context" : contextText
-						};
-					}
+						skillsHash[skill.skillKey].values[startMonth + i] = createNewSkill(startMonth + i, val, contextText);
 
 				}
-	
 
 			} 
 			else 
@@ -90,20 +73,9 @@ function ProcessJson(experienceJson, graphStartYear, language)
 				{
 	
 					if (skillsHash[skill.skillKey].values[startMonth + i] != undefined)
-					{
-						skillsHash[skill.skillKey].values[startMonth + i].y += skill.weight;
-						skillsHash[skill.skillKey].values[startMonth + i].context = contextText;
-					} 
+						addToSkill(skillsHash[skill.skillKey].values[startMonth + i], skill.weight, contextText); 
 					else
-					{		
-						skillsHash[skill.skillKey].values[startMonth + i] = 
-						{ 
-							"x" : startMonth + i,
-							"y" : skill.weight,
-							"y0" : 0,
-							"context" : contextText
-						};
-					}
+						skillsHash[skill.skillKey].values[startMonth + i] = createNewSkill(startMonth + i, skill.weight, contextText);
 
 				}
 	
@@ -141,3 +113,28 @@ function spanMonths(graphStartYear)
 	return currentDate.getMonth() + currentDate.getFullYear()*12 - (graphStartYear*12);
 }
 
+function addToSkill(skill, weight, contextText)
+{
+
+	skill.y += weight;
+
+	if (!Array.isArray(skill.context))
+		skill.context = new Array(skill.context);
+		
+	skill.context.push(contextText);
+
+}
+
+function createNewSkill(x, y, context)
+{
+
+	var skill = { 
+		"x" : x,
+		"y" : y,
+		"y0" : 0,
+		"context" : context
+	};
+
+	return skill;
+
+}
