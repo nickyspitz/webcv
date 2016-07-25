@@ -43,14 +43,15 @@ function DrawStreamGraph(skillsHash, graphStartYear)
 	var width = $("svg").width();
 
 	var xScale = d3.scale.linear() 
-		.domain([0, spanMonths(graphStartYear)])
+		.domain([0, spanMonths(graphStartYear)-1])
 		.range([0, width]);
 	
+
 	var yMax = d3.max(stackedData, function(skill) { return d3.max(skill.values, function(month) { return month.y0 + month.y; }); });
 	var yScale = d3.scale.linear()
 		.domain([0, yMax])
 		.range([height, 0 ]);
-	
+
 	var xAxis = d3.svg.axis()
 		.scale(xScale)
 		.orient('bottom')
@@ -77,10 +78,37 @@ function DrawStreamGraph(skillsHash, graphStartYear)
       .attr("d", function(d) { return area(d.values); })
       .style("fill", function(d, i) { return colors[i]; })
 
-	var startYearDiv = d3.select('#startYear');
+	var startYearDiv = d3.select('#startDateSvg');
 	startYearDiv.html("01."+graphStartYear)
       	.style("left", ($('#svg').offset().left+2) + "px")		
          .style("top", "0px");
+
+	var endDate = d3.select('#endDateSvg');
+	endDate.html(new Date().getMonth() + "." + new Date().getFullYear())
+      	.style("left", ($('#svg').offset().left+$('#svg').width()-27)  + "px")		
+         .style("top", "0px")
+			.style("opacity",0);
+
+	var yFullTime = d3.max(stackedData, function(skill) 
+	{ 
+		var lastMonth = skill.values[spanMonths(graphStartYear)-1];
+		var sum = skill.values[spanMonths(graphStartYear)-1].y + skill.values[spanMonths(graphStartYear)-1].y0; 
+	
+		if (skill.values[spanMonths(graphStartYear)-1].y != 0)
+			return skill.values[spanMonths(graphStartYear)-1].y0 + skill.values[spanMonths(graphStartYear)-1].y; 
+		else
+			return 0;
+	});
+	var fullTimePosition = (yFullTime/yMax * height/2);
+	var fullTimePosition = 155; // Haven't figured this one out yet!
+
+	var fullTimeMarker = d3.select('#fullTimeMarker');
+	fullTimeMarker.html('FULL-TIME WORK')
+      	.style("left", ($('#svg').offset().left+$('#svg').width()-70)  + "px")		
+         .style("top", (200 - fullTimePosition) + "px")
+         .style("width", "80px");
+	
+	
 
   	attachListeners(xScale, graphStartYear);
 
@@ -117,7 +145,8 @@ function attachListeners(xScale, graphStartYear)
 	var svg = d3.select('#svg');
 	var tooltip = d3.select('#tooltip');
 	var year = d3.select("#year");
-	var startYear = d3.select("#startYear");
+	var startDate = d3.select("#startDateSvg");
+	var endDate = d3.select("#endDateSvg");
 	var vertical = d3.select("#vertical");
 
 	svg.selectAll(".layer")
@@ -206,14 +235,22 @@ function attachListeners(xScale, graphStartYear)
          year.style("top", "0px" ); 
 			year.style("opacity",0.9);
 
-         startYear.style("opacity", 1); 
+         startDate.style("opacity", 1); 
+         endDate.style("opacity", 1); 
+
 			svg.style("border-left","0.5px #dddddd solid");
+			svg.style("border-right","0.5px #dddddd solid");
 		})
       .on("mouseleave", function(){  
+
 			year.style("opacity",0);
          vertical.style("opacity", 0); 
-         startYear.style("opacity", 0); 
+         startDate.style("opacity", 0); 
+         endDate.style("opacity", 0); 
+
 			svg.style("border-left","0.5px #fff solid");
+			svg.style("border-right","0.5px #fff solid");
+
 		});
 
 }

@@ -33,14 +33,15 @@ p.tooltip-header
 	font-weight:bold;
 }
 
-div#startYear
+div.svgXaxes
 {
 	position:absolute;
 	font-size:6pt;
 	font-weight:bold;
 }
 
-svg#svg { border-left:0.5px #fff solid;}
+svg#svg { border-left:0.5px #fff solid; border-right:0.5px #fff solid; }
+
 #year 
 {
 	position:absolute;

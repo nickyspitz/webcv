@@ -1,6 +1,11 @@
+Add last bits of language switching ("aktuell" etc)
 Add education
-Add hobbies as streamgraph over the years
+Add "Languages" as new section!
+Add "mechanische Bearbeitung" wie im alten CV
+
 Add "Design" as skill (json)
 	- logo/brand design (QM)
 	- applications: AdobeI, AdobePs
+
+Add hobbies as streamgraph over the years
 
