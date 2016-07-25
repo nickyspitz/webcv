@@ -171,7 +171,7 @@
 		"location": 
 		{
 			"de": "US, DE" , 
-			"en": "USA, GERMANY" 
+			"en": "USA, Germany" 
 		},
 		"title": 
 		{
@@ -222,8 +222,8 @@
 			"weight" : [3, 0, 0, 0, 0.5, 2, 2, 1, 1, 0, 3],
 			"context" : 
 			{ 
-				"de" : "relationale Datenbank-Architektur (Oracle, PostgreSQL and mySQL) für Netzhandel-Applikationen",
-				"en" : "relational database design (Oracle, PostgreSQL and mySQL) for e-commerce applications"
+				"de" : "relationale Datenbank-Architektur (Oracle, PostgreSQL and mySQL) für Netzhandel-Applikationen. Beispiele: Online-Banking Module, ortsbezogene Datenauswertungsapplikation (Google Maps API), Kassensystem für Kletterhallen",
+				"en" : "relational database design (Oracle, PostgreSQL and mySQL) for e-commerce applications. Examples: online banking modules, maps-based information browsers (Google Maps API), POS system for climbing gyms"
 			}
 		 },
 		 {
@@ -366,8 +366,8 @@
 		},
 		"location": 
 		{
-			"de": "Zentralamerika - Atlanta, USA" , 
-			"en": "Central America + Atlanta, USA" 
+			"de": "Zentralamerika; Atlanta, USA" , 
+			"en": "Central America; Atlanta, USA" 
 		},
 		"employer": 
 		{

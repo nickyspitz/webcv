@@ -2,7 +2,9 @@
 .awesome-font-header { font-family: 'Montserrat', sans-serif; }
 .btn:focus,.btn:active { outline: none !important; } 
 div.meta-experience { text-align:right; }
+div.meta-education { text-align:right; }
 span.experience-label { text-transform:uppercase; }
+span.education-label { text-transform:uppercase; }
 
 .axis { font-size:8pt; fill:none; }
 .x.axis line { stroke:#fff;	}

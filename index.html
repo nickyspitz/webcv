@@ -98,6 +98,34 @@
   </div>
 
   <div class="row">
+    <div class="col-sm-10 awesome-font-header meta-education"> <h2><span class="label label-success education-label">schulischer Werdegang</span></h2> </div>
+  </div>
+
+  <div class="education-table">
+  <div class="row info-row">
+		<div class="col-sm-2 awesome-font">
+			<h5>	
+				<span class="startDate">-</span> - <span class="endDate">-</span> <br> 
+				<small class="location_name">-</small>
+			</h5>
+		</div>
+		<div class="col-sm-4 awesome-font">
+		  	<h4>
+				<span class="title">-</span> <br>
+				<small class="employer">-</small>
+			</h4>
+		</div>
+		<div class="col-sm-4 awesome-font details-list-div">
+			<h5 class="details-list">
+				<small class="details-header">-</small> <br>
+				<span class="details">-</span><br>
+			</h5>
+		</div>
+  </div>
+  </div>
+
+
+  <div class="row">
 	<div class="col-sm-10">
 	  <div class="meta-about">
 			<br><br>
@@ -113,18 +141,22 @@
 
 var personalInfoJson;
 var experienceJson;
-var metaJson;
+var educationJson;
 var experienceHtml;
+var educationHtml;
+var metaJson;
 
 function Initialize() 
 {
 
 	// grab the template HTML
 	experienceHtml = $('.experience-table').html();
+	educationHtml = $('.education-table').html();
 
 	$.when(
 		$.getJSON('cv-data/personal-info.json', function(json) { personalInfoJson = json; }),
 		$.getJSON('cv-data/experience.json', function(json) { experienceJson = json; }),
+		$.getJSON('cv-data/education.json', function(json) { educationJson = json; }),
 		$.getJSON('cv-data/meta.json', function(json) { metaJson = json; })
 	).then(
 		function() 
@@ -157,12 +189,13 @@ function SetLanguage(language)
 
 	// Clear the details list (it will duplicate itself otherwise)
 	$('.experience-table').html(experienceHtml);
+	$('.education-table').html(educationHtml);
 
 	var directive = {
 		'div.info-row':{
 			'infoItem<-':{ //for each entry in the json array name the element 'infoItem'
 			'span.startDate': 'infoItem.startDate', 
-			'span.endDate': 'infoItem.endDate', 
+			'span.endDate': function() { return (this.endDate == "aktuell" && language == "en") ? "current" : this.endDate; }, 
 			'small.location_name': function() { return this.location[language]; }, 
 			'span.title':  function() { return this.title[language]; }, 
 			'small.employer': function() { return this.employer[language]; },
@@ -179,6 +212,7 @@ function SetLanguage(language)
 	};
 	
 	$p( 'div.meta-experience' ).render( metaJson, { 'span.experience-label' : function() { return this.labelExperience[language]; }, });
+	$p( 'div.meta-education' ).render( metaJson, { 'span.education-label' : function() { return this.labelEducation[language]; }, });
 	$p( 'div.meta-about' ).render( metaJson, { 'span.cv-about' : function() { return this.textAbout[language]; }, });
 
 	$p( 'div.cv-header-info' ).render( personalInfoJson, 
@@ -194,6 +228,7 @@ function SetLanguage(language)
 	});
 
 	$p( 'div.experience-table' ).render( experienceJson, directive );
+	$p( 'div.education-table' ).render( educationJson, directive );
 
 
 	// Redraw
