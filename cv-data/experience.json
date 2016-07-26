@@ -286,8 +286,8 @@
 			"weight" : 2,
 			"context" :
 			{ 
-				"de" : "Ausführliche Datenauswertung von Messergebnissen (MATLAB)",
-				"en" : "Detailed sensor data analysis from testing using MATLAB"
+				"de" : "Ausführliche Datenauswertung von Messergebnissen zur Bewertung von Energierückgewinnung (MATLAB)",
+				"en" : "Detailed sensor data analysis to evaluate energy reclamation using MATLAB"
 			}
 		 },
 		 { 

@@ -3,6 +3,9 @@
 .btn:focus,.btn:active { outline: none !important; } 
 div.meta-experience { text-align:right; }
 span.experience-label { text-transform:uppercase; }
+div.meta-languages { text-align:right; }
+div.languages { margin:5px; }
+span.languages-label { text-transform:uppercase; }
 
 .axis { font-size:8pt; fill:none; }
 .x.axis line { stroke:#fff;	}

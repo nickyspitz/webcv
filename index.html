@@ -98,6 +98,19 @@
   </div>
 
   <div class="row">
+    <div class="col-sm-10 awesome-font-header meta-languages"> <h2><span class="label label-success languages-label">LANGUAGES</span></h2> </div>
+  </div>
+
+  <div class="row">
+	<div class="col-sm-10">
+	  <div class="languages">
+			<span class="info-languages"></span>
+		</div>
+		<br>
+  	</div>
+  </div>
+
+  <div class="row">
 	<div class="col-sm-10">
 	  <div class="meta-about">
 			<br><br>
@@ -179,7 +192,9 @@ function SetLanguage(language)
 	};
 	
 	$p( 'div.meta-experience' ).render( metaJson, { 'span.experience-label' : function() { return this.labelExperience[language]; }, });
+	$p( 'div.meta-languages' ).render( metaJson, { 'span.languages-label' : function() { return this.labelLanguages[language]; }, });
 	$p( 'div.meta-about' ).render( metaJson, { 'span.cv-about' : function() { return this.textAbout[language]; }, });
+	$p( 'div.languages' ).render( personalInfoJson, { 'span.info-languages' : function() { return this.infoLanguages[language]; }, });
 
 	$p( 'div.cv-header-info' ).render( personalInfoJson, 
 	{
