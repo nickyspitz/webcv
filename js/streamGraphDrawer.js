@@ -170,10 +170,7 @@ function attachListeners(xScale, graphStartYear)
          .style("top", ($('#svg').offset().top+300) + "px")
          .style("height", (30 + (divHtml.split('<br>').length + 1) * 12) + "px");
 
-		if ($('.tooltip')[0].clientHeight < $('.tooltip')[0].scrollHeight)
-		{
-			$('.tooltip')[0].style.height = ($('.tooltip')[0].scrollHeight) + "px";
-		}
+		adjustDivToFit('.tooltip');
 
 	 })
 
@@ -188,7 +185,9 @@ function attachListeners(xScale, graphStartYear)
 		var clientRect = svg[0][0].getBoundingClientRect();
 		var mouseMonth = Math.floor(xScale.invert(d3.mouse(this)[0]));
 		var areaColor = d3.rgb(d3.select(this).attr("style"));
+
 		tooltip.html(getTooltipText(d, mouseMonth, areaColor))	
+		adjustDivToFit('.tooltip');
 
 		year.html(((mouseMonth % 12)+1) + "." + (graphStartYear + Math.floor(mouseMonth/12)));
 
@@ -255,6 +254,14 @@ function attachListeners(xScale, graphStartYear)
 
 }
 
+function adjustDivToFit(selector)
+{
+	if ($(selector)[0].clientHeight < $(selector)[0].scrollHeight)
+	{
+		$(selector)[0].style.height = ($(selector)[0].scrollHeight) + "px";
+	}
+
+}
 
 
 function getTooltipText(d, mouseMonth, areaColor)
@@ -280,13 +287,13 @@ function getTooltipText(d, mouseMonth, areaColor)
 
 		if (bold) 
 		{
-			divHtml += "<span class='skill-spotlight'>* " +context.split(':')[2] + "</span> ";	
-			divHtml += "<span class='skill-spotlight'>[" +context.split(':')[0] + "]</span> ";	
-//			divHtml += "<span class='skill-spotlight'><u>" +context.split(':')[1] + "</u></span> ";	
+			divHtml += "<span class='skill-spotlight'>* " +context.split(';')[2] + "</span> ";	
+			divHtml += "<span class='skill-spotlight'>[" +context.split(';')[0] + "]</span> ";	
+//			divHtml += "<span class='skill-spotlight'><u>" +context.split(';')[1] + "</u></span> ";	
 			divHtml += "<br>";	
 		}
 		else
-			divHtml += "- " + context.split(':')[2] + "<br>";	
+			divHtml += "- " + context.split(';')[2] + "<br>";	
 
 	});
 
