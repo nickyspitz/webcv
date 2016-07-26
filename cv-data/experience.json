@@ -295,8 +295,8 @@
 			"weight" : 2,
 			"context" : 
 			{ 
-				"de" : "MATLAB-Simulink",
-				"en" : "MATLAB-Simulink"
+				"de" : "Modellbildung, Auswertung in MATLAB, MATLAB-Simulink",
+				"en" : "Data modelling and evaluation in MATLAB, MATLAB-Simulink"
 			}
 		 }
   	    ]
@@ -404,8 +404,8 @@
 			"weight" : [1, 0],
 			"context": 
 			{ 
-				"de" : "Schweissen, Drehen",
-				"en" : "Welding and machining"
+				"de" : "WIG-Schweissen (Alu, Stähle), Drehen und Fräsen",
+				"en" : "Welding (TIG, MIG with Aluminum and Steels), machining"
 			}
 		 },
 		 { 
@@ -503,8 +503,8 @@
 			"weight" : 6,
 			"context": 
 			{ 
-				"de" : "Kenntnisse der Auto-Reparatur, Schweissen, Drehen",
-				"en" : "Automotive repair, Welding and machining"
+				"de" : "Kenntnisse der Auto-Reparatur, Schweissen (WIG/MIG), Drehen",
+				"en" : "Automotive repair, Welding (TIG/MIG) and machining"
 			}
 		 }
   	    ]
@@ -548,8 +548,8 @@
 			"weight" : 4,
 			"context" : 
 			{ 
-				"de" : "C, Perl",
-				"en" : "C, Perl"
+				"de" : "C, Perl zur Auswertung von internen Umfragen und Testergebnissen",
+				"en" : "C, Perl for the evaluation of internal surveys and test results"
 			}
 		 },
 		 { 
