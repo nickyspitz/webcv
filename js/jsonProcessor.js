@@ -21,7 +21,11 @@ function ProcessJson(experienceJson, graphStartYear, language)
 		{
 
 			//var contextText = e.title[language] + " at " + e.employer[language] + ": " + skill.context;
-			var contextText = e.startDate + " - " + e.endDate + ";"+ e.title[language] +";" + skill.context[language];
+			var textEndDate = e.endDate;
+			if (textEndDate == "aktuell" && language == "en")
+				textEndDate = "current";
+
+			var contextText = e.startDate + " - " + textEndDate + ";"+ e.title[language] +";" + skill.context[language];
 
 			if (skillsHash[skill.skillKey] == undefined)
 			{
