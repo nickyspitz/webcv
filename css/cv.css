@@ -1,10 +1,10 @@
 .awesome-font { font-family: 'Lato', sans-serif; }
 .awesome-font-header { font-family: 'Montserrat', sans-serif; }
 .btn:focus,.btn:active { outline: none !important; } 
-div.meta-experience { text-align:right; }
-div.meta-education { text-align:right; }
+div.meta-experience { text-align:left; }
+div.meta-education { text-align:left; }
+div.meta-languages { text-align:left; }
 span.experience-label { text-transform:uppercase; }
-div.meta-languages { text-align:right; }
 div.languages { margin:5px; }
 span.languages-label { text-transform:uppercase; }
 span.education-label { text-transform:uppercase; }
