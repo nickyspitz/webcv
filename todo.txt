@@ -1,11 +1,12 @@
 INHALT 
 
+Add e-mail address (doh!)
 Add hobbies as streamgraph over the years
-Add images
 
 Add "Design" as skill (json)
 	- logo/brand design (QM)
 	- applications: AdobeI, AdobePs
+Add images where applicable (panamoffroad etc)
 
 META
 

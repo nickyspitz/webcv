@@ -1,4 +1,4 @@
-function DrawStreamGraph(skillsHash, graphStartYear)
+function DrawStreamGraph(skillsHash, graphStartYear, svgName, height, colorSchema)
 {
 
 	var stackOffset = "silhouette";
@@ -16,16 +16,12 @@ function DrawStreamGraph(skillsHash, graphStartYear)
 	var stackedData = stack(skillsData);
 
 	// Random color fun
+
 	var colors = new Array(Object.keys(skillsHash).length);
 	var colorBlue = d3.scale.linear().range(["#99ccff", "#2b547e"]);
 	var colorYellow = d3.scale.linear().range(["#fff87a", "#c94d14"]);
-	for (i=0;i<Object.keys(skillsHash).length;i++)
-	{
-		if (i % 2 == 0)
-			colors[i] = colorBlue(Math.random());
-		else
-			colors[i] = colorYellow(Math.random());
-	}
+	var colorGreen = d3.scale.linear().range(["#0A3430", "#1E5846", "#3E7E56", "#6BA55F", "#A4CA64", "#E8ED69"]);
+
 
 	colors[0] = "#5481AE";
 	colors[1] = "#E6A94B";
@@ -33,20 +29,23 @@ function DrawStreamGraph(skillsHash, graphStartYear)
 	colors[3] = "#CE5C1D";
 	colors[4] = "#8EC0F2";
 
-	colors = ["#E34A33", "#e26234","#FC8D59", "#FDBB84", "#FDD49E", "#FEF0D9"];
-
+	if (colorSchema == 'orange')
+		colors = ["#E34A33", "#e26234","#FC8D59", "#FDBB84", "#FDD49E", "#FEF0D9"];
+	else if (colorSchema == 'green')
+		colors = ["#1E5846", "#2D7D12", "#3E7E56", "#6BA55F", "#A4CA64", "#E8ED69"];
+	else if (colorSchema == 'blue')
+		colors = ["#005EA3", "#0085E5", "#44A0DB", "#35A2FF", "#4FBBFF", "#44A0DB", "#A1DBFF"];
+	
 	// Initial setup of our svg
-	var height = 400;
-	var svg = d3.select("#svg")
+	var svg = d3.select(svgName)
 		.attr("width", "100%")
 		.attr("height", height);
-	var width = $("svg").width();
+	var width = $(svgName).width();
 
 	var xScale = d3.scale.linear() 
 		.domain([0, spanMonths(graphStartYear)-1])
 		.range([0, width]);
 	
-
 	var yMax = d3.max(stackedData, function(skill) { return d3.max(skill.values, function(month) { return month.y0 + month.y; }); });
 	var yScale = d3.scale.linear()
 		.domain([0, yMax])
@@ -80,12 +79,12 @@ function DrawStreamGraph(skillsHash, graphStartYear)
 
 	var startYearDiv = d3.select('#startDateSvg');
 	startYearDiv.html("01."+graphStartYear)
-      	.style("left", ($('#svg').offset().left+2) + "px")		
+      	.style("left", ($(svgName).offset().left+2) + "px")		
          .style("top", "0px");
 
 	var endDate = d3.select('#endDateSvg');
 	endDate.html(new Date().getMonth() + "." + new Date().getFullYear())
-      	.style("left", ($('#svg').offset().left+$('#svg').width()-27)  + "px")		
+      	.style("left", ($(svgName).offset().left+$(svgName).width()-27)  + "px")		
          .style("top", "0px")
 			.style("opacity",0);
 
@@ -104,17 +103,15 @@ function DrawStreamGraph(skillsHash, graphStartYear)
 
 	var fullTimeMarker = d3.select('#fullTimeMarker');
 	fullTimeMarker.html('FULL-TIME WORK')
-      	.style("left", ($('#svg').offset().left+$('#svg').width()-70)  + "px")		
+      	.style("left", ($(svgName).offset().left+$(svgName).width()-70)  + "px")		
          .style("top", (200 - fullTimePosition) + "px")
          .style("width", "80px");
 	
-	
-
-  	attachListeners(xScale, graphStartYear);
+ 	attachListeners(xScale, graphStartYear, svgName);
 
 }
 
-function ReattachData(experienceJson, startYear, language)
+function ReattachData(experienceJson, startYear, svgName, language)
 {
 
 	// Organize and assign data
@@ -127,27 +124,29 @@ function ReattachData(experienceJson, startYear, language)
 		.values(function(entry) { return entry.values; });
 	var stackedData = stack(skillsData);
 
-   d3.selectAll(".layer").data(stackedData);
+	d3.select(svgName).selectAll(".layer").data(stackedData);
 
-	var svg = $('#svg');
+	var svg = $(svgName);
 
 	var xScale = d3.scale.linear() 
 		.domain([0, spanMonths(startYear)])
 		.range([0, svg.width()]);
 	
-	attachListeners(xScale, startYear);
+	attachListeners(xScale, startYear, svgName);
 
 }
 
-function attachListeners(xScale, graphStartYear)
+function attachListeners(xScale, graphStartYear, svgName)
 {
 
-	var svg = d3.select('#svg');
+	var svg = d3.select(svgName);
 	var tooltip = d3.select('#tooltip');
 	var year = d3.select("#year");
 	var startDate = d3.select("#startDateSvg");
 	var endDate = d3.select("#endDateSvg");
 	var vertical = d3.select("#vertical");
+
+	var allSvgs = ["#svg","#svg-hobby"];
 
 	svg.selectAll(".layer")
     .on("mouseenter", function(d, i) {
@@ -163,12 +162,12 @@ function attachListeners(xScale, graphStartYear)
 
 		var mouseMonth = Math.floor(xScale.invert(d3.mouse(this)[0]));
 		var areaColor = d3.rgb(d3.select(this).attr("style"));
-		var divHtml = getTooltipText(d, mouseMonth, areaColor);
+		var divHtml = getTooltipText(svgName, d, mouseMonth, areaColor);
 		tooltip.html(divHtml)
       	.style("border", "1px " + areaColor.toString() + " solid")		
-      	.style("left", $('#svg').offset().left + "px")		
-         .style("top", ($('#svg').offset().top+300) + "px")
-         .style("height", (30 + (divHtml.split('<br>').length + 1) * 12) + "px");
+      	.style("left", $(svgName).offset().left + "px")		
+        .style("top", ($("#svg").offset().top+300) + "px")
+        .style("height", (30 + (divHtml.split('<br>').length + 1) * 12) + "px");
 
 		adjustDivToFit('.tooltip');
 
@@ -186,7 +185,7 @@ function attachListeners(xScale, graphStartYear)
 		var mouseMonth = Math.floor(xScale.invert(d3.mouse(this)[0]));
 		var areaColor = d3.rgb(d3.select(this).attr("style"));
 
-		tooltip.html(getTooltipText(d, mouseMonth, areaColor))	
+		tooltip.html(getTooltipText(svgName, d, mouseMonth, areaColor))	
 		adjustDivToFit('.tooltip');
 
 		year.html(((mouseMonth % 12)+1) + "." + (graphStartYear + Math.floor(mouseMonth/12)));
@@ -195,7 +194,7 @@ function attachListeners(xScale, graphStartYear)
 
 	.on("mouseleave", function(d, i) {
 
-      d3.select(this)
+    d3.select(this)
       .classed("hover", false)
       .attr("stroke-width", "0px");
 
@@ -204,7 +203,7 @@ function attachListeners(xScale, graphStartYear)
       .style("opacity", "1");
 
 		tooltip.transition()		
-        	.duration(200)		
+       	.duration(200)		
       	.style("opacity", 0);		
 
   	});
@@ -227,18 +226,23 @@ function attachListeners(xScale, graphStartYear)
          mousex = d3.event.pageX - 3;
          mousey = d3.mouse(this)[1]+ 20;
 
-         vertical.style("left", mousex + "px"); 
-         vertical.style("opacity", 0.9); 
+      vertical.style("left", mousex + "px"); 
+      vertical.style("opacity", 0.9); 
 
-         year.style("left", mousex + "px" ); 
-         year.style("top", "0px" ); 
+      year.style("left", mousex + "px" ); 
+      year.style("top", "0px" ); 
 			year.style("opacity",0.9);
 
-         startDate.style("opacity", 1); 
-         endDate.style("opacity", 1); 
+      startDate.style("opacity", 1); 
+      endDate.style("opacity", 1); 
 
-			svg.style("border-left","0.5px #dddddd solid");
-			svg.style("border-right","0.5px #dddddd solid");
+		  allSvgs.forEach(function(svgId)
+			{
+				var currentSvg = d3.select(svgId);
+				currentSvg.style("border-left","0.5px #dddddd solid");
+				currentSvg.style("border-right","0.5px #dddddd solid");
+			});	
+
 		})
       .on("mouseleave", function(){  
 
@@ -247,8 +251,12 @@ function attachListeners(xScale, graphStartYear)
          startDate.style("opacity", 0); 
          endDate.style("opacity", 0); 
 
-			svg.style("border-left","0.5px #fff solid");
-			svg.style("border-right","0.5px #fff solid");
+		  allSvgs.forEach(function(svgId)
+			{
+				var currentSvg = d3.select(svgId);
+				currentSvg.style("border-left","0.5px #fff solid");
+				currentSvg.style("border-right","0.5px #fff solid");
+			});	
 
 		});
 
@@ -264,10 +272,15 @@ function adjustDivToFit(selector)
 }
 
 
-function getTooltipText(d, mouseMonth, areaColor)
+function getTooltipText(svgName, d, mouseMonth, areaColor)
 {
 
-	var divHtml = "<p class='tooltip-header' style='background:"+areaColor.toString()+"'>" + d.name + "</p>";
+	var nameString = d.name;
+
+	if (svgName.indexOf("hobby") != -1)
+		nameString = "Hobby: " + nameString;
+
+	var divHtml = "<p class='tooltip-header' style='background:"+areaColor.toString()+"'>" + nameString + "</p>";
 	divHtml += "<div style='padding:3px;padding-top:0px;'>";
 
 	d.contexts.forEach(function(context) {

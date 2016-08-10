@@ -338,7 +338,7 @@
 		[
 		 { 
 			"skillKey" : "Mechanical Engineering",
-			"weight" : 1.5,
+			"weight" : 1,
 			"context" : 
 			{ 
 				"de" : "Fahrwerk-Abstimmungen, Mathe (Dynamik/DGL)",

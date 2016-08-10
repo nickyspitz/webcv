@@ -71,6 +71,14 @@
   </div>
 
   <div class="row">
+	<div class="col-sm-10 svg-hobby-container">
+		<svg style="z-index:-1;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg-hobby"></svg>
+	</div>
+	<br>
+  </div>
+
+
+  <div class="row">
     <div class="col-sm-10 awesome-font-header meta-experience"> <h2><span class="label label-success experience-label">ERFAHRUNG</span></h2> </div>
   </div>
 
@@ -154,6 +162,8 @@
 var personalInfoJson;
 var experienceJson;
 var educationJson;
+var hobbyJson;
+
 var experienceHtml;
 var educationHtml;
 var metaJson;
@@ -169,7 +179,8 @@ function Initialize()
 		$.getJSON('cv-data/personal-info.json', function(json) { personalInfoJson = json; }),
 		$.getJSON('cv-data/experience.json', function(json) { experienceJson = json; }),
 		$.getJSON('cv-data/education.json', function(json) { educationJson = json; }),
-		$.getJSON('cv-data/meta.json', function(json) { metaJson = json; })
+		$.getJSON('cv-data/meta.json', function(json) { metaJson = json; }),
+		$.getJSON('cv-data/hobby.json', function(json) { hobbyJson = json; })
 	).then(
 		function() 
 		{
@@ -183,10 +194,14 @@ function Initialize()
 			SetLanguage(language);
 
 			var skillsHash = ProcessJson(experienceJson, 2000, language); 
-			DrawStreamGraph(skillsHash, 2000); 
+			DrawStreamGraph(skillsHash, 2000, "#svg", 400, 'orange'); 
+
+			var hobbyHash = ProcessJson(hobbyJson, 2000, language); 
+			DrawStreamGraph(hobbyHash, 2000, "#svg-hobby", 200, 'blue'); 
 
 			// Redraw
-			ReattachData(experienceJson, 2000, language);
+			ReattachData(experienceJson, 2000, "#svg", language);
+			ReattachData(hobbyJson, 2000, "#svg-hobby", language);
 		}
 	);
 
@@ -244,9 +259,9 @@ function SetLanguage(language)
 	$p( 'div.experience-table' ).render( experienceJson, directive );
 	$p( 'div.education-table' ).render( educationJson, directive );
 
-
 	// Redraw
-	ReattachData(experienceJson, 2000, language);
+	ReattachData(experienceJson, 2000, "#svg", language);
+	ReattachData(hobbyJson, 2000, "#svg-hobby", language);
 
 //	JSON FAILED CODE: $.getJSON('cv-data/experience-test.json').then( function(json) { }).fail(function() { console.log("Json load failed for experience table!"); });
 
