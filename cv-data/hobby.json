@@ -1,5 +1,40 @@
 [ 
-
+	{ 	
+	"startDate": "01.2000", "endDate": "08.2008",
+	"title": { "de": "Mountainbiken", "en": "Mountain Biking" },
+	 "skills" : 
+	 [
+		{
+			"skillKey" : "Cycling",
+			"weight" : [ 3, 1, 1],
+			"context" : 
+			{
+				"en" : "Hobby mountainbiker (50km+) a week, participated in crosscountry mountain bike races",
+				"de" : "Hobby-Mountainbiker: 50km+ die Woche, gelegentlich an einem XC-Rennen teilgenommen"
+			}
+		}
+	 ]
+	},
+	{ 	
+	"startDate": "10.2005", "endDate": "11.2005",
+	 "skills" : 
+	 [
+		{
+			"skillKey" : "Travel",
+			"weight" : 3,
+			"context" : 
+			{
+				"en" : "Travels around India (6 weeks): discovery",
+				"de" : "Entdeckungstour (6 Wochen) in Indien"
+			}
+		}
+	 ],
+	"title": 
+		{
+			"de": "Indienreise", 
+			"en": "Traveling in India"
+		}
+	},
 	{ 	
 	"startDate": "01.2007", "endDate": "12.2008",
 	"title": { "de": "Deutsch", "en": "German" },
@@ -16,10 +51,8 @@
 		}
 	 ]
 	},
-
 	{ 	
-	"startDate": "09.2008", 
-	"endDate": "03.2010",
+	"startDate": "09.2008", "endDate": "03.2010",
 	"title": 
 		{
 			"de": "Hochschulsport Gruppenleiter", 
@@ -45,12 +78,6 @@
 			"de": "Werkstattleiter, Schweisser", 
 			"en": "Workshop manager, Welder"
 		},
-	"employer":
-	{
-		"de":"Bodensee Racing Team",
-		"en":"Bodensee Racing Team"
-	},
-	"details" : [],
 	 "skills" : 
 	 [
 		{
@@ -64,10 +91,25 @@
 		}
 	 ]
 	},
+	{ 	
+	"startDate": "01.2011", "endDate": "08.2012",
+	"title": { "de": "Klettern", "en": "Climbing" },
+	 "skills" : 
+	 [
+		{
+			"skillKey" : "Climbing",
+			"weight" : [ 4, 2, 1 ],
+			"context" : 
+			{
+				"en" : "Bouldering indoors",
+				"de" : "Bouldern in der Halle"
+			}
+		}
+	 ]
+	},
 
 	{ 	
-	"startDate": "02.2013", 
-	"endDate": "08.2013",
+	"startDate": "02.2013", "endDate": "08.2013",
 	 "skills" : 
 	 [
 		{
@@ -78,8 +120,8 @@
 				"en" : "20h/w Portuguese classes (Rio de Janeiro, Belo Horizonte)",
 				"de" : "20h/Wo Portugiesisch Unterricht (Rio de Janeiro, Belo Horizonte)"
 			}
-		}
-,		{
+		},		
+		{
 			"skillKey" : "Travel",
 			"weight" : 2,
 			"context" : 
@@ -96,26 +138,6 @@
 		}
 	},
 
-	{ 	
-	"startDate": "10.2005", "endDate": "11.2005",
-	 "skills" : 
-	 [
-		{
-			"skillKey" : "Travel",
-			"weight" : 3,
-			"context" : 
-			{
-				"en" : "Travels around India (6 weeks): discovery",
-				"de" : "Entdeckungstour (6 Wochen) in Indien"
-			}
-		}
-	 ],
-	"title": 
-		{
-			"de": "Indienreise", 
-			"en": "Traveling in India"
-		}
-	},
 
 	{ 	
 	"startDate": "05.2013", "endDate": "06.2013",
@@ -166,41 +188,7 @@
 			}
 		}
 	 ]
-	}
-	,
-	{ 	
-	"startDate": "01.2011", "endDate": "08.2012",
-	"title": { "de": "Klettern", "en": "Climbing" },
-	 "skills" : 
-	 [
-		{
-			"skillKey" : "Climbing",
-			"weight" : [ 4, 2, 1 ],
-			"context" : 
-			{
-				"en" : "Bouldering indoors",
-				"de" : "Bouldern in der Halle"
-			}
-		}
-	 ]
 	},
-	{ 	
-	"startDate": "01.2000", "endDate": "08.2008",
-	"title": { "de": "Mountainbiken", "en": "Mountain Biking" },
-	 "skills" : 
-	 [
-		{
-			"skillKey" : "Cycling",
-			"weight" : [ 3, 1, 1],
-			"context" : 
-			{
-				"en" : "Hobby mountainbiker (50km+) a week, participated in crosscountry mountain bike races",
-				"de" : "Hobby-Mountainbiker: 50km+ die Woche, gelegentlich an einem XC-Rennen teilgenommen"
-			}
-		}
-	 ]
-	}
-	,
 	{ 	
 	"startDate": "03.2010", "endDate": "aktuell",
 	"title": { "de": "Rennradfahren", "en": "Road cycling" },
