@@ -34,7 +34,7 @@ function DrawStreamGraph(skillsHash, graphStartYear, svgName, height, colorSchem
 	else if (colorSchema == 'green')
 		colors = ["#1E5846", "#2D7D12", "#3E7E56", "#6BA55F", "#A4CA64", "#E8ED69"];
 	else if (colorSchema == 'blue')
-		colors = ["#005EA3", "#0085E5", "#44A0DB", "#35A2FF", "#4FBBFF", "#44A0DB", "#A1DBFF"];
+		colors = ["#005EA3", "#0085E5", "#44A0DB", "#35A2FF", "#4FBBFF", "#A1DBFF", "#c9ebff",];
 	
 	// Initial setup of our svg
 	var svg = d3.select(svgName)
