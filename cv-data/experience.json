@@ -73,7 +73,7 @@
 	 [
 		{
 			"skillKey" : "Programming",
-			"weight" : [ 3.5, 4, 5 ],
+			"weight" : [ 3.5, 4, 4 ],
 			"context" : 
 			{
 				"en" : "C#/.NET + Visual Studio for mechanical engineering applications",
@@ -82,7 +82,7 @@
 		},
 		{
 			"skillKey" : "Project Management",
-			"weight" : [ 3.5, 4, 2 ],
+			"weight" : [ 3.5, 4, 5 ],
 			"context" : 
 			{
 				"de" : "Scrum, Konzipierung, Einsatzplanung für technische Software-Anwendungen",
@@ -91,7 +91,7 @@
 		},
 		{
 			"skillKey" : "Mechanical Engineering",
-			"weight" : [ 3, 2, 3 ],
+			"weight" : [ 3, 2, 1 ],
 			"context" : 
 			{ 
 				"de" : "Industrierobotik, Wasserturbinen, Flächenmodellierung",
@@ -384,7 +384,7 @@
 			},
 			"description": 
 			{
-				"de" : "Auto-Import-Betrieb zwischen Zentralamerika und USA (13 Autos insge.). Überholung und Verkauf von Autos in den USA",
+				"de" : "Auto-Import-Betrieb zwischen Zentralamerika und USA (13 Autos insg.). Überholung und Verkauf von Autos in den USA",
 				"en" : "Direction of collector car import service between Central America and the US.  Vehicle of choice: 40 series Toyota Landcruiser, number of vehicles imported: 13"
 			}
 		}],
