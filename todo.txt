@@ -1,11 +1,14 @@
 INHALT
-Add "Design" as skill (json)
+*** Add profile picture
+
+* Add "Design" as skill (json)
 	- logo/brand design (QM)
 	- applications: AdobeI, AdobePs
-Add images where applicable (panamoffroad etc)
+* Add images where applicable (panamoffroad etc)
 
 META
-Druckfreundlichkeit
+** Druckfreundlichkeit
 
 PROGRAMM
-Javascript aus index.html entfernen -> Controller
+** Javascript aus index.html entfernen -> Controller
+* Turn off GA for local requests while debugging
