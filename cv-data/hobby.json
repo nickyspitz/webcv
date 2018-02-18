@@ -1,223 +1,205 @@
-[ 
-	{ 	
-	"startDate": "01.2000", "endDate": "08.2008",
-	"title": { "de": "Mountainbiken", "en": "Mountain Biking" },
-	 "skills" : 
-	 [
-		{
-			"skillKey" : "Cycling",
-			"weight" : [ 3, 1, 1],
-			"context" : 
-			{
-				"en" : "Hobby mountainbiker (50km+) a week, participated in crosscountry mountain bike races",
-				"de" : "Hobby-Mountainbiker: 50km+ die Woche, gelegentlich an einem XC-Rennen teilgenommen"
-			}
-		}
-	 ]
-	},
-	{ 	
-	"startDate": "10.2005", "endDate": "11.2005",
-	 "skills" : 
-	 [
-		{
-			"skillKey" : "Travel",
-			"weight" : 3,
-			"context" : 
-			{
-				"en" : "Travels around India (6 weeks): discovery",
-				"de" : "Entdeckungstour (6 Wochen) in Indien"
-			}
-		}
-	 ],
-	"title": 
-		{
-			"de": "Indienreise", 
-			"en": "Traveling in India"
-		}
-	},
-	{ 	
-	"startDate": "01.2007", "endDate": "12.2008",
-	"title": { "de": "Deutsch", "en": "German" },
-	 "skills" : 
-	 [
-		{
-			"skillKey" : "Language",
-			"weight" : [2, 8, 7, 6, 2],
-			"context" : 
-			{
-				"en" : "Learned German in a variety of situations (10-40h/week)",
-				"de" : "Deutschunterricht in verschiedenen Umf&auml;ngen (10-40h/Wo)"
-			}
-		}
-	 ]
-	},
-	{ 	
-	"startDate": "09.2008", "endDate": "03.2010",
-	"title": 
-		{
-			"de": "Hochschulsport Gruppenleiter", 
-			"en": "Leader, University Mountain biking group"
-		},
-	 "skills" : 
-	 [
-		{
-			"skillKey" : "Cycling",
-			"weight" : [1, 5],
-			"context" : 
-			{
-				"en" : "Co-led University of Konstanz mountain bike group (2x weekly, guided weekend trips)",
-				"de" : "Hochschulsport (Uni Konstanz) Mountainbike-Gruppenleiter: 2x Ausfahrten die Woche, Gruppenwochenenden in den Bergen"
-			}
-		}
-	 ]
-	},
-	{ 	
-	"startDate": "09.2008", "endDate": "08.2010",
-	"title": 
-		{
-			"de": "Werkstattleiter, Schweisser", 
-			"en": "Workshop manager, Welder"
-		},
-	 "skills" : 
-	 [
-		{
-			"skillKey" : "Mechanical Fabrication",
-			"weight" : [ 1, 4 ],
-			"context" : 
-			{
-				"en" : "Welded parts (alu. fuel tanks, steel tube chassis)",
-				"de" : "mech. Herstellung von verschiedenen Rennwagenteilen (alu. Sprittank, Stahlkarosserie)"
-			}
-		}
-	 ]
-	},
-	{ 	
-	"startDate": "01.2011", "endDate": "08.2012",
-	"title": { "de": "Klettern", "en": "Climbing" },
-	 "skills" : 
-	 [
-		{
-			"skillKey" : "Climbing",
-			"weight" : [ 4, 2, 1 ],
-			"context" : 
-			{
-				"en" : "Bouldering indoors",
-				"de" : "Bouldern in der Halle"
-			}
-		}
-	 ]
-	},
+[{
+    "startDate": "01.2000",
+    "endDate": "08.2008",
+    "title": {
+      "de": "Mountainbiken",
+      "en": "Mountain Biking"
+    },
+    "skills": [{
+      "skillKey": "Cycling",
+      "weight": [3, 1, 1],
+      "context": {
+        "en": "Hobby mountainbiker (50km+) a week, participated in crosscountry mountain bike races",
+        "de": "Hobby-Mountainbiker: 50km+ die Woche, gelegentlich an einem XC-Rennen teilgenommen"
+      }
+    }]
+  },
+  {
+    "startDate": "10.2005",
+    "endDate": "11.2005",
+    "skills": [{
+      "skillKey": "Travel",
+      "weight": 3,
+      "context": {
+        "en": "Travels around India (6 weeks): discovery",
+        "de": "Entdeckungstour (6 Wochen) in Indien"
+      }
+    }],
+    "title": {
+      "de": "Indienreise",
+      "en": "Traveling in India"
+    }
+  },
+  {
+    "startDate": "01.2007",
+    "endDate": "12.2008",
+    "title": {
+      "de": "Deutsch",
+      "en": "German"
+    },
+    "skills": [{
+      "skillKey": "Language",
+      "weight": [2, 8, 7, 6, 2],
+      "context": {
+        "en": "Learned German in a variety of situations (10-40h/week)",
+        "de": "Deutschunterricht in verschiedenen Umf&auml;ngen (10-40h/Wo)"
+      }
+    }]
+  },
+  {
+    "startDate": "09.2008",
+    "endDate": "03.2010",
+    "title": {
+      "de": "Hochschulsport Gruppenleiter",
+      "en": "Leader, University Mountain biking group"
+    },
+    "skills": [{
+      "skillKey": "Cycling",
+      "weight": [1, 5],
+      "context": {
+        "en": "Co-led University of Konstanz mountain bike group (2x weekly, guided weekend trips)",
+        "de": "Hochschulsport (Uni Konstanz) Mountainbike-Gruppenleiter: 2x Ausfahrten die Woche, Gruppenwochenenden in den Bergen"
+      }
+    }]
+  },
+  {
+    "startDate": "09.2008",
+    "endDate": "08.2010",
+    "title": {
+      "de": "Werkstattleiter, Schweisser",
+      "en": "Workshop manager, Welder"
+    },
+    "skills": [{
+      "skillKey": "Mechanical Fabrication",
+      "weight": [1, 4],
+      "context": {
+        "en": "Welded parts (alu. fuel tanks, steel tube chassis)",
+        "de": "mech. Herstellung von verschiedenen Rennwagenteilen (alu. Sprittank, Stahlkarosserie)"
+      }
+    }]
+  },
+  {
+    "startDate": "01.2011",
+    "endDate": "08.2012",
+    "title": {
+      "de": "Klettern",
+      "en": "Climbing"
+    },
+    "skills": [{
+      "skillKey": "Climbing",
+      "weight": [4, 2, 1],
+      "context": {
+        "en": "Bouldering indoors",
+        "de": "Bouldern in der Halle"
+      }
+    }]
+  },
 
-	{ 	
-	"startDate": "02.2013", "endDate": "08.2013",
-	 "skills" : 
-	 [
-		{
-			"skillKey" : "Language",
-			"weight" : [ 8, 4 ],
-			"context" : 
-			{
-				"en" : "Portuguese classes (20h/week in Rio de Janeiro, Belo Horizonte)",
-				"de" : "Portugiesischunterricht (20h/Wo in Rio de Janeiro, Belo Horizonte)"
-			}
-		},		
-		{
-			"skillKey" : "Travel",
-			"weight" : 2,
-			"context" : 
-			{
-				"en" : "Travels around Brazil (6mo): getting to know the culture and music as well as the language",
-				"de" : "Reisen um Brasilien (halbes Jahr): Kennenlernen von Kultur, Musik und Sprache"
-			}
-		}
-	 ],
-	"title": 
-		{
-			"de": "Portugiesisch", 
-			"en": "Portuguese"
-		}
-	},
-	{ 	
-	"startDate": "05.2013", "endDate": "06.2013",
-	"title": { "de": "WWOOFing", "en": "WWOOFing" },
-	 "skills" : 
-	 [
-		{
-			"skillKey" : "Food and farming",
-			"weight" : 10,
-			"context" : 
-			{
-				"en" : "Volunteered on organic farm in Minas Gerais, Brazil. From this point on vegetarian!",
-				"de" : "6 Wochen Freiwilliges Arbeiten auf einem Bio-Bauernhof in Minas Gerais, Brasilien. Ab diesem Zeitpunkt Vegetarier!"
-			}
-		}
-	 ]
-	},
-	{ 	
-	"startDate": "09.2014", "endDate": "10.2015",
-	"title": { "de": "Franz&ouml;sischkurs", "en": "French course" },
-	 "skills" : 
-	 [
-		{
-			"skillKey" : "Language",
-			"weight" : 1.5,
-			"context" : 
-			{
-				"en" : "Beginner French class A1 (1x/week for 1.5h)",
-				"de" : "Franz&ouml;sischkurs A1 (1x/Wo für 1,5h)"
-			}
-		}
-	 ]
-	},
-	{ 	
-	"startDate": "01.2014", "endDate": "aktuell",
-	"title": { "de": "Yoga", "en": "Yoga" },
-	 "skills" : 
-	 [
-		{
-			"skillKey" : "Yoga",
-			"weight" : [1, 3],
-			"context" : 
-			{
-				"en" : "Hatha/Iyengar discipline: Group course 2x weekly, 2-5h weekly practice at home",
-				"de" : "Hatha/Iyengar Richtung: Gruppenkurs 1-2x pro Woche, 2-5h pro Woche eigene &Uuml;bung zu Hause"
-			}
-		}
-	 ]
-	}
-	,
-	{ 	
-	"startDate": "07.2013", "endDate": "aktuell",
-	"title": { "de": "Klettern", "en": "Climbing" },
-	 "skills" : 
-	 [
-		{
-			"skillKey" : "Climbing",
-			"weight" : [ 1, 4, 2.5 ],
-			"context" : 
-			{
-				"en" : "Bouldering indoors, Sport climbing outdoors including trips (Finale Ligure, Kalymnos, Geyikbeyiri)",
-				"de" : "Bouldern und Seilklettern"
-			}
-		}
-	 ]
-	},
-	{ 	
-	"startDate": "03.2010", "endDate": "aktuell",
-	"title": { "de": "Rennradfahren", "en": "Road cycling" },
-	 "skills" : 
-	 [
-		{
-			"skillKey" : "Cycling",
-			"weight" : [ 3, 5, 1, 2, 2, 1 ],
-			"context" : 
-			{
-				"en" : "Passionate hobby road cyclist: max 10kkm/year. A race once in a while...",
-				"de" : "Leidenschaftlicher Hobby-Fahrer: max. Distanz im Jahr: 10kkm. Ab und zu Teilnahme an Rennen"
-			}
-		}
-	 ]
-	}
+  {
+    "startDate": "02.2013",
+    "endDate": "08.2013",
+    "skills": [{
+        "skillKey": "Language",
+        "weight": [8, 4],
+        "context": {
+          "en": "Portuguese classes (20h/week in Rio de Janeiro, Belo Horizonte)",
+          "de": "Portugiesischunterricht (20h/Wo in Rio de Janeiro, Belo Horizonte)"
+        }
+      },
+      {
+        "skillKey": "Travel",
+        "weight": 2,
+        "context": {
+          "en": "Travels around Brazil (6mo): getting to know the culture and music as well as the language",
+          "de": "Reisen um Brasilien (halbes Jahr): Kennenlernen von Kultur, Musik und Sprache"
+        }
+      }
+    ],
+    "title": {
+      "de": "Portugiesisch",
+      "en": "Portuguese"
+    }
+  },
+  {
+    "startDate": "05.2013",
+    "endDate": "06.2013",
+    "title": {
+      "de": "WWOOFing",
+      "en": "WWOOFing"
+    },
+    "skills": [{
+      "skillKey": "Food and farming",
+      "weight": 10,
+      "context": {
+        "en": "Volunteered on organic farm in Minas Gerais, Brazil. From this point on vegetarian!",
+        "de": "6 Wochen Freiwilliges Arbeiten auf einem Bio-Bauernhof in Minas Gerais, Brasilien. Ab diesem Zeitpunkt Vegetarier!"
+      }
+    }]
+  },
+  {
+    "startDate": "09.2014",
+    "endDate": "10.2015",
+    "title": {
+      "de": "Franz&ouml;sischkurs",
+      "en": "French course"
+    },
+    "skills": [{
+      "skillKey": "Language",
+      "weight": 1.5,
+      "context": {
+        "en": "Beginner French class A1 (1x/week for 1.5h)",
+        "de": "Franz&ouml;sischkurs A1 (1x/Wo für 1,5h)"
+      }
+    }]
+  },
+  {
+    "startDate": "01.2014",
+    "endDate": "aktuell",
+    "title": {
+      "de": "Yoga und Meditation",
+      "en": "Yoga and Meditation"
+    },
+    "skills": [{
+      "skillKey": "Yoga and Meditation",
+      "weight": [1, 3],
+      "context": {
+        "en": "Hatha/Iyengar discipline: Group course 2x weekly, 2-5h weekly practice at home",
+        "de": "Hatha/Iyengar Richtung: Gruppenkurs 1-2x pro Woche, 2-5h pro Woche eigene &Uuml;bung zu Hause"
+      }
+    }]
+  },
+  {
+    "startDate": "07.2013",
+    "endDate": "aktuell",
+    "title": {
+      "de": "Klettern",
+      "en": "Climbing"
+    },
+    "skills": [{
+      "skillKey": "Climbing",
+      "weight": [1, 4, 2.5, 1.5],
+      "context": {
+        "en": "Bouldering indoors, Sport climbing outdoors including trips (Finale Ligure, Kalymnos, Geyikbeyiri)",
+        "de": "Bouldern und Seilklettern"
+      }
+    }]
+  },
+  {
+    "startDate": "03.2010",
+    "endDate": "aktuell",
+    "title": {
+      "de": "Rennradfahren",
+      "en": "Road cycling"
+    },
+    "skills": [{
+      "skillKey": "Cycling",
+      "weight": [3, 5, 1, 2, 2, 1, 3, 4],
+      "context": {
+        "en": "Passionate hobby road cyclist: max 10kkm/year. A race once in a while...",
+        "de": "Leidenschaftlicher Hobby-Fahrer: max. Distanz im Jahr: 10kkm. Ab und zu Teilnahme an Rennen und Rundtourfahrten"
+      }
+    }]
+  }
 
 
 

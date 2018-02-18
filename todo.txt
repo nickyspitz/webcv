@@ -1,14 +1,11 @@
-INHALT 
-
-Add e-mail address (doh!)
-Add hobbies as streamgraph over the years
-
+INHALT
 Add "Design" as skill (json)
 	- logo/brand design (QM)
 	- applications: AdobeI, AdobePs
 Add images where applicable (panamoffroad etc)
 
 META
+Druckfreundlichkeit
 
-Add auto-resize upon window resizing
-
+PROGRAMM
+Javascript aus index.html entfernen -> Controller
