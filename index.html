@@ -13,7 +13,7 @@
 	<script src="js/streamGraphDrawer.js"></script>
 	<script src="js/jsonProcessor.js"></script>
 
-	<link href="css/google-fonts.css" rel="stylesheet"> 
+	<link href="css/google-fonts.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/cv.css">
@@ -29,7 +29,7 @@
   <div class="row">
     <div class="col-sm-6 awesome-font-header">
 			<h1>NICK SPITZER &nbsp;&nbsp;&nbsp;<span class="label label-primary" style="size:12px;vertical-align:middle;">C.V.</span></h1>
-			<small style="text-align:right;">&nbsp;<a href="" onClick="SetLanguage('en');return false;" class="lang-selection" id="lang-en">EN</a>/<a href="" onClick="SetLanguage('de');return false;" class="lang-selection" id="lang-de">DE</a></small> 
+			<small style="text-align:right;">&nbsp;<a href="" onClick="SetLanguage('en');return false;" class="lang-selection" id="lang-en">EN</a>/<a href="" onClick="SetLanguage('de');return false;" class="lang-selection" id="lang-de">DE</a></small>
 		</div>
     <div class="col-sm-2 awesome-font">
 		<h6 class="info">
@@ -60,7 +60,7 @@
  </div>
 
   <div class="row">
-	<div class="col-sm-10 streamgraphContainer">
+	<div id="svg-container" class="col-sm-10 streamgraphContainer">
 		<div id="vertical"></div>
 		<div id="year"></div>
 		<div class="svgXaxes" id="startDateSvg"></div>
@@ -80,14 +80,14 @@
 
 
   <div class="row">
-    <div class="col-sm-10 awesome-font-header meta-experience"> <h2><span class="label label-success experience-label">ERFAHRUNG</span></h2> </div>
+    <div class="col-sm-10 awesome-font-header meta-experience"> <h2><span class="label label-success experience-label"></span></h2> </div>
   </div>
 
   <div class="experience-table">
   <div class="row info-row">
 		<div class="col-sm-2 awesome-font">
-			<h5>	
-				<span class="startDate">-</span> - <span class="endDate">-</span> <br> 
+			<h5>
+				<span class="startDate">-</span> - <span class="endDate">-</span> <br>
 				<small class="location_name">-</small>
 			</h5>
 		</div>
@@ -107,14 +107,14 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-10 awesome-font-header meta-education"> <h2><span class="label label-success education-label">schulischer Werdegang</span></h2> </div>
+    <div class="col-sm-10 awesome-font-header meta-education"> <h2><span class="label label-success education-label"></span></h2> </div>
   </div>
 
   <div class="education-table">
   <div class="row info-row">
 		<div class="col-sm-2 awesome-font">
-			<h5>	
-				<span class="startDate">-</span> - <span class="endDate">-</span> <br> 
+			<h5>
+				<span class="startDate">-</span> - <span class="endDate">-</span> <br>
 				<small class="location_name">-</small>
 			</h5>
 		</div>
@@ -134,7 +134,7 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-10 awesome-font-header meta-languages"> <h2><span class="label label-success languages-label">LANGUAGES</span></h2> </div>
+    <div class="col-sm-10 awesome-font-header meta-languages"> <h2><span class="label label-success languages-label"></span></h2> </div>
   </div>
 
   <div class="row">
@@ -169,8 +169,13 @@ var experienceHtml;
 var educationHtml;
 var metaJson;
 
-function Initialize() 
+var startYear = 2010;
+
+function Initialize()
 {
+
+	var yearsBack = 6;
+	startYear = new Date().getFullYear() - yearsBack;
 
 	// grab the template HTML
 	experienceHtml = $('.experience-table').html();
@@ -183,32 +188,32 @@ function Initialize()
 		$.getJSON('cv-data/meta.json', function(json) { metaJson = json; }),
 		$.getJSON('cv-data/hobby.json', function(json) { hobbyJson = json; })
 	).then(
-		function() 
+		function()
 		{
-		 	var userLang = navigator.language || navigator.userLanguage; 
+		 	var userLang = navigator.language || navigator.userLanguage;
 			// alert ("The language is: " + userLang);
-			
+
 			var language = "en";
 			if (userLang.toLowerCase().indexOf("de") > -1)
 				language = "de";
-			
+
 			SetLanguage(language);
 
-			var skillsHash = ProcessJson(experienceJson, 2000, language); 
-			DrawStreamGraph(skillsHash, 2000, "#svg", 400, 'orange'); 
+			var skillsHash = ProcessJson(experienceJson, startYear, language);
+			DrawStreamGraph(skillsHash, startYear, "#svg", 400, 'orange');
 
-			var hobbyHash = ProcessJson(hobbyJson, 2000, language); 
-			DrawStreamGraph(hobbyHash, 2000, "#svg-hobby", 200, 'blue'); 
+			var hobbyHash = ProcessJson(hobbyJson, startYear, language);
+			DrawStreamGraph(hobbyHash, startYear, "#svg-hobby", 200, 'blue');
 
 			// Redraw
-			ReattachData(experienceJson, 2000, "#svg", language);
-			ReattachData(hobbyJson, 2000, "#svg-hobby", language);
+			ReattachData(experienceJson, startYear, "#svg", language);
+			ReattachData(hobbyJson, startYear, "#svg-hobby", language);
 		}
 	);
 
 }
 
-function SetLanguage(language) 
+function SetLanguage(language)
 {
 
 	// Highlight correct language button
@@ -222,12 +227,12 @@ function SetLanguage(language)
 	var directive = {
 		'div.info-row':{
 			'infoItem<-':{ //for each entry in the json array name the element 'infoItem'
-			'span.startDate': 'infoItem.startDate', 
-			'span.endDate': function() { return (this.endDate == "aktuell" && language == "en") ? "current" : this.endDate; }, 
-			'small.location_name': function() { return this.location[language]; }, 
-			'span.title':  function() { return this.title[language]; }, 
+			'span.startDate': 'infoItem.startDate',
+			'span.endDate': function() { return (this.endDate == "aktuell" && language == "en") ? "current" : this.endDate; },
+			'small.location_name': function() { return this.location[language]; },
+			'span.title':  function() { return this.title[language]; },
 			'small.employer': function() { return this.employer[language]; },
-			'h5.details-list': 
+			'h5.details-list':
 				{
 					'detail<-infoItem.details':
 					{
@@ -238,14 +243,14 @@ function SetLanguage(language)
 	    }
 		}
 	};
-	
+
 	$p( 'div.meta-experience' ).render( metaJson, { 'span.experience-label' : function() { return this.labelExperience[language]; }, });
 	$p( 'div.meta-languages' ).render( metaJson, { 'span.languages-label' : function() { return this.labelLanguages[language]; }, });
 	$p( 'div.meta-education' ).render( metaJson, { 'span.education-label' : function() { return this.labelEducation[language]; }, });
 	$p( 'div.meta-about' ).render( metaJson, { 'span.cv-about' : function() { return this.textAbout[language]; }, });
 	$p( 'div.languages' ).render( personalInfoJson, { 'span.info-languages' : function() { return this.infoLanguages[language]; }, });
 
-	$p( 'div.cv-header-info' ).render( personalInfoJson, 
+	$p( 'div.cv-header-info' ).render( personalInfoJson,
 	{
 		'span.infoName' : 'infoName',
 		'span.infoBirthday' : function() { return this.infoBirthday[language]; },
@@ -261,8 +266,8 @@ function SetLanguage(language)
 	$p( 'div.education-table' ).render( educationJson, directive );
 
 	// Redraw
-	ReattachData(experienceJson, 2000, "#svg", language);
-	ReattachData(hobbyJson, 2000, "#svg-hobby", language);
+	ReattachData(experienceJson, startYear, "#svg", language);
+	ReattachData(hobbyJson, startYear, "#svg-hobby", language);
 
 //	JSON FAILED CODE: $.getJSON('cv-data/experience-test.json').then( function(json) { }).fail(function() { console.log("Json load failed for experience table!"); });
 
@@ -282,4 +287,3 @@ function SetLanguage(language)
 
 </body>
 </html>
- 
