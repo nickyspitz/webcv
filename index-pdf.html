@@ -1,0 +1,272 @@
+
+<html>
+<head>
+	<title>nickspitzer.com</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script src="js/pure.js"></script>
+	<script src="js/d3.v2.min.js"></script>
+
+	<script src="js/streamGraphDrawer.js"></script>
+	<script src="js/jsonProcessor.js"></script>
+
+	<link href="css/google-fonts.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/cv.css">
+
+</head>
+
+<body onLoad="Initialize();">
+<div style="position:relative;line-height:5vh;width:100%;background-color:#ffa100;text-align:center;">
+<b>This PDF only tells half the story!</b> Go to http://cv.nickspitzer.com to see the whole story in glorious data visuals.</div>
+<div class="tooltip" id="tooltip"></div>
+
+<div class="container-fluid">
+
+ <div class="cv-header-info">
+  <div class="row">
+    <div class="col-sm-6 awesome-font-header">
+			<h1>NICK SPITZER &nbsp;&nbsp;&nbsp;<span class="label label-primary" style="size:12px;vertical-align:middle;">C.V.</span></h1>
+			<!-- <small style="text-align:right;">&nbsp;
+				<a href="" onClick="SetLanguage('en');return false;" class="lang-selection" id="lang-en">EN</a>
+				/
+				<a href="" onClick="SetLanguage('de');return false;" class="lang-selection" id="lang-de">DE</a>
+			</small> -->
+		</div>
+    <div class="col-sm-2 awesome-font">
+		<h6 class="info">
+			<span class="infoName"></span><br>
+			<span class="infoBirthday"></span><br>
+			<span class="infoNationality"></span><br>
+		</h6>
+		</div>
+    <div class="col-sm-2 awesome-font" style="text-align:right;">
+		<h6>
+			<span class="infoAddress1"></span><br>
+			<span class="infoAddress2"></span><br>
+			<span class="infoAddress3"></span><br>
+			<br>
+			<span class="infoPhone"></span><br>
+			<span class="infoEmail">nick@nickspitzer.com</span><br>
+		</h6>
+		</div>
+  </div>
+  <div class="row">
+	<div class="col-sm-10">
+		<h3><span class="infoStatement">statement</span></h3>
+		<br>
+  	</div>
+  </div>
+ </div>
+  <div class="row">
+    <div class="col-sm-10 awesome-font-header meta-experience"> <h2><span class="label label-success experience-label"></span></h2> </div>
+  </div>
+
+  <div class="experience-table">
+  <div class="row info-row">
+		<div class="col-sm-4 awesome-font">
+		  	<h4>
+				<span class="title">-</span> <br>
+				<small class="employer">-</small>
+			</h4>
+		</div>
+		<div class="col-sm-2 awesome-font">
+			<h5>
+				<span class="startDate">-</span> - <span class="endDate">-</span> <br>
+				<small class="location_name">-</small>
+			</h5>
+		</div>
+		<div class="col-sm-4 awesome-font details-list-div">
+			<h5 class="details-list">
+				<small class="details-header">-</small> <br>
+				<span class="details">-</span><br>
+			</h5>
+		</div>
+  </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-10 awesome-font-header meta-education"> <h2><span class="label label-success education-label"></span></h2> </div>
+  </div>
+
+  <div class="education-table">
+  <div class="row info-row">
+		<div class="col-sm-2 awesome-font">
+			<h5>
+				<span class="startDate">-</span> - <span class="endDate">-</span> <br>
+				<small class="location_name">-</small>
+			</h5>
+		</div>
+		<div class="col-sm-4 awesome-font">
+		  	<h4>
+				<span class="title">-</span> <br>
+				<small class="employer">-</small>
+			</h4>
+		</div>
+		<div class="col-sm-4 awesome-font details-list-div">
+			<h5 class="details-list">
+				<small class="details-header">-</small> <br>
+				<span class="details">-</span><br>
+			</h5>
+		</div>
+  </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-10 awesome-font-header meta-languages"> <h2><span class="label label-success languages-label"></span></h2> </div>
+  </div>
+
+  <div class="row">
+	<div class="col-sm-10">
+	  <div class="languages">
+			<span class="info-languages"></span>
+		</div>
+		<br>
+  	</div>
+  </div>
+
+  <div class="row">
+	<div class="col-sm-10">
+	  <div class="meta-about">
+			<br><br>
+			<h3><span class="cv-about"></span></h3>
+		</div>
+		<br>
+  	</div>
+  </div>
+
+</div>
+
+<script>
+
+var personalInfoJson;
+var experienceJson;
+var educationJson;
+var hobbyJson;
+
+var experienceHtml;
+var educationHtml;
+var metaJson;
+
+var startYear = 2010;
+
+function Initialize()
+{
+
+	var yearsBack = 15;
+	startYear = new Date().getFullYear() - yearsBack;
+
+	// grab the template HTML
+	experienceHtml = $('.experience-table').html();
+	educationHtml = $('.education-table').html();
+
+	$.when(
+		$.getJSON('cv-data/personal-info.json', function(json) { personalInfoJson = json; }),
+		$.getJSON('cv-data/experience.json', function(json) { experienceJson = json; }),
+		$.getJSON('cv-data/education.json', function(json) { educationJson = json; }),
+		$.getJSON('cv-data/meta.json', function(json) { metaJson = json; }),
+		$.getJSON('cv-data/hobby.json', function(json) { hobbyJson = json; })
+	).then(
+		function()
+		{
+		 	var userLang = navigator.language || navigator.userLanguage;
+			// alert ("The language is: " + userLang);
+
+			var language = "en";
+			if (userLang.toLowerCase().indexOf("de") > -1)
+				language = "de";
+
+			SetLanguage("en");
+
+			var skillsHash = ProcessJson(experienceJson, startYear, language);
+			DrawStreamGraph(skillsHash, startYear, "#svg", 400, 'orange');
+
+			var hobbyHash = ProcessJson(hobbyJson, startYear, language);
+			DrawStreamGraph(hobbyHash, startYear, "#svg-hobby", 200, 'blue');
+
+			// Redraw
+			ReattachData(experienceJson, startYear, "#svg", language);
+			ReattachData(hobbyJson, startYear, "#svg-hobby", language);
+		}
+	);
+
+}
+
+function SetLanguage(language)
+{
+
+	// Highlight correct language button
+	$('.lang-selection').removeClass('lang-selected');
+	$('#lang-'+language).addClass('lang-selected');
+
+	// Clear the details list (it will duplicate itself otherwise)
+	$('.experience-table').html(experienceHtml);
+	$('.education-table').html(educationHtml);
+
+	var directive = {
+		'div.info-row':{
+			'infoItem<-':{ //for each entry in the json array name the element 'infoItem'
+			'span.startDate': 'infoItem.startDate',
+			'span.endDate': function() { return (this.endDate == "aktuell" && language == "en") ? "current" : this.endDate; },
+			'small.location_name': function() { return this.location[language]; },
+			'span.title':  function() { return this.title[language]; },
+			'small.employer': function() { return this.employer[language]; },
+			'h5.details-list':
+				{
+					'detail<-infoItem.details':
+					{
+	     				'small.details-header': function() { return this.header[language]; },
+		        		'span.details': function() { return this.description[language]; }
+					}
+				}
+	    }
+		}
+	};
+
+	$p( 'div.meta-experience' ).render( metaJson, { 'span.experience-label' : function() { return this.labelExperience[language]; }, });
+	$p( 'div.meta-languages' ).render( metaJson, { 'span.languages-label' : function() { return this.labelLanguages[language]; }, });
+	$p( 'div.meta-education' ).render( metaJson, { 'span.education-label' : function() { return this.labelEducation[language]; }, });
+	$p( 'div.meta-about' ).render( metaJson, { 'span.cv-about' : function() { return this.textAbout[language]; }, });
+	$p( 'div.languages' ).render( personalInfoJson, { 'span.info-languages' : function() { return this.infoLanguages[language]; }, });
+
+	$p( 'div.cv-header-info' ).render( personalInfoJson,
+	{
+		'span.infoName' : 'infoName',
+		'span.infoBirthday' : function() { return this.infoBirthday[language]; },
+		'span.infoNationality' : function() { return this.infoNationality[language]; },
+		'span.infoAddress1' : 'infoAddress1',
+		'span.infoAddress2' : 'infoAddress2',
+		'span.infoAddress3' : function() { return this.infoAddress3[language]; },
+		'span.infoPhone' : 'infoPhone',
+		'span.infoStatement' : function() { return this.statement[language]; },
+	});
+
+	$p( 'div.experience-table' ).render( experienceJson, directive );
+	$p( 'div.education-table' ).render( educationJson, directive );
+
+	// Redraw
+	ReattachData(experienceJson, startYear, "#svg", language);
+	ReattachData(hobbyJson, startYear, "#svg-hobby", language);
+
+//	JSON FAILED CODE: $.getJSON('cv-data/experience-test.json').then( function(json) { }).fail(function() { console.log("Json load failed for experience table!"); });
+
+}
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-81331638-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

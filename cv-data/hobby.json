@@ -145,7 +145,7 @@
     },
     "skills": [{
       "skillKey": "Language",
-      "weight": 1.5,
+      "weight": [1.5, 1.5, 1.5, 1.5, 0.5] ,
       "context": {
         "en": "Beginner French class A1 (1x/week for 1.5h)",
         "de": "Franz&ouml;sischkurs A1 (1x/Wo für 1,5h)"
@@ -177,7 +177,7 @@
     },
     "skills": [{
       "skillKey": "Climbing",
-      "weight": [1, 4, 2.5, 1.5],
+      "weight": [1, 4, 2.5, 1.5, 1],
       "context": {
         "en": "Bouldering indoors, Sport climbing outdoors including trips (Finale Ligure, Kalymnos, Geyikbeyiri)",
         "de": "Bouldern und Seilklettern"
@@ -188,15 +188,15 @@
     "startDate": "03.2010",
     "endDate": "aktuell",
     "title": {
-      "de": "Rennradfahren",
-      "en": "Road cycling"
+      "de": "Radfahren",
+      "en": "Cycling"
     },
     "skills": [{
       "skillKey": "Cycling",
-      "weight": [3, 5, 1, 2, 2, 2, 3, 3, 2, 2, 2, 3, 4, 3, 8, 2, 3],
+      "weight": [3, 5, 1, 2, 2, 2, 3, 3, 2, 2, 2, 3, 4, 3, 8, 5, 7],
       "context": {
-        "en": "Passionate hobby road cyclist: max 10kkm/year. A race once in a while...",
-        "de": "Leidenschaftlicher Hobby-Fahrer: max. Distanz im Jahr: 10kkm. Ab und zu Teilnahme an Rennen und Rundtourfahrten"
+        "en": "Passionate hobby road and mountain cyclist: max 10kkm/year. A couple events per year!",
+        "de": "Leidenschaftlicher Rennrad- und MTB-Fahrer: im Schnitt etwa 6kkm pro Jahr. Ab und zu Teilnahme an Rennen und Rundtourfahrten"
       }
     }]
   }
