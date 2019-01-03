@@ -7,7 +7,7 @@ INHALT
 * Add images where applicable (panamoffroad etc)
 
 META
-** Druckfreundlichkeit
+++ PDF-Kompatibilität
 
 PROGRAMM
 ** Javascript aus index.html entfernen -> Controller

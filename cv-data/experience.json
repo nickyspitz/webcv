@@ -17,8 +17,8 @@
     "details": [
 			{
 				"description": {
-					"de": "Gründer der Datenabteilung bei Beekeeper. Mittels Looker und LookML als BI-Tool: firmenweite Kennzahlen durch Talks sowie Dashboards hochkommen lassen, Wissensvermittlung bzgl. Dashboard-Erstellung durch Workshops, Erstellung der 'Data Guild' mit sechs Mitgliedern welche mit mir eng zusammenarbeiten und dabei helfen, die datengetriebe Kultur der Firma zu verbreiten",
-					"en": "Founder of Data and Analytics at Beekeeper. Using Looker and LookML as our BI tool: Expose company metrics through dashboards and talks, hold workshops to aid in the creation of departmental KPI dashboards, established 'Data Guild' with six data ambassadors to push data-driven culture everywhere in the organization"
+					"de": "Gründer der Datenabteilung bei Beekeeper. Mittels Looker und LookML als Business Intelligence-Tool: \"Hochkommenlassen\" firmenweiter Finanz- und Produkt-Kennzahlen durch Talks und Dashboards, Wissensvermittlung bzgl. Dashboard-Erstellung durch Workshops, Erstellung der 'Data Guild' mit sechs Mitgliedern welches durch enge Zusammenarbeit datengetriebene Kultur der Firma vorantreibt. Fortgeschrittene SQL-Anwendung mittels z.B. Window Functions",
+					"en": "Founder of Data and Analytics at Beekeeper. Using Looker and LookML as our BI tool: Expose company metrics (focus on product and financial) through dashboards and talks, hold workshops to aid in the creation of departmental KPI dashboards, established 'Data Guild' with six data ambassadors to push data-driven culture everywhere in the organization"
 				},
 				"header": {
 					"de": "DATENKULTUR UND -ANALYSE",
@@ -27,8 +27,8 @@
 			},
 		  {
         "description": {
-          "de": "Nachhaltige Etablierung ETL Pipelines aus verschiedenen Quellen (inkl. des Produkts selbst) an eine Data Warehouse Lösung (AWS Redshift) mittels AWS S3 und Lambda",
-          "en": "Sustainably create and maintain lean ETL pipelines (5+) from various sources to an AWS Redshift Data Warehouse using AWS S3/Lambda"
+          "de": "Etablierung nachhaltiger ETL Pipelines aus verschiedenen Quellen (inkl. unseres Produkts) an firmeneigene Data Warehouse (AWS Redshift) mittels AWS S3 und Lambda mitsamt Continuous Integration",
+          "en": "Sustainably create and maintain lean ETL pipelines (5+) from various sources to an AWS Redshift Data Warehouse using AWS S3/Lambda with Continuous Integration"
         },
         "header": {
           "de": "DATENINFRASTRUKTUR",
@@ -39,8 +39,8 @@
     "skills": [
 			{
         "context": {
-          "de": "Zusammenführung von Unmengen an Produkt- und Finanzdaten, um der Organisation datengetriebene Entscheidungen zu ermöglichen",
-          "en": "Bringing mountains of data together and enabling Beekeeper to make data-driven decisions"
+          "de": "Erstmalige Zusammenführung großer Mengen Produkt- und Finanzdaten, um der Organisation datengetriebene Entscheidungen zu ermöglichen",
+          "en": "Bringing mountains of data together and, for the first time ever, enabling Beekeeper to make data-driven decisions"
         },
         "skillKey": "Database / Data Science / Analysis",
         "weight": [
