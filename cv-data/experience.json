@@ -3,8 +3,8 @@
     "startDate": "06.2018",
     "endDate": "aktuell",
     "title": {
-      "de": "Head of Data (vorher Data Lead)",
-      "en": "Head of Data (previously Data Lead)"
+      "de": "Head of Business Intelligence (vorher Head of Data)",
+      "en": "Head of Business Intelligence (previously Head of Data)"
     },
     "employer": {
       "de": "Beekeeper AG",
@@ -22,18 +22,18 @@
         },
         "description": {
           "de": "Gründer der Datenfunktion bei Beekeeper. Verantwortlich für die firmenweite Strategie und Umsetzung einer datengetriebenen Entscheidungskultur mittels zuverlässige Daten, Tools und Ausbildung.",
-          "en": "Founder of the Data Function at Beekeeper. Responsible for the company-wide strategy and execution of data-driven decision enablement through providing dependable data, tooling and education."
+          "en": "Founder of the Data/BI Function at Beekeeper. Responsible for the company-wide strategy and execution of data-driven decision enablement through providing dependable data, tooling and education."
         }
       },
 			{
-        "header": {
-					"de": "ANALYSE (BUSINESS INTELLIGENCE)",
-					"en": "BUSINESS INTELLIGENCE"
-				},
-				"description": {
-          "de": "Grundlegende Analysen, welche zum B2B-SaaS Segment gehören: Produktnutzung inkl. Userverhalten, Kundenakquisition sowie \"-schrumpfung\", alles um die Vertriebspipeline herum. Anwendung fortgeschrittener SQL-Methodik inkl. CTEs, Aggregation und Window Functions.",
-          "en": "Analysis around health and growth aspects of a B2B SaaS organization, including: user retention and behavior, churn metrics, lifetime value and the sales pipeline. Use of advanced SQL analysis and modelling involving CTEs, aggregates and window functions."
-				}
+	"header": {
+	  "de": "ANALYSE (BUSINESS INTELLIGENCE)",
+	  "en": "BUSINESS INTELLIGENCE"
+	},
+	"description": {
+          "de": "Grundlegende Analysen, welche zum B2B-SaaS Segment gehören: Wirtschaftlichtkeit, Kundenakquise sowie \"-schrumpfung\", Produktnutzung inkl. Userverhalten, alles um die Vertriebspipeline herum. Anwendung fortgeschrittener SQL-Methodik inkl. CTEs, Aggregation und Window Functions.",
+          "en": "Analysis around health and growth aspects of a B2B SaaS organization, including: profitability, customer acquisition, churn and lifetime value, product user retention and behavior, and the sales pipeline. Use of advanced SQL analysis and modelling involving CTEs, aggregates and window functions."
+	}
       },
 		  {
         "header": {
@@ -41,8 +41,8 @@
           "en": "DATA ENGINEERING"
         },
         "description": {
-          "de": "Wir bringen Daten an die richtigen Stellen, um diese sauber und dokumentiert der Firma zu exponieren. Wir machen das möglich hauptsächlich mittels dbt (mitsamt tests!), AWS S3 und Redshift ..und natürlich Looker. Dazu gehören sämtliche massgeschneiderte ETL/ELT Prozesse, geschrieben in Java und Python, welche mittels AWS Lambda orchestriert werden",
-          "en": "We transport and bring order to our data to expose it to the company in a clean, documented fashion. Our data stack consists primarily of dbt (with many tests!), AWS S3 and Redshift, and Looker. The unsung heroes are many custom ETL/ELT processes, written in Java and Python, which we orchestrate primarily as AWS Lambda functions."
+          "de": "Wir bringen Daten an die richtigen Stellen, um diese sauber und dokumentiert der Firma zu exponieren. Wir machen das möglich hauptsächlich mittels dbt (mitsamt tests!), AWS S3 und Redshift ..und natürlich Looker. Orchestriert werden unsere unzähligen ELT/ETL Prozesse, welche durch den Singer tap/target Standard genormt sind, durch Airflow.",
+          "en": "We transport and bring order to our data to expose it to the company in a clean, reliable and documented fashion. Our data stack consists primarily of dbt (with many tests!), AWS S3 and Redshift, and Looker. The unsung hero is Airflow, which orchestrates numerous ETL/ELT processes, practically all written to the Singer standard of taps and targets."
         }
       }
     ],
