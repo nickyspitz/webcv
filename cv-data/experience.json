@@ -1,735 +1,764 @@
 [
 	{
-    "startDate": "06.2018",
-    "endDate": "aktuell",
-    "title": {
-      "de": "Head of Business Intelligence (vorher Head of Data)",
-      "en": "Head of Business Intelligence (previously Head of Data)"
-    },
-    "employer": {
-      "de": "Beekeeper AG",
-      "en": "Beekeeper AG"
-    },
-    "location": {
-      "de": "Z&uuml;rich, Schweiz",
-      "en": "Zurich, Switzerland"
-    },
-    "details": [
-      {
-        "header": {
-          "de": "DATENKULTUR",
-          "en": "DATA CULTURE"
-        },
-        "description": {
-          "de": "Gründer der Datenfunktion bei Beekeeper. Verantwortlich für die firmenweite Strategie und Umsetzung einer datengetriebenen Entscheidungskultur mittels zuverlässige Daten, Tools und Ausbildung.",
-          "en": "Founder of the Data/BI Function at Beekeeper. Responsible for the company-wide strategy and execution of data-driven decision enablement through providing dependable data, tooling and education."
-        }
-      },
-			{
-	"header": {
-	  "de": "ANALYSE (BUSINESS INTELLIGENCE)",
-	  "en": "BUSINESS INTELLIGENCE"
-	},
-	"description": {
-          "de": "Grundlegende Analysen, welche zum B2B-SaaS Segment gehören: Wirtschaftlichtkeit, Kundenakquise sowie \"-schrumpfung\", Produktnutzung inkl. Userverhalten, alles um die Vertriebspipeline herum. Anwendung fortgeschrittener SQL-Methodik inkl. CTEs, Aggregation und Window Functions.",
-          "en": "Analysis around health and growth aspects of a B2B SaaS organization, including: profitability, customer acquisition, churn and lifetime value, product user retention and behavior, and the sales pipeline. Use of advanced SQL analysis and modelling involving CTEs, aggregates and window functions."
-	}
-      },
-		  {
-        "header": {
-          "de": "DATENINFRASTRUKTUR",
-          "en": "DATA ENGINEERING"
-        },
-        "description": {
-          "de": "Wir bringen Daten an die richtigen Stellen, um diese sauber und dokumentiert der Firma zu exponieren. Wir machen das möglich hauptsächlich mittels dbt (mitsamt tests!), AWS S3 und Redshift ..und natürlich Looker. Orchestriert werden unsere unzähligen ELT/ETL Prozesse, welche durch den Singer tap/target Standard genormt sind, durch Airflow.",
-          "en": "We transport and bring order to our data to expose it to the company in a clean, reliable and documented fashion. Our data stack consists primarily of dbt (with many tests!), AWS S3 and Redshift, and Looker. The unsung hero is Airflow, which orchestrates numerous ETL/ELT processes, practically all written to the Singer standard of taps and targets."
-        }
-      }
-    ],
-    "skills": [
-			{
-        "context": {
-          "de": "Erstmalige Zusammenführung großer Mengen Produkt- und Finanzdaten, um der Organisation datengetriebene Entscheidungen zu ermöglichen",
-          "en": "Bringing mountains of data together and, for the first time ever, enabling Beekeeper to make data-driven decisions"
-        },
-        "skillKey": "Database / Data Science / Analysis",
-        "weight": [
-          8,
-          8,
-          7
-        ]
-      },
-			{
-				"context": {
-					"de": "Planung und Erstellung einer Vision überhaupt für die Data-Funktion bei Beekeeper",
-					"en": "Establishing and executing the mission, vision and roadmap of Data and Analytics at Beekeeper"
-				},
-				"skillKey": "Product and Project Management",
-				"weight": [
-					2,
-					2,
-					3
-				]
-			}
-    ]
-	},
-
-	{
-    "startDate": "10.2017",
-    "endDate": "06.2018",
-    "title": {
-      "de": "Produktverantwortliche",
-      "en": "Product Owner"
-    },
-    "employer": {
-      "de": "Beekeeper AG",
-      "en": "Beekeeper AG"
-    },
-    "location": {
-      "de": "Z&uuml;rich, Schweiz",
-      "en": "Zurich, Switzerland"
-    },
-    "details": [{
-        "description": {
-          "de": "Erstellung und Ausf\u00fchrung des benutzerfokussierten Entwicklungsplans mit einem sechsk\u00f6pfigen Team. \u00dcbersah App-Freigabe-Zyklen f\u00fcr Android, iOS und Web Plattformen. Arbeitsablauf mittels JIRA, github.",
-          "en": "Discovery, curation and execution of feature roadmap with a six-person team and focus on end-user experience. Release Management for Android, iOS and web apps. Constant stakeholder management in a high-growth environment. Workflow using JIRA and github."
-        },
-        "header": {
-          "de": "PRODUCT OWNER, 'EMPLOYEE EXPERIENCE' TEAM",
-          "en": "PRODUCT OWNER, 'EMPLOYEE EXPERIENCE' TEAM"
-        }
-      },
-      {
-        "description": {
-          "de": "Führende Kraft hinter interner Datawarehousing-L\u00f6sung und Anwendung dessen f\u00fcr eine grosse Breite an Benutzer-Analysen",
-          "en": "Managed technical side of data warehouse and conducted user behavior analysis using Looker and AWS Redshift to understand our users and our product better"
-        },
-        "header": {
-          "de": "DATENANALYSE",
-          "en": "DATA ANALYTICS"
-        }
-      }
-    ],
-    "skills": [{
-        "context": {
-          "de": "Verantwortlich f\u00fcr die 'Employee Experience' Roadmap und dessen Ausf\u00fchrung mit einem sechsk\u00f6pfigen Team",
-          "en": "Responsible for roadmap curation and execution with the six-person 'Employee Experience' team"
-        },
-        "skillKey": "Product and Project Management",
-        "weight": [
-          8,
-          8,
-          8
-        ]
-      },
-      {
-        "context": {
-          "de": "Datawarehousing L\u00f6sung mittels Amazon Redshift und Looker (LookML)",
-          "en": "Datawarehousing solution using Amazon Redshift and Looker (LookML)"
-        },
-        "skillKey": "Database / Data Science / Analysis",
-        "weight": [
-          2,
-          2,
-          2
-        ]
-      }
-    ]
-
-  },
-  {
-		"startDate": "04.2017",
-		"endDate": "10.2017",
+		"startDate": "06.2018",
+		"endDate": "aktuell",
 		"title": {
-			"de": "Software-Entwickler",
-			"en": "Software Engineer"
-		},
-		"employer": {
-			"de": "Beekeeper AG",
-			"en": "Beekeeper AG"
-		},
-		"location": {
-			"de": "Z&uuml;rich, Schweiz",
-			"en": "Zurich, Switzerland"
-		},
-    "details": [{
-        "description": {
-          "de": "Leitung verschiedener Feature-Teams, um neue Funktionalit\u00e4t in unsere Plattform zu bringen",
-          "en": "Organized and coordinated various small and ephemeral implementation teams for our SaaS product"
+            "de": "Head of Business Intelligence (vorher Head of Data)",
+            "en": "Head of Business Intelligence (previously Head of Data)"
         },
-        "header": {
-          "de": "PROJEKTLEITUNG",
-          "en": "PROJECT MANAGEMENT"
+        "employer": {
+            "de": "Beekeeper AG",
+            "en": "Beekeeper AG"
+        },
+        "location": {
+            "de": "Z&uuml;rich, Schweiz",
+            "en": "Zurich, Switzerland"
+        },
+        "details": [
+            {
+                "header": {
+                    "de": "DATENKULTUR",
+                    "en": "DATA CULTURE"
+                },
+				"description": {
+                    "de": "Gründer der Datenfunktion bei Beekeeper. Verantwortlich für die firmenweite Strategie und Umsetzung einer datengetriebenen Entscheidungskultur mittels zuverlässige Daten, Tools und Ausbildung.",
+                    "en": "Founder of the Data/BI Function at Beekeeper. Responsible for the company-wide strategy and execution of data-driven decision enablement through providing dependable data, tooling and education."
+                }
+            },
+            {
+                "header": {
+                    "de": "ANALYSE (BUSINESS INTELLIGENCE)",
+                    "en": "BUSINESS INTELLIGENCE"
+                },
+                "description": {
+                    "de": "Grundlegende Analysen, welche zum B2B-SaaS Segment gehören: Wirtschaftlichtkeit, Kundenakquise sowie \"-schrumpfung\", Produktnutzung inkl. Userverhalten, alles um die Vertriebspipeline herum. Anwendung fortgeschrittener SQL-Methodik inkl. CTEs, Aggregation und Window Functions.",
+                    "en": "Analysis around health and growth aspects of a B2B SaaS organization, including: profitability, customer acquisition, churn and lifetime value, product user retention and behavior, and the sales pipeline. Use of advanced SQL analysis and modelling involving CTEs, aggregates and window functions."
+                }
+            },
+            {
+                "header": {
+                    "de": "DATENINFRASTRUKTUR",
+                    "en": "DATA ENGINEERING"
+                },
+                "description": {
+                    "de": "Wir bringen Daten an die richtigen Stellen, um diese sauber und dokumentiert der Firma zu exponieren. Wir machen das möglich hauptsächlich mittels dbt (mitsamt tests!), AWS S3 und Redshift ..und natürlich Looker. Orchestriert werden unsere unzähligen ELT/ETL Prozesse, welche durch den Singer tap/target Standard genormt sind, durch Airflow.",
+                    "en": "We transport and bring order to our data to expose it to the company in a clean, reliable and documented fashion. Our data stack consists primarily of dbt (with many tests!), AWS S3 and Redshift, and Looker. The unsung hero is Airflow, which orchestrates numerous ETL/ELT processes, practically all written to the Singer standard of taps and targets."
+                }
+            }
+        ],
+        "skills": [
+            {
+                "context": {
+                    "de": "Erstmalige Zusammenführung großer Mengen Produkt- und Finanzdaten, um der Organisation datengetriebene Entscheidungen zu ermöglichen",
+                    "en": "Bringing mountains of data together and, for the first time ever, enabling Beekeeper to make data-driven decisions"
+                },
+                "skillKey": "Database / Data Science / Analysis",
+                "weight": [
+                    8,
+                    8,
+                    7
+                ]
+            },
+            {
+                "context": {
+                    "de": "Planung und Erstellung einer Vision überhaupt für die Data-Funktion bei Beekeeper",
+                    "en": "Establishing and executing the mission, vision and roadmap of Data and Analytics at Beekeeper"
+                },
+                "skillKey": "Product and Project Management",
+                "weight": [
+                    2,
+                    2,
+                    3
+                ]
+            }
+        ]
+    },
+    {
+        "startDate": "10.2017",
+        "endDate": "06.2018",
+        "title": {
+            "de": "Produktverantwortliche",
+            "en": "Product Owner"
+        },
+        "employer": {
+            "de": "Beekeeper AG",
+            "en": "Beekeeper AG"
+        },
+        "location": {
+            "de": "Z&uuml;rich, Schweiz",
+            "en": "Zurich, Switzerland"
+        },
+        "details": [
+            {
+                "description": {
+                    "de": "Erstellung und Ausführung des benutzerfokussierten Entwicklungsplans mit einem sechsköpfigen Team. Übersah App-Freigabe-Zyklen für Android, iOS und Web Plattformen. Arbeitsablauf mittels JIRA, github.",
+                    "en": "Discovery, curation and execution of feature roadmap with a six-person team and focus on end-user experience. Release Management for Android, iOS and web apps. Constant stakeholder management in a high-growth environment. Workflow using JIRA and github."
+                },
+                "header": {
+                    "de": "PRODUCT OWNER, 'EMPLOYEE EXPERIENCE' TEAM",
+                    "en": "PRODUCT OWNER, 'EMPLOYEE EXPERIENCE' TEAM"
+                }
+            },
+            {
+                "description": {
+                    "de": "Führende Kraft hinter interner Datawarehousing-Lösung und Anwendung dessen für eine grosse Breite an Benutzer-Analysen",
+                    "en": "Managed technical side of data warehouse and conducted user behavior analysis using Looker and AWS Redshift to understand our users and our product better"
+                },
+                "header": {
+                    "de": "DATENANALYSE",
+                    "en": "DATA ANALYTICS"
+                }
+            }
+        ],
+        "skills": [
+            {
+                "context": {
+                    "de": "Verantwortlich für die 'Employee Experience' Roadmap und dessen Ausführung mit einem sechsköpfigen Team",
+                    "en": "Responsible for roadmap curation and execution with the six-person 'Employee Experience' team"
+                },
+                "skillKey": "Product and Project Management",
+                "weight": [
+                    8,
+                    8,
+                    8
+                ]
+            },
+            {
+                "context": {
+                    "de": "Datawarehousing Lösung mittels Amazon Redshift und Looker (LookML)",
+                    "en": "Datawarehousing solution using Amazon Redshift and Looker (LookML)"
+                },
+                "skillKey": "Database / Data Science / Analysis",
+                "weight": [
+                    2,
+                    2,
+                    2
+                ]
+            }
+        ]
+    },
+    {
+        "startDate": "04.2017",
+        "endDate": "10.2017",
+        "title": {
+            "de": "Software-Entwickler",
+            "en": "Software Engineer"
+        },
+        "employer": {
+            "de": "Beekeeper AG",
+            "en": "Beekeeper AG"
+        },
+        "location": {
+            "de": "Z&uuml;rich, Schweiz",
+            "en": "Zurich, Switzerland"
+        },
+        "details": [
+            {
+                "description": {
+                    "de": "Leitung verschiedener Feature-Teams, um neue Funktionalität in unsere Plattform zu bringen",
+                    "en": "Organized and coordinated various small and ephemeral implementation teams for our SaaS product"
+                },
+                "header": {
+                    "de": "PROJEKTLEITUNG",
+                    "en": "PROJECT MANAGEMENT"
+                }
+            },
+            {
+                "description": {
+                    "de": "Ausführung verschiedener Microservice- und Backend-Projekte in Java und Python: maschinelle Übersetzung",
+                    "en": "Programming work for various microservice and backend projects in Java and Python. Highlight: neural machine translation microservice"
+                },
+                "header": {
+                    "de": "PROGRAMMIERUNG",
+                    "en": "PROGRAMMING"
+                }
+            }
+        ],
+        "skills": [
+            {
+                "context": {
+                    "de": "Java (Lombok, WireMock) and Python (PIL, etc)",
+                    "en": "Java (Lombok, WireMock) and Python (PIL, etc)"
+                },
+                "skillKey": "Programming",
+                "weight": [
+                    10,
+                    7,
+                    5
+                ]
+            },
+            {
+                "context": {
+                    "de": "Scrum-basierte Koordination eines vierköpfigen Teams",
+                    "en": "Scrum-based coordination of a four-person team"
+                },
+                "skillKey": "Product and Project Management",
+                "weight": [
+                    0,
+                    4,
+                    5
+                ]
+            }
+        ]
+    },
+    {
+        "details": [
+            {
+                "description": {
+                    "de": "Realisierung technischer Software-Projekte relevant zur Turbinenmaschinenauslegung, CAD-Automatisierung",
+                    "en": "Unified a mix of client needs, technical capabilities and budgetary constraints to lead the development of technical software applications for the design and design automation of turbine machinery"
+                },
+                "header": {
+                    "de": "PROJEKTLEITUNG",
+                    "en": "PROJECT MANAGEMENT"
+                }
+            },
+            {
+                "description": {
+                    "de": "Realisierung von Software-Applikationen auf der C#-.NET Plattform. Wartung von BScript-Interpreter, eine hauseigene Skriptsprache für Flächenmodellierung",
+                    "en": "Implementation of technical software projects in C#-.NET. Maintenance and expansion of the BScript interpreter, a custom scripting language for 3D surface manipulation"
+                },
+                "header": {
+                    "de": "PROGRAMMIERUNG",
+                    "en": "PROGRAMMING"
+                }
+            },
+            {
+                "description": {
+                    "de": "methodische Erstellung und Inbetriebnahme von Roboterprogrammen (auf ABB Robotern), welche für industrielle Schweiss- und Beschichtungsprozesse eingesetzt werden",
+                    "en": "Offline-Programming and commissioning of industrial robots (ABB) for coating and welding based on free-form surfaces of turbine componentry"
+                },
+                "header": {
+                    "de": "ROBOTER-PROGRAMMIERUNG",
+                    "en": "ROBOT PROGRAMMING"
+                }
+            },
+            {
+                "description": {
+                    "de": "Einführung und Unterstützung von Mitarbeitern zu Themen der Software-Entwicklung: Theorie der (objektorientierten) Software-Architektur, Versionierung (git, svn), Arbeitsmethodik (Scrum, etc)",
+                    "en": "Technical teaching (courses, individual instruction) regarding software development: (object-oriented) software architechture, versioning systems, work processes"
+                },
+                "header": {
+                    "de": "BETREUUNG",
+                    "en": "TEACHING+SUPERVISION"
+                }
+            }
+        ],
+        "employer": {
+            "de": "SoftART Z&uuml;rich AG",
+            "en": "SoftART Zurich AG"
+        },
+        "startDate": "08.2013",
+        "endDate": "01.2017",
+        "title": {
+            "de": "Projektleiter, Programmierer",
+            "en": "Project Manager and Software Engineer"
+        },
+        "location": {
+            "de": "Z&uuml;rich, Schweiz",
+            "en": "Zurich, Switzerland"
+        },
+        "skills": [
+            {
+                "context": {
+                    "de": "C#/.NET + Visual Studio für technische Anwendung des Maschinenbaus",
+                    "en": "C#/.NET + Visual Studio for mechanical engineering applications"
+                },
+                "skillKey": "Programming",
+                "weight": [
+                    3.5,
+                    4,
+                    4
+                ]
+            },
+            {
+                "context": {
+                    "de": "Scrum, Konzipierung, Einsatzplanung für technische Software-Anwendungen",
+                    "en": "Coordination of client demands, budget and technical feasability to produce technical software appplications in a Scrum-based environment"
+                },
+                "skillKey": "Product and Project Management",
+                "weight": [
+                    3.5,
+                    4,
+                    5
+                ]
+            },
+            {
+                "context": {
+                    "de": "automatisierte Programmierung Industrieroboter, Berechnungswesen Wasserturbinen, Flächenmodellierung",
+                    "en": "Automation in industrial robotics, calculation systems for hydroelectric turbines, 3D CAD surface modelling"
+                },
+                "skillKey": "Mechanical Engineering",
+                "weight": [
+                    3,
+                    2,
+                    1
+                ]
+            }
+        ]
+    },
+    {
+        "details": [
+            {
+                "description": {
+                    "de": "Konzipierung und Umsetzung einer komplexen Software-Applikation",
+                    "en": "Planning and execution of a complex software application (C#, data model architecture)"
+                },
+                "header": {
+                    "de": "BACHELORTHESIS",
+                    "en": "BACHELOR THESIS"
+                }
+            },
+            {
+                "description": {
+                    "de": "<i>Objektorientierte Programmierung der Aufbereitung von Wellenstr&auml;ngen f&uuml;r rotordynamische Berechnungen</i>",
+                    "en": "<i>Object-Oriented Application for the Simplified Modelling of Drivetrains for Rotordynamic Calculations</i>"
+                },
+                "header": {
+                    "de": "TITEL",
+                    "en": "TITLE"
+                }
+            }
+        ],
+        "employer": {
+            "de": "MAN Diesel & Turbo Schweiz AG",
+            "en": "MAN Diesel & Turbo Schweiz AG"
+        },
+        "endDate": "01.2013",
+        "location": {
+            "de": "Z&uuml;rich, Schweiz",
+            "en": "Zurich, Switzerland"
+        },
+        "skills": [
+            {
+                "context": {
+                    "de": "C#/.NET + Visual Studio: Programm für rotordynamische Berechnung",
+                    "en": "C#/.NET + Visual Studio: program for rotordynamics"
+                },
+                "skillKey": "Programming",
+                "weight": 6
+            },
+            {
+                "context": {
+                    "de": "Software-Erstellung für die Berechnung rotordynamischer Effekte grösserer Kompressorenmaschinen",
+                    "en": "Programmed software for the calculation of rotordynamic effects for large compressor machines"
+                },
+                "skillKey": "Mechanical Engineering",
+                "weight": 4
+            }
+        ],
+        "startDate": "08.2012",
+        "title": {
+            "de": "Bachelorand, Abteilung CAD Tools",
+            "en": "Bachelor Thesis Student"
         }
-      },
-      {
-        "description": {
-          "de": "Ausf\u00fchrung verschiedener Microservice- und Backend-Projekte in Java und Python: maschinelle \u00dcbersetzung",
-          "en": "Programming work for various microservice and backend projects in Java and Python. Highlight: neural machine translation microservice"
+    },
+    {
+        "details": [
+            {
+                "description": {
+                    "de": "Konzipierung, Planung und Entwicklung hauptsächlich webbasierter Applikationen (siehe <i>Technologie</i>). Auftragsumfang zwischen 100h und 1000h.",
+                    "en": "Design and Development of web-based database applications (see <i>Skills</i>) in a myriad of business contexts"
+                },
+                "header": {
+                    "de": "FULL-STACK ENTWICKLER",
+                    "en": "FULL-STACK DEVELOPER"
+                }
+            }
+        ],
+        "employer": {
+            "de": "selbstständig",
+            "en": "self-employed"
         },
-        "header": {
-          "de": "PROGRAMMIERUNG",
-          "en": "PROGRAMMING"
+        "endDate": "08.2012",
+        "location": {
+            "de": "US, DE",
+            "en": "USA, Germany"
+        },
+        "skills": [
+            {
+                "context": {
+                    "de": "Web-Applikationen mit Einsatz von Perl + modperl, Ruby on Rails und PostgreSQL/mySQL/Oracle",
+                    "en": "Web applications using Perl + modperl, Ruby on Rails and PostgreSQL/mySQL/Oracle"
+                },
+                "skillKey": "Programming",
+                "weight": [
+                    3,
+                    5,
+                    1,
+                    0,
+                    0,
+                    0.5,
+                    1,
+                    0.5,
+                    0.5,
+                    3
+                ]
+            },
+            {
+                "context": {
+                    "de": "Projekt-Akquisition, Einsatzplanung (z.T. als Freiberuflicher Student)",
+                    "en": "Project acquisition, resource planning management (partly while studying)"
+                },
+                "skillKey": "Product and Project Management",
+                "weight": [
+                    0.5,
+                    1,
+                    0,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    2
+                ]
+            },
+            {
+                "context": {
+                    "de": "relationale Datenbank-Architektur (Oracle, PostgreSQL and mySQL) für Netzhandel-Applikationen. Beispiele: Online-Banking Module, ortsbezogene Datenauswertungsapplikation (Google Maps API), Kassensystem für Kletterhallen",
+                    "en": "relational database design (Oracle, PostgreSQL and mySQL) for e-commerce applications. Examples: online banking modules, maps-based information browsers (Google Maps API), POS system for climbing gyms"
+                },
+                "skillKey": "Database / Data Science / Analysis",
+                "weight": [
+                    3,
+                    0,
+                    0,
+                    0,
+                    0.5,
+                    2,
+                    2,
+                    1,
+                    1,
+                    0,
+                    3
+                ]
+            },
+            {
+                "context": {
+                    "de": "Linux für den Server (apache, sendmail, DNS), Netzwerk-Einrichtung und -Wartung",
+                    "en": "Linux in server environments (apache, sendmail, DNS), network setup and admin"
+                },
+                "skillKey": "General IT",
+                "weight": [
+                    2,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.5,
+                    1,
+                    1
+                ]
+            }
+        ],
+        "startDate": "01.2003",
+        "title": {
+            "de": "Software-Ingenieur",
+            "en": "Software Architect, Engineer"
         }
-      }
-    ],
-    "skills": [{
-        "context": {
-          "de": "Java (Lombok, WireMock) and Python (PIL, etc)",
-          "en": "Java (Lombok, WireMock) and Python (PIL, etc)"
+    },
+    {
+        "details": [
+            {
+                "description": {
+                    "de": "Auslegung, Modellbildung und Simulation hydraulischer Hebesysteme von Gabelstaplern. Von Konzipieren bis hin zur Versuchsdurchführung inklusive Endauswertung",
+                    "en": "Design, Modelling and Simulation of prototype hydraulic systems for forklifts. Primary goal of energy reclamation; from conception to implementation to the final evaluation."
+                },
+                "header": {
+                    "de": "IM VERSUCH",
+                    "en": "R&D TESTING"
+                }
+            }
+        ],
+        "employer": {
+            "de": "STILL GmbH",
+            "en": "STILL GmbH"
         },
-        "skillKey": "Programming",
-        "weight": [
-          10,
-          7,
-          5
-        ]
-      },
-      {
-        "context": {
-          "de": "Scrum-basierte Koordination eines vierk\u00f6pfigen Teams",
-          "en": "Scrum-based coordination of a four-person team"
+        "endDate": "03.2011",
+        "location": {
+            "de": "Hamburg, DE",
+            "en": "Hamburg, Germany"
         },
-        "skillKey": "Product and Project Management",
-        "weight": [
-          0,
-          4,
-          5
-        ]
-      }
-    ]
-  },
-  {
-    "details": [{
-        "description": {
-          "de": "Realisierung technischer Software-Projekte relevant zur Turbinenmaschinenauslegung, CAD-Automatisierung",
-          "en": "Unified a mix of client needs, technical capabilities and budgetary constraints to lead the development of technical software applications for the design and design automation of turbine machinery"
-        },
-        "header": {
-          "de": "PROJEKTLEITUNG",
-          "en": "PROJECT MANAGEMENT"
+        "skills": [
+            {
+                "context": {
+                    "de": "Modellierung, Prototypenbau von Hydrauliksystemen",
+                    "en": "Modeling and Prototyping Hydraulic Systems"
+                },
+                "skillKey": "Mechanical Engineering",
+                "weight": 3
+            },
+            {
+                "context": {
+                    "de": "Ausführliche Datenauswertung von Messergebnissen zur Bewertung von Energierückgewinnung (MATLAB)",
+                    "en": "Detailed sensor data analysis to evaluate energy reclamation using MATLAB"
+                },
+                "skillKey": "Database / Data Science / Analysis",
+                "weight": 2
+            },
+            {
+                "context": {
+                    "de": "Modellbildung, Auswertung in MATLAB, MATLAB-Simulink",
+                    "en": "Data modelling and evaluation in MATLAB, MATLAB-Simulink"
+                },
+                "skillKey": "Programming",
+                "weight": 2
+            }
+        ],
+        "startDate": "09.2010",
+        "title": {
+            "de": "Praktikant, Hydraulik-Entwicklung",
+            "en": "Mechanical Engineering Intern, Hydraulics R&D"
         }
-      },
-      {
-        "description": {
-          "de": "Realisierung von Software-Applikationen auf der C#-.NET Plattform. Wartung von BScript-Interpreter, eine hauseigene Skriptsprache f\u00fcr Fl\u00e4chenmodellierung",
-          "en": "Implementation of technical software projects in C#-.NET. Maintenance and expansion of the BScript interpreter, a custom scripting language for 3D surface manipulation"
+    },
+    {
+        "details": [
+            {
+                "description": {
+                    "de": "Training bei 2D Messsystemen in Karlsruhe; Analyse von Fahrdaten, Autobetreuung (Fahrwerkseinstellungen, Bestimmung von Reifen, etc) sowie Fahrerbetreuung am Rennwochenende",
+                    "en": "Training with <i>2D Messsystemen GmbH</i>; Analysis of driving data, car setup (suspension, tires, etc), driver coaching and support"
+                },
+                "header": {
+                    "de": "",
+                    "en": ""
+                }
+            }
+        ],
+        "employer": {
+            "de": "freiberuflich in Rennserien FIA GT3, ADAC GT Masters, VLN Langstrecke",
+            "en": "freelance in the FIA GT3, ADAC GT Masters, VLN Langstrecke race series"
         },
-        "header": {
-          "de": "PROGRAMMIERUNG",
-          "en": "PROGRAMMING"
+        "endDate": "05.2012",
+        "location": {
+            "de": "EUROPAWEIT",
+            "en": "EUROPE-WIDE"
+        },
+        "skills": [
+            {
+                "context": {
+                    "de": "Fahrwerk-Abstimmungen, Mathe (Dynamik/DGL)",
+                    "en": "Racecar setup, Math (DGL)"
+                },
+                "skillKey": "Mechanical Engineering",
+                "weight": 1
+            },
+            {
+                "context": {
+                    "de": "Auswertung der Rennwagen-Fahrdaten und Fahrerverhalten zwecks Fahrertraining",
+                    "en": "Analysis of racecar sensor data, driver data for the purpose of driver coaching"
+                },
+                "skillKey": "Database / Data Science / Analysis",
+                "weight": 1
+            }
+        ],
+        "startDate": "02.2009",
+        "title": {
+            "de": "Datenanalytiker, Renningenieur",
+            "en": "Data-Analyst, Racecar Engineer"
         }
-      },
-      {
-        "description": {
-          "de": "methodische Erstellung und Inbetriebnahme von Roboterprogrammen (auf ABB Robotern), welche f\u00fcr industrielle Schweiss- und Beschichtungsprozesse eingesetzt werden",
-          "en": "Offline-Programming and commissioning of industrial robots (ABB) for coating and welding based on free-form surfaces of turbine componentry"
+    },
+    {
+        "details": [
+            {
+                "description": {
+                    "de": "Auto-Import-Betrieb zwischen Zentralamerika und USA (13 Autos insg.). Überholung und Verkauf von Autos in den USA",
+                    "en": "Direction of collector car import service between Central America and the US.  Vehicle of choice: 40 series Toyota Landcruiser, number of vehicles imported: 13"
+                },
+                "header": {
+                    "de": "IMPORT+EXPORT",
+                    "en": "IMPORT+EXPORT"
+                }
+            }
+        ],
+        "employer": {
+            "de": "PanAm Offroad, Inc.",
+            "en": "PanAm Offroad, Inc."
         },
-        "header": {
-          "de": "ROBOTER-PROGRAMMIERUNG",
-          "en": "ROBOT PROGRAMMING"
+        "endDate": "06.2007",
+        "location": {
+            "de": "Zentralamerika; Atlanta, USA",
+            "en": "Central America; Atlanta, USA"
+        },
+        "skills": [
+            {
+                "context": {
+                    "de": "Geschäftsführer eines KMUs, Autoimport und Verkauf: Logistik zwischen Mittelamerika und USA, Verkauf",
+                    "en": "Owner and manager of auto-import start-up: transport logistics, marketing, planning"
+                },
+                "skillKey": "Product and Project Management",
+                "weight": 3
+            },
+            {
+                "context": {
+                    "de": "WIG-Schweissen (Alu, Stähle), Drehen und Fräsen",
+                    "en": "Welding (TIG, MIG with Aluminum and Steels), machining"
+                },
+                "skillKey": "Manual Mechanical Skills",
+                "weight": [
+                    1,
+                    0
+                ]
+            },
+            {
+                "context": {
+                    "de": "Auslegung/Design für Aufrüstungen für 40er-Serie Toyota LandCruiser: Scheibenbremsen, Servolenkung, Klimaanlage",
+                    "en": "Design and testing of hardware modifications for 40 series Toyota LandCruiser: disc brakes, air conditioning and power steering "
+                },
+                "skillKey": "Mechanical Engineering",
+                "weight": [
+                    1,
+                    0
+                ]
+            }
+        ],
+        "startDate": "03.2005",
+        "title": {
+            "de": "Gründer, Geschäftsführer",
+            "en": "Founder, CEO"
         }
-      },
-      {
-        "description": {
-          "de": "Einf\u00fchrung und Unterst\u00fctzung von Mitarbeitern zu Themen der Software-Entwicklung: Theorie der (objektorientierten) Software-Architektur, Versionierung (git, svn), Arbeitsmethodik (Scrum, etc)",
-          "en": "Technical teaching (courses, individual instruction) regarding software development: (object-oriented) software architechture, versioning systems, work processes"
+    },
+    {
+        "details": [
+            {
+                "description": {
+                    "de": "Mitarbeit in der Werkstatt (Entwicklung) und an der Rennstrecke (Boxenteam)",
+                    "en": "Technical assistance at the racetrack for race weekends (pit crew) as well as occasional assistance in the workshop"
+                },
+                "header": {
+                    "de": "amerikanische Le Mans Serie / GT2",
+                    "en": "American Le Mans Series / GT2"
+                }
+            }
+        ],
+        "employer": {
+            "de": "freiberuflich",
+            "en": "freelance"
         },
-        "header": {
-          "de": "BETREUUNG",
-          "en": "TEACHING+SUPERVISION"
+        "endDate": "08.2007",
+        "location": {
+            "de": "USA",
+            "en": "USA"
+        },
+        "skills": [
+            {
+                "context": {
+                    "de": "Rennwagen-Reparatur in Stresssituationen (Porsche, Ferrari)",
+                    "en": "Racecar repair work in high-pressure race scenarios (Porsche, Ferrari)"
+                },
+                "skillKey": "Manual Mechanical Skills",
+                "weight": 2
+            }
+        ],
+        "startDate": "10.2004",
+        "title": {
+            "de": "Rennwagenmechaniker",
+            "en": "Racecar Technician"
         }
-      }
-    ],
-    "employer": {
-      "de": "SoftART Z&uuml;rich AG",
-      "en": "SoftART Zurich AG"
     },
-		"startDate": "08.2013",
-    "endDate": "01.2017",
-		"title": {
-			"de": "Projektleiter, Programmierer",
-			"en": "Project Manager and Software Engineer"
-		},
-    "location": {
-      "de": "Z&uuml;rich, Schweiz",
-      "en": "Zurich, Switzerland"
-    },
-    "skills": [{
-        "context": {
-          "de": "C#/.NET + Visual Studio f\u00fcr technische Anwendung des Maschinenbaus",
-          "en": "C#/.NET + Visual Studio for mechanical engineering applications"
+    {
+        "details": [
+            {
+                "description": {
+                    "de": "viermonatige Ausbildung, anschließend als Vollzeitmechaniker übernommen worden",
+                    "en": "Four-month technician training program, subsequently hired as a full-time automotive technician. Responsible for a  wide-variety ofmaintenance tasks on primarily German and Japanese vehicles"
+                },
+                "header": {
+                    "de": "",
+                    "en": ""
+                }
+            }
+        ],
+        "employer": {
+            "de": "Decatur Automotive Center, Inc.",
+            "en": "Decatur Automotive Center, Inc."
         },
-        "skillKey": "Programming",
-        "weight": [
-          3.5,
-          4,
-          4
-        ]
-      },
-      {
-        "context": {
-          "de": "Scrum, Konzipierung, Einsatzplanung f\u00fcr technische Software-Anwendungen",
-          "en": "Coordination of client demands, budget and technical feasability to produce technical software appplications in a Scrum-based environment"
+        "endDate": "05.2005",
+        "location": {
+            "de": "Atlanta, USA",
+            "en": "Atlanta, USA"
         },
-        "skillKey": "Product and Project Management",
-        "weight": [
-          3.5,
-          4,
-          5
-        ]
-      },
-      {
-        "context": {
-          "de": "automatisierte Programmierung Industrieroboter, Berechnungswesen Wasserturbinen, Fl\u00e4chenmodellierung",
-          "en": "Automation in industrial robotics, calculation systems for hydroelectric turbines, 3D CAD surface modelling"
-        },
-        "skillKey": "Mechanical Engineering",
-        "weight": [
-          3,
-          2,
-          1
-        ]
-      }
-    ]
-  },
-  {
-    "details": [{
-        "description": {
-          "de": "Konzipierung und Umsetzung einer komplexen Software-Applikation",
-          "en": "Planning and execution of a complex software application (C#, data model architecture)"
-        },
-        "header": {
-          "de": "BACHELORTHESIS",
-          "en": "BACHELOR THESIS"
+        "skills": [
+            {
+                "context": {
+                    "de": "Kenntnisse der Auto-Reparatur, Schweissen (WIG/MIG), Drehen",
+                    "en": "Automotive repair, Welding (TIG/MIG) and machining"
+                },
+                "skillKey": "Manual Mechanical Skills",
+                "weight": 6
+            }
+        ],
+        "startDate": "07.2004",
+        "title": {
+            "de": "Auszubildender, Kfz-Mechaniker",
+            "en": "Automotive Apprentice, Technician"
         }
-      },
-      {
-        "description": {
-          "de": "<i>Objektorientierte Programmierung der Aufbereitung von Wellenstr&auml;ngen f&uuml;r rotordynamische Berechnungen</i>",
-          "en": "<i>Object-Oriented Application for the Simplified Modelling of Drivetrains for Rotordynamic Calculations</i>"
+    },
+    {
+        "details": [
+            {
+                "description": {
+                    "de": "Wartung des internen Netzwerks, Programmierung: Geschäftsoptimierungs- und Automatisierungsaufgaben, Online-Shop",
+                    "en": "Responsible for hardware test procedures, communication with modem manufacturers with regard to specifications"
+                },
+                "header": {
+                    "de": "NACH DER SCHULE (20h/w)",
+                    "en": "AFTER SCHOOL (20h/w)"
+                }
+            }
+        ],
+        "employer": {
+            "de": "Earthlink, Inc.",
+            "en": "Earthlink, Inc."
         },
-        "header": {
-          "de": "TITEL",
-          "en": "TITLE"
+        "endDate": "01.2003",
+        "location": {
+            "de": "Atlanta, USA",
+            "en": "Atlanta, USA"
+        },
+        "skills": [
+            {
+                "context": {
+                    "de": "C, Perl zur Auswertung von internen Umfragen und Testergebnissen",
+                    "en": "C, Perl for the evaluation of internal surveys and test results"
+                },
+                "skillKey": "Programming",
+                "weight": 4
+            },
+            {
+                "context": {
+                    "de": "Netzwerk-, DSL-Hardware, etc",
+                    "en": "DSL Hardware and general electronics hacking"
+                },
+                "skillKey": "General IT",
+                "weight": 1.5
+            },
+            {
+                "context": {
+                    "de": "Absprache mit DSL-Modem-Herstellern, Koordination von User-Testen (100+ Personen beta-Tests)",
+                    "en": "Communication with DSL modem vendors, coordination of user testing (100+ person beta-tests)"
+                },
+                "skillKey": "Product and Project Management",
+                "weight": [
+                    0.5,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    2
+                ]
+            }
+        ],
+        "startDate": "06.2000",
+        "title": {
+            "de": "Hardware-Entwickler",
+            "en": "Hardware Developer"
         }
-      }
-    ],
-    "employer": {
-      "de": "MAN Diesel & Turbo Schweiz AG",
-      "en": "MAN Diesel & Turbo Schweiz AG"
-    },
-    "endDate": "01.2013",
-    "location": {
-      "de": "Z&uuml;rich, Schweiz",
-      "en": "Zurich, Switzerland"
-    },
-    "skills": [{
-        "context": {
-          "de": "C#/.NET + Visual Studio: Programm f\u00fcr rotordynamische Berechnung",
-          "en": "C#/.NET + Visual Studio: program for rotordynamics"
-        },
-        "skillKey": "Programming",
-        "weight": 6
-      },
-      {
-        "context": {
-          "de": "Software-Erstellung f\u00fcr die Berechnung rotordynamischer Effekte gr\u00f6sserer Kompressorenmaschinen",
-          "en": "Programmed software for the calculation of rotordynamic effects for large compressor machines"
-        },
-        "skillKey": "Mechanical Engineering",
-        "weight": 4
-      }
-    ],
-    "startDate": "08.2012",
-    "title": {
-      "de": "Bachelorand, Abteilung CAD Tools",
-      "en": "Bachelor Thesis Student"
     }
-  },
-  {
-    "details": [{
-      "description": {
-        "de": "Konzipierung, Planung und Entwicklung haupts\u00e4chlich webbasierter Applikationen (siehe <i>Technologie</i>). Auftragsumfang zwischen 100h und 1000h.",
-        "en": "Design and Development of web-based database applications (see <i>Skills</i>) in a myriad of business contexts"
-      },
-      "header": {
-        "de": "FULL-STACK ENTWICKLER",
-        "en": "FULL-STACK DEVELOPER"
-      }
-    }],
-    "employer": {
-      "de": "selbstst\u00e4ndig",
-      "en": "self-employed"
-    },
-    "endDate": "08.2012",
-    "location": {
-      "de": "US, DE",
-      "en": "USA, Germany"
-    },
-    "skills": [{
-        "context": {
-          "de": "Web-Applikationen mit Einsatz von Perl + modperl, Ruby on Rails und PostgreSQL/mySQL/Oracle",
-          "en": "Web applications using Perl + modperl, Ruby on Rails and PostgreSQL/mySQL/Oracle"
-        },
-        "skillKey": "Programming",
-        "weight": [
-          3,
-          5,
-          1,
-          0,
-          0,
-          0.5,
-          1,
-          0.5,
-          0.5,
-          3
-        ]
-      },
-      {
-        "context": {
-          "de": "Projekt-Akquisition, Einsatzplanung (z.T. als Freiberuflicher Student)",
-          "en": "Project acquisition, resource planning management (partly while studying)"
-        },
-        "skillKey": "Product and Project Management",
-        "weight": [
-          0.5,
-          1,
-          0,
-          1,
-          1,
-          1,
-          1,
-          1,
-          0,
-          2
-        ]
-      },
-      {
-        "context": {
-          "de": "relationale Datenbank-Architektur (Oracle, PostgreSQL and mySQL) f\u00fcr Netzhandel-Applikationen. Beispiele: Online-Banking Module, ortsbezogene Datenauswertungsapplikation (Google Maps API), Kassensystem f\u00fcr Kletterhallen",
-          "en": "relational database design (Oracle, PostgreSQL and mySQL) for e-commerce applications. Examples: online banking modules, maps-based information browsers (Google Maps API), POS system for climbing gyms"
-        },
-        "skillKey": "Database / Data Science / Analysis",
-        "weight": [
-          3,
-          0,
-          0,
-          0,
-          0.5,
-          2,
-          2,
-          1,
-          1,
-          0,
-          3
-        ]
-      },
-      {
-        "context": {
-          "de": "Linux f\u00fcr den Server (apache, sendmail, DNS), Netzwerk-Einrichtung und -Wartung",
-          "en": "Linux in server environments (apache, sendmail, DNS), network setup and admin"
-        },
-        "skillKey": "General IT",
-        "weight": [
-          2,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0.5,
-          1,
-          1
-        ]
-      }
-    ],
-    "startDate": "01.2003",
-    "title": {
-      "de": "Software-Ingenieur",
-      "en": "Software Architect, Engineer"
-    }
-  },
-  {
-    "details": [{
-      "description": {
-        "de": "Auslegung, Modellbildung und Simulation hydraulischer Hebesysteme von Gabelstaplern. Von Konzipieren bis hin zur Versuchsdurchf\u00fchrung inklusive Endauswertung",
-        "en": "Design, Modelling and Simulation of prototype hydraulic systems for forklifts. Primary goal of energy reclamation; from conception to implementation to the final evaluation."
-      },
-      "header": {
-        "de": "IM VERSUCH",
-        "en": "R&D TESTING"
-      }
-    }],
-    "employer": {
-      "de": "STILL GmbH",
-      "en": "STILL GmbH"
-    },
-    "endDate": "03.2011",
-    "location": {
-      "de": "Hamburg, DE",
-      "en": "Hamburg, Germany"
-    },
-    "skills": [{
-        "context": {
-          "de": "Modellierung, Prototypenbau von Hydrauliksystemen",
-          "en": "Modeling and Prototyping Hydraulic Systems"
-        },
-        "skillKey": "Mechanical Engineering",
-        "weight": 3
-      },
-      {
-        "context": {
-          "de": "Ausf\u00fchrliche Datenauswertung von Messergebnissen zur Bewertung von Energier\u00fcckgewinnung (MATLAB)",
-          "en": "Detailed sensor data analysis to evaluate energy reclamation using MATLAB"
-        },
-        "skillKey": "Database / Data Science / Analysis",
-        "weight": 2
-      },
-      {
-        "context": {
-          "de": "Modellbildung, Auswertung in MATLAB, MATLAB-Simulink",
-          "en": "Data modelling and evaluation in MATLAB, MATLAB-Simulink"
-        },
-        "skillKey": "Programming",
-        "weight": 2
-      }
-    ],
-    "startDate": "09.2010",
-    "title": {
-      "de": "Praktikant, Hydraulik-Entwicklung",
-      "en": "Mechanical Engineering Intern, Hydraulics R&D"
-    }
-  },
-  {
-    "details": [{
-      "description": {
-        "de": "Training bei 2D Messsystemen in Karlsruhe; Analyse von Fahrdaten, Autobetreuung (Fahrwerkseinstellungen, Bestimmung von Reifen, etc) sowie Fahrerbetreuung am Rennwochenende",
-        "en": "Training with <i>2D Messsystemen GmbH</i>; Analysis of driving data, car setup (suspension, tires, etc), driver coaching and support"
-      },
-      "header": {
-        "de": "",
-        "en": ""
-      }
-    }],
-    "employer": {
-      "de": "freiberuflich in Rennserien FIA GT3, ADAC GT Masters, VLN Langstrecke",
-      "en": "freelance in the FIA GT3, ADAC GT Masters, VLN Langstrecke race series"
-    },
-    "endDate": "05.2012",
-    "location": {
-      "de": "EUROPAWEIT",
-      "en": "EUROPE-WIDE"
-    },
-    "skills": [{
-        "context": {
-          "de": "Fahrwerk-Abstimmungen, Mathe (Dynamik/DGL)",
-          "en": "Racecar setup, Math (DGL)"
-        },
-        "skillKey": "Mechanical Engineering",
-        "weight": 1
-      },
-      {
-        "context": {
-          "de": "Auswertung der Rennwagen-Fahrdaten und Fahrerverhalten zwecks Fahrertraining",
-          "en": "Analysis of racecar sensor data, driver data for the purpose of driver coaching"
-        },
-        "skillKey": "Database / Data Science / Analysis",
-        "weight": 1
-      }
-    ],
-    "startDate": "02.2009",
-    "title": {
-      "de": "Datenanalytiker, Renningenieur",
-      "en": "Data-Analyst, Racecar Engineer"
-    }
-  },
-  {
-    "details": [{
-      "description": {
-        "de": "Auto-Import-Betrieb zwischen Zentralamerika und USA (13 Autos insg.). \u00dcberholung und Verkauf von Autos in den USA",
-        "en": "Direction of collector car import service between Central America and the US.  Vehicle of choice: 40 series Toyota Landcruiser, number of vehicles imported: 13"
-      },
-      "header": {
-        "de": "IMPORT+EXPORT",
-        "en": "IMPORT+EXPORT"
-      }
-    }],
-    "employer": {
-      "de": "PanAm Offroad, Inc.",
-      "en": "PanAm Offroad, Inc."
-    },
-    "endDate": "06.2007",
-    "location": {
-      "de": "Zentralamerika; Atlanta, USA",
-      "en": "Central America; Atlanta, USA"
-    },
-    "skills": [{
-        "context": {
-          "de": "Gesch\u00e4ftsf\u00fchrer eines KMUs, Autoimport und Verkauf: Logistik zwischen Mittelamerika und USA, Verkauf",
-          "en": "Owner and manager of auto-import start-up: transport logistics, marketing, planning"
-        },
-        "skillKey": "Product and Project Management",
-        "weight": 3
-      },
-      {
-        "context": {
-          "de": "WIG-Schweissen (Alu, St\u00e4hle), Drehen und Fr\u00e4sen",
-          "en": "Welding (TIG, MIG with Aluminum and Steels), machining"
-        },
-        "skillKey": "Manual Mechanical Skills",
-        "weight": [
-          1,
-          0
-        ]
-      },
-      {
-        "context": {
-          "de": "Auslegung/Design f\u00fcr Aufr\u00fcstungen f\u00fcr 40er-Serie Toyota LandCruiser: Scheibenbremsen, Servolenkung, Klimaanlage",
-          "en": "Design and testing of hardware modifications for 40 series Toyota LandCruiser: disc brakes, air conditioning and power steering "
-        },
-        "skillKey": "Mechanical Engineering",
-        "weight": [
-          1,
-          0
-        ]
-      }
-    ],
-    "startDate": "03.2005",
-    "title": {
-      "de": "Gr\u00fcnder, Gesch\u00e4ftsf\u00fchrer",
-      "en": "Founder, CEO"
-    }
-  },
-  {
-    "details": [{
-      "description": {
-        "de": "Mitarbeit in der Werkstatt (Entwicklung) und an der Rennstrecke (Boxenteam)",
-        "en": "Technical assistance at the racetrack for race weekends (pit crew) as well as occasional assistance in the workshop"
-      },
-      "header": {
-        "de": "amerikanische Le Mans Serie / GT2",
-        "en": "American Le Mans Series / GT2"
-      }
-    }],
-    "employer": {
-      "de": "freiberuflich",
-      "en": "freelance"
-    },
-    "endDate": "08.2007",
-    "location": {
-      "de": "USA",
-      "en": "USA"
-    },
-    "skills": [{
-      "context": {
-        "de": "Rennwagen-Reparatur in Stresssituationen (Porsche, Ferrari)",
-        "en": "Racecar repair work in high-pressure race scenarios (Porsche, Ferrari)"
-      },
-      "skillKey": "Manual Mechanical Skills",
-      "weight": 2
-    }],
-    "startDate": "10.2004",
-    "title": {
-      "de": "Rennwagenmechaniker",
-      "en": "Racecar Technician"
-    }
-  },
-  {
-    "details": [{
-      "description": {
-        "de": "viermonatige Ausbildung, anschlie\u00dfend als Vollzeitmechaniker \u00fcbernommen worden",
-        "en": "Four-month technician training program, subsequently hired as a full-time automotive technician. Responsible for a  wide-variety ofmaintenance tasks on primarily German and Japanese vehicles"
-      },
-      "header": {
-        "de": "",
-        "en": ""
-      }
-    }],
-    "employer": {
-      "de": "Decatur Automotive Center, Inc.",
-      "en": "Decatur Automotive Center, Inc."
-    },
-    "endDate": "05.2005",
-    "location": {
-      "de": "Atlanta, USA",
-      "en": "Atlanta, USA"
-    },
-    "skills": [{
-      "context": {
-        "de": "Kenntnisse der Auto-Reparatur, Schweissen (WIG/MIG), Drehen",
-        "en": "Automotive repair, Welding (TIG/MIG) and machining"
-      },
-      "skillKey": "Manual Mechanical Skills",
-      "weight": 6
-    }],
-    "startDate": "07.2004",
-    "title": {
-      "de": "Auszubildender, Kfz-Mechaniker",
-      "en": "Automotive Apprentice, Technician"
-    }
-  },
-  {
-    "details": [{
-      "description": {
-        "de": "Wartung des internen Netzwerks, Programmierung: Gesch\u00e4ftsoptimierungs- und Automatisierungsaufgaben, Online-Shop",
-        "en": "Responsible for hardware test procedures, communication with modem manufacturers with regard to specifications"
-      },
-      "header": {
-        "de": "NACH DER SCHULE (20h/w)",
-        "en": "AFTER SCHOOL (20h/w)"
-      }
-    }],
-    "employer": {
-      "de": "Earthlink, Inc.",
-      "en": "Earthlink, Inc."
-    },
-    "endDate": "01.2003",
-    "location": {
-      "de": "Atlanta, USA",
-      "en": "Atlanta, USA"
-    },
-    "skills": [{
-        "context": {
-          "de": "C, Perl zur Auswertung von internen Umfragen und Testergebnissen",
-          "en": "C, Perl for the evaluation of internal surveys and test results"
-        },
-        "skillKey": "Programming",
-        "weight": 4
-      },
-      {
-        "context": {
-          "de": "Netzwerk-, DSL-Hardware, etc",
-          "en": "DSL Hardware and general electronics hacking"
-        },
-        "skillKey": "General IT",
-        "weight": 1.5
-      },
-      {
-        "context": {
-          "de": "Absprache mit DSL-Modem-Herstellern, Koordination von User-Testen (100+ Personen beta-Tests)",
-          "en": "Communication with DSL modem vendors, coordination of user testing (100+ person beta-tests)"
-        },
-        "skillKey": "Product and Project Management",
-        "weight": [
-          0.5,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          0,
-          2
-        ]
-      }
-    ],
-    "startDate": "06.2000",
-    "title": {
-      "de": "Hardware-Entwickler",
-      "en": "Hardware Developer"
-    }
-  }
 ]
