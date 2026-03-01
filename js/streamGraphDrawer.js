@@ -30,12 +30,14 @@ function DrawStreamGraph(skillsHash, graphStartYear, svgName, height, colorSchem
   colors[3] = "#CE5C1D";
   colors[4] = "#8EC0F2";
 
-  if (colorSchema == 'orange')
-    colors = ["#E07A5F", "#C4637A", "#9B4534", "#F0A07A", "#F5C4A8", "#FDEBD8"];
+  if (colorSchema == 'orange')    
+    colors = ["#E07A5F", "#C4637A", "#9B4534", "#F0A07A", "#F5C4A8", "#FDEBD8",
+              "#B84A6A", "#D4956E", "#A03828", "#F8D5C0"];
   else if (colorSchema == 'green')
     colors = ["#1E5846", "#2D7D12", "#3E7E56", "#6BA55F", "#A4CA64", "#E8ED69"];
   else if (colorSchema == 'blue')
-    colors = ["#3A9E8C", "#5BBFAD", "#7CCFC0", "#2A7E6E", "#A0DFD4", "#C8F0EB"];
+    colors = ["#3A9E8C", "#5BBFAD", "#7CCFC0", "#2A7E6E", "#A0DFD4", "#C8F0EB",
+              "#1E7A68", "#89C5BB", "#D8F0EC", "#4E8580"];
 
   // Initial setup of our svg
   var containerWidth = document.getElementById("svg-container").clientWidth;
