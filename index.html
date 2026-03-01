@@ -1,7 +1,7 @@
 
 <html>
 <head>
-	<title>Mesa — Nick Spitzer C.V.</title>
+	<title>Nick Spitzer's C.V.</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -205,12 +205,13 @@ function Initialize()
 	).then(
 		function()
 		{
-		 	var userLang = navigator.language || navigator.userLanguage;
-
 			var language = "en";
-			if (userLang.toLowerCase().indexOf("de") > -1)
-				language = "de";
 
+			// Commenting this out to default to English! Might change my mind later...
+			// var userLang = navigator.language || navigator.userLanguage;
+			// if (userLang.toLowerCase().indexOf("de") > -1)
+			// 	language = "de";
+			
 			SetLanguage(language);
 
 			var graphStart = graphCutoffYear || startYear;
