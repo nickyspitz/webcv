@@ -42,16 +42,16 @@
                     "de": "Skalierung von Cloud-Infrastruktur-Lösungen bei DAX/Fortune-500 Unternehmen",
                     "en": "Scaling cloud infrastructure solutions at DAX/Fortune-500 organizations"
                 },
-                "skillKey": "Sales & Business Development",
-                "weight": [9, 9, 8]
+                "skillKey": "GTM & Strategy",
+                "weight": [5, 7, 8]
             },
             {
                 "context": {
                     "de": "Aufbau und Führung regionaler Teams in einem High-Growth SaaS Umfeld",
-                    "en": "Establishing and leading regional teams in a high-growth SaaS environment"
+                    "en": "Establishing structures, processes, and people in a high-growth SaaS environment"
                 },
-                "skillKey": "Product and Project Management",
-                "weight": [7, 8, 8]
+                "skillKey": "Product Leadership",
+                "weight": [5, 3, 2]
             }
         ]
     },
@@ -108,7 +108,7 @@
                     "de": "Erstmalige Zusammenführung großer Mengen Produkt- und Finanzdaten, um der Organisation datengetriebene Entscheidungen zu ermöglichen",
                     "en": "Bringing mountains of data together and, for the first time ever, enabling Beekeeper to make data-driven decisions"
                 },
-                "skillKey": "Database / Data Science / Analysis",
+                "skillKey": "Data & Insights",
                 "weight": [
                     8,
                     8,
@@ -120,7 +120,7 @@
                     "de": "Planung und Erstellung einer Vision überhaupt für die Data-Funktion bei Beekeeper",
                     "en": "Establishing and executing the mission, vision and roadmap of Data and Analytics at Beekeeper"
                 },
-                "skillKey": "Product and Project Management",
+                "skillKey": "Product Leadership",
                 "weight": [
                     2,
                     2,
@@ -172,7 +172,7 @@
                     "de": "Verantwortlich für die 'Employee Experience' Roadmap und dessen Ausführung mit einem sechsköpfigen Team",
                     "en": "Responsible for roadmap curation and execution with the six-person 'Employee Experience' team"
                 },
-                "skillKey": "Product and Project Management",
+                "skillKey": "Product Leadership",
                 "weight": [
                     8,
                     8,
@@ -184,7 +184,7 @@
                     "de": "Datawarehousing Lösung mittels Amazon Redshift und Looker (LookML)",
                     "en": "Datawarehousing solution using Amazon Redshift and Looker (LookML)"
                 },
-                "skillKey": "Database / Data Science / Analysis",
+                "skillKey": "Data & Insights",
                 "weight": [
                     2,
                     2,
@@ -236,7 +236,7 @@
                     "de": "Java (Lombok, WireMock) and Python (PIL, etc)",
                     "en": "Java (Lombok, WireMock) and Python (PIL, etc)"
                 },
-                "skillKey": "Programming",
+                "skillKey": ",
                 "weight": [
                     10,
                     7,
@@ -248,7 +248,7 @@
                     "de": "Scrum-basierte Koordination eines vierköpfigen Teams",
                     "en": "Scrum-based coordination of a four-person team"
                 },
-                "skillKey": "Product and Project Management",
+                "skillKey": "Product Leadership",
                 "weight": [
                     0,
                     4,
@@ -320,7 +320,7 @@
                     "de": "C#/.NET + Visual Studio für technische Anwendung des Maschinenbaus",
                     "en": "C#/.NET + Visual Studio for mechanical engineering applications"
                 },
-                "skillKey": "Programming",
+                "skillKey": ",
                 "weight": [
                     3.5,
                     4,
@@ -332,7 +332,7 @@
                     "de": "Scrum, Konzipierung, Einsatzplanung für technische Software-Anwendungen",
                     "en": "Coordination of client demands, budget and technical feasability to produce technical software appplications in a Scrum-based environment"
                 },
-                "skillKey": "Product and Project Management",
+                "skillKey": "Product Leadership",
                 "weight": [
                     3.5,
                     4,
@@ -344,7 +344,7 @@
                     "de": "automatisierte Programmierung Industrieroboter, Berechnungswesen Wasserturbinen, Flächenmodellierung",
                     "en": "Automation in industrial robotics, calculation systems for hydroelectric turbines, 3D CAD surface modelling"
                 },
-                "skillKey": "Mechanical Engineering",
+                "skillKey": "Technical Engineering",
                 "weight": [
                     3,
                     2,
@@ -391,7 +391,7 @@
                     "de": "C#/.NET + Visual Studio: Programm für rotordynamische Berechnung",
                     "en": "C#/.NET + Visual Studio: program for rotordynamics"
                 },
-                "skillKey": "Programming",
+                "skillKey": ",
                 "weight": 6
             },
             {
@@ -399,7 +399,7 @@
                     "de": "Software-Erstellung für die Berechnung rotordynamischer Effekte grösserer Kompressorenmaschinen",
                     "en": "Programmed software for the calculation of rotordynamic effects for large compressor machines"
                 },
-                "skillKey": "Mechanical Engineering",
+                "skillKey": "Technical Engineering",
                 "weight": 4
             }
         ],
@@ -437,7 +437,7 @@
                     "de": "Web-Applikationen mit Einsatz von Perl + modperl, Ruby on Rails und PostgreSQL/mySQL/Oracle",
                     "en": "Web applications using Perl + modperl, Ruby on Rails and PostgreSQL/mySQL/Oracle"
                 },
-                "skillKey": "Programming",
+                "skillKey": ",
                 "weight": [
                     3,
                     5,
@@ -456,7 +456,7 @@
                     "de": "Projekt-Akquisition, Einsatzplanung (z.T. als Freiberuflicher Student)",
                     "en": "Project acquisition, resource planning management (partly while studying)"
                 },
-                "skillKey": "Product and Project Management",
+                "skillKey": "Product Leadership",
                 "weight": [
                     0.5,
                     1,
@@ -475,7 +475,7 @@
                     "de": "relationale Datenbank-Architektur (Oracle, PostgreSQL and mySQL) für Netzhandel-Applikationen. Beispiele: Online-Banking Module, ortsbezogene Datenauswertungsapplikation (Google Maps API), Kassensystem für Kletterhallen",
                     "en": "relational database design (Oracle, PostgreSQL and mySQL) for e-commerce applications. Examples: online banking modules, maps-based information browsers (Google Maps API), POS system for climbing gyms"
                 },
-                "skillKey": "Database / Data Science / Analysis",
+                "skillKey": "Data & Insights",
                 "weight": [
                     3,
                     0,
@@ -544,7 +544,7 @@
                     "de": "Modellierung, Prototypenbau von Hydrauliksystemen",
                     "en": "Modeling and Prototyping Hydraulic Systems"
                 },
-                "skillKey": "Mechanical Engineering",
+                "skillKey": "Technical Engineering",
                 "weight": 3
             },
             {
@@ -552,7 +552,7 @@
                     "de": "Ausführliche Datenauswertung von Messergebnissen zur Bewertung von Energierückgewinnung (MATLAB)",
                     "en": "Detailed sensor data analysis to evaluate energy reclamation using MATLAB"
                 },
-                "skillKey": "Database / Data Science / Analysis",
+                "skillKey": "Data & Insights",
                 "weight": 2
             },
             {
@@ -560,7 +560,7 @@
                     "de": "Modellbildung, Auswertung in MATLAB, MATLAB-Simulink",
                     "en": "Data modelling and evaluation in MATLAB, MATLAB-Simulink"
                 },
-                "skillKey": "Programming",
+                "skillKey": ",
                 "weight": 2
             }
         ],
@@ -598,7 +598,7 @@
                     "de": "Fahrwerk-Abstimmungen, Mathe (Dynamik/DGL)",
                     "en": "Racecar setup, Math (DGL)"
                 },
-                "skillKey": "Mechanical Engineering",
+                "skillKey": "Technical Engineering",
                 "weight": 1
             },
             {
@@ -606,7 +606,7 @@
                     "de": "Auswertung der Rennwagen-Fahrdaten und Fahrerverhalten zwecks Fahrertraining",
                     "en": "Analysis of racecar sensor data, driver data for the purpose of driver coaching"
                 },
-                "skillKey": "Database / Data Science / Analysis",
+                "skillKey": "Data & Insights",
                 "weight": 1
             }
         ],
@@ -644,7 +644,7 @@
                     "de": "Geschäftsführer eines KMUs, Autoimport und Verkauf: Logistik zwischen Mittelamerika und USA, Verkauf",
                     "en": "Owner and manager of auto-import start-up: transport logistics, marketing, planning"
                 },
-                "skillKey": "Product and Project Management",
+                "skillKey": "Product Leadership",
                 "weight": 3
             },
             {
@@ -652,7 +652,7 @@
                     "de": "WIG-Schweissen (Alu, Stähle), Drehen und Fräsen",
                     "en": "Welding (TIG, MIG with Aluminum and Steels), machining"
                 },
-                "skillKey": "Manual Mechanical Skills",
+                "skillKey": "Technical Engineering",
                 "weight": [
                     1,
                     0
@@ -663,7 +663,7 @@
                     "de": "Auslegung/Design für Aufrüstungen für 40er-Serie Toyota LandCruiser: Scheibenbremsen, Servolenkung, Klimaanlage",
                     "en": "Design and testing of hardware modifications for 40 series Toyota LandCruiser: disc brakes, air conditioning and power steering "
                 },
-                "skillKey": "Mechanical Engineering",
+                "skillKey": "Technical Engineering",
                 "weight": [
                     1,
                     0
@@ -704,7 +704,7 @@
                     "de": "Rennwagen-Reparatur in Stresssituationen (Porsche, Ferrari)",
                     "en": "Racecar repair work in high-pressure race scenarios (Porsche, Ferrari)"
                 },
-                "skillKey": "Manual Mechanical Skills",
+                "skillKey": "Technical Engineering",
                 "weight": 2
             }
         ],
@@ -742,7 +742,7 @@
                     "de": "Kenntnisse der Auto-Reparatur, Schweissen (WIG/MIG), Drehen",
                     "en": "Automotive repair, Welding (TIG/MIG) and machining"
                 },
-                "skillKey": "Manual Mechanical Skills",
+                "skillKey": "Technical Engineering",
                 "weight": 6
             }
         ],
@@ -780,7 +780,7 @@
                     "de": "C, Perl zur Auswertung von internen Umfragen und Testergebnissen",
                     "en": "C, Perl for the evaluation of internal surveys and test results"
                 },
-                "skillKey": "Programming",
+                "skillKey": "Software Engineering",
                 "weight": 4
             },
             {
@@ -796,7 +796,7 @@
                     "de": "Absprache mit DSL-Modem-Herstellern, Koordination von User-Testen (100+ Personen beta-Tests)",
                     "en": "Communication with DSL modem vendors, coordination of user testing (100+ person beta-tests)"
                 },
-                "skillKey": "Product and Project Management",
+                "skillKey": "Product Leadership",
                 "weight": [
                     0.5,
                     1,
