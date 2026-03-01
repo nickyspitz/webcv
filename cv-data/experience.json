@@ -32,26 +32,26 @@
                 },
                 "description": {
                     "de": "Gründungsmitglied des EMEA-Teams von dbt Labs (Wachstum von 0 auf 40+ Mitarbeitende). Fokus auf die Markteinführung und Skalierung von dbt Cloud bei den größten Organisationen in Europa (insb. DACH). Mitwirkung am Aufbau regionaler Funktionen wie Partner-Management, Marketing und Recht sowie aktives Recruiting.",
-                    "en": "Founding member of dbt Labs' EMEA team, now over 40 people. Focused on productively launching and scaling dbt Cloud at Europe's (and currently DACH's) largest organizations. Helping to grow ancillary functions of a new region by influencing and establishing processes, as well as actively hiring within partner, marketing and legal functions."
+                    "en": "Founding member of dbt Labs' EMEA team, now over 40 people. Focused on productively launching and scaling dbt Cloud at Europe's (and currently DACH's) largest organizations. Awarded 'The Builder' trophy for helping to grow ancillary functions of a new region by influencing and establishing processes, as well as actively hiring within partner, marketing and legal functions."
                 }
             }
         ],
         "skills": [
             {
                 "context": {
-                    "de": "Skalierung von Cloud-Infrastruktur-Lösungen bei DAX/Fortune-500 Unternehmen",
-                    "en": "Scaling cloud infrastructure solutions at DAX/Fortune-500 organizations"
+                    "de": "Skalierung von Cloud-Daten-Lösungen bei DAX/Fortune-500 Unternehmen",
+                    "en": "Scaling cloud data solutions at DAX/Fortune-500 organizations"
                 },
                 "skillKey": "GTM & Strategy",
-                "weight": [5, 7, 8]
+                "weight": [6, 7, 9]
             },
             {
                 "context": {
-                    "de": "Aufbau und Führung regionaler Teams in einem High-Growth SaaS Umfeld",
+                    "de": "Aufbau eines regionalen Teams in einem High-Growth SaaS Umfeld",
                     "en": "Establishing structures, processes, and people in a high-growth SaaS environment"
                 },
-                "skillKey": "Product Leadership",
-                "weight": [5, 3, 2]
+                "skillKey": "Pioneering",
+                "weight": [4, 3, 1]
             }
         ]
     },
