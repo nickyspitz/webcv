@@ -1,0 +1,304 @@
+
+<html>
+<head>
+	<title>Mesa — Nick Spitzer C.V.</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-KK5GXMH');</script>
+	<!-- End Google Tag Manager -->
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/pure.js"></script>
+	<script src="js/d3.v2.min.js"></script>
+
+	<script src="js/streamGraphDrawer.js"></script>
+	<script src="js/jsonProcessor.js"></script>
+
+	<link href="css/google-fonts.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/cv.css">
+
+</head>
+
+<body onLoad="Initialize();">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KK5GXMH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="tooltip" id="tooltip"></div>
+
+<header class="cv-header">
+  <div class="cv-header-info">
+    <div class="header-top">
+      <div class="header-name">
+        <h1>NICK SPITZER <span class="cv-badge">C.V.</span></h1>
+        <div class="header-actions">
+          <a href="" onClick="SetLanguage('en');return false;" class="lang-selection" id="lang-en">EN</a>
+          <span class="lang-divider">/</span>
+          <a href="" onClick="SetLanguage('de');return false;" class="lang-selection" id="lang-de">DE</a>
+          <a href="index-pdf.html" class="print-link">PDF</a>
+        </div>
+      </div>
+      <div class="header-contact">
+        <div class="contact-col-left">
+          <span class="infoName"></span>
+          <span class="infoBirthday"></span>
+          <span class="infoNationality"></span>
+        </div>
+        <div class="contact-col-right">
+          <span class="infoAddress1"></span>
+          <span class="infoAddress2"></span>
+          <span class="infoAddress3"></span>
+          <span class="infoPhone"></span>
+          <span class="infoEmail">nick@nickspitzer.com</span>
+        </div>
+      </div>
+    </div>
+    <div class="header-bottom">
+      <span class="header-statement infoStatement"></span>
+    </div>
+  </div>
+</header>
+
+<div class="cv-graphs">
+  <div id="svg-container" class="streamgraphContainer">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg"></svg>
+    <div id="vertical"></div>
+    <div id="year"></div>
+    <div class="svgXaxes" id="startDateSvg"></div>
+    <div class="svgXaxes" id="endDateSvg"></div>
+    <div class="svgXaxes" id="fullTimeMarker" style="opacity:0;">FULL-TIME WORK</div>
+  </div>
+  <div class="svg-hobby-container">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg-hobby"></svg>
+  </div>
+</div>
+
+<main class="cv-main">
+
+  <div class="meta-experience"><span class="experience-label"></span></div>
+
+  <div class="experience-table">
+    <div class="info-row">
+      <div class="card-meta">
+        <span class="startDate">-</span> &ndash; <span class="endDate">-</span>
+        <small class="location_name">-</small>
+      </div>
+      <div class="card-body">
+        <span class="title">-</span>
+        <small class="employer">-</small>
+        <h5 class="details-list">
+          <small class="details-header">-</small>
+          <span class="details">-</span>
+        </h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="meta-education"><span class="education-label"></span></div>
+
+  <div class="education-table">
+    <div class="info-row">
+      <div class="card-meta">
+        <span class="startDate">-</span> &ndash; <span class="endDate">-</span>
+        <small class="location_name">-</small>
+      </div>
+      <div class="card-body">
+        <span class="title">-</span>
+        <small class="employer">-</small>
+        <h5 class="details-list">
+          <small class="details-header">-</small>
+          <span class="details">-</span>
+        </h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="meta-languages"><span class="languages-label"></span></div>
+
+  <div class="languages">
+    <span class="info-languages"></span>
+  </div>
+
+  <div class="meta-about">
+    <span class="cv-about"></span>
+  </div>
+
+</main>
+
+<script>
+
+var personalInfoJson;
+var experienceJson;
+var educationJson;
+var hobbyJson;
+
+var experienceHtml;
+var educationHtml;
+
+var metaJson;
+
+var startYear = 2010;
+
+var BIRTH = { year: 1984, month: 10 };  // October 1984 — used to display age, not stored in JSON
+
+function calcAge() {
+  var now = new Date();
+  var age = now.getFullYear() - BIRTH.year;
+  if (now.getMonth() + 1 < BIRTH.month) age--;
+  return age;
+}
+
+// Cutoff dates — edit defaults directly, or override via URL params:
+//   ?graphCutoff=2012       (year the graph x-axis starts, year only)
+//   ?textCutoff=2016-06     (hide entries that ended before June 2016)
+var graphCutoffYear = null;  // null = show full timeline (back to startYear)
+var textCutoff      = null;  // null = show all entries; or {year, month} object
+
+function parseCutoff(str) {
+  if (!str) return null;
+  var parts = str.split('-');
+  return { year: parseInt(parts[0]), month: parts.length > 1 ? parseInt(parts[1]) : 1 };
+}
+
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  if (params.get('graphCutoff')) graphCutoffYear = parseInt(params.get('graphCutoff'));
+  if (params.get('textCutoff'))  textCutoff = parseCutoff(params.get('textCutoff'));
+})();
+
+function filterByCutoff(items, cutoff) {
+  if (!cutoff) return items;
+  return items.filter(function(item) {
+    if (item.endDate === 'aktuell') return true;
+    var parts = item.endDate.split('.');  // format: "MM.YYYY"
+    var endMonth = parseInt(parts[0]);
+    var endYear  = parseInt(parts[1]);
+    if (endYear !== cutoff.year) return endYear > cutoff.year;
+    return endMonth >= cutoff.month;
+  });
+}
+
+function Initialize()
+{
+
+	var yearsBack = 15;
+	startYear = new Date().getFullYear() - yearsBack;
+
+	// grab the template HTML
+	experienceHtml = $('.experience-table').html();
+	educationHtml = $('.education-table').html();
+
+	$.when(
+		$.getJSON('cv-data/personal-info.json', function(json) { personalInfoJson = json; }),
+		$.getJSON('cv-data/experience.json', function(json) { experienceJson = json; }),
+		$.getJSON('cv-data/education.json', function(json) { educationJson = json; }),
+		$.getJSON('cv-data/meta.json', function(json) { metaJson = json; }),
+		$.getJSON('cv-data/hobby.json', function(json) { hobbyJson = json; })
+	).then(
+		function()
+		{
+		 	var userLang = navigator.language || navigator.userLanguage;
+
+			var language = "en";
+			if (userLang.toLowerCase().indexOf("de") > -1)
+				language = "de";
+
+			SetLanguage(language);
+
+			var graphStart = graphCutoffYear || startYear;
+
+			var skillsHash = ProcessJson(experienceJson, graphStart, language);
+			DrawStreamGraph(skillsHash, graphStart, "#svg", 400, 'orange');
+
+			var hobbyHash = ProcessJson(hobbyJson, graphStart, language);
+			DrawStreamGraph(hobbyHash, graphStart, "#svg-hobby", 200, 'blue');
+
+			// Redraw
+			ReattachData(experienceJson, graphStart, "#svg", language);
+			ReattachData(hobbyJson, graphStart, "#svg-hobby", language);
+		}
+	);
+
+}
+
+function SetLanguage(language)
+{
+
+	// Highlight correct language button
+	$('.lang-selection').removeClass('lang-selected');
+	$('#lang-'+language).addClass('lang-selected');
+
+	// Clear the details list (it will duplicate itself otherwise)
+	$('.experience-table').html(experienceHtml);
+	$('.education-table').html(educationHtml);
+
+	var directive = {
+		'div.info-row':{
+			'infoItem<-':{ //for each entry in the json array name the element 'infoItem'
+			'span.startDate': 'infoItem.startDate',
+			'span.endDate': function() { return (this.endDate == "aktuell" && language == "en") ? "current" : this.endDate; },
+			'small.location_name': function() { return this.location[language]; },
+			'span.title':  function() { return this.title[language]; },
+			'small.employer': function() { return this.employer[language]; },
+			'h5.details-list':
+				{
+					'detail<-infoItem.details':
+					{
+     				'small.details-header': function() { return this.header[language]; },
+	        		'span.details': function() { return this.description[language]; }
+					}
+				}
+    }
+		}
+	};
+
+	$p( 'div.meta-experience' ).render( metaJson, { 'span.experience-label' : function() { return this.labelExperience[language]; }, });
+	$p( 'div.meta-languages' ).render( metaJson, { 'span.languages-label' : function() { return this.labelLanguages[language]; }, });
+	$p( 'div.meta-education' ).render( metaJson, { 'span.education-label' : function() { return this.labelEducation[language]; }, });
+	$p( 'div.meta-about' ).render( metaJson, { 'span.cv-about' : function() { return this.textAbout[language]; }, });
+	$p( 'div.languages' ).render( personalInfoJson, { 'span.info-languages' : function() { return this.infoLanguages[language]; }, });
+
+	$p( 'div.cv-header-info' ).render( personalInfoJson,
+	{
+		'span.infoName' : 'infoName',
+		'span.infoBirthday' : function() { return calcAge() + (language === 'de' ? ' Jahre alt' : ' years of age'); },
+		'span.infoNationality' : function() { return this.infoNationality[language]; },
+		'span.infoAddress1' : 'infoAddress1',
+		'span.infoAddress2' : 'infoAddress2',
+		'span.infoAddress3' : function() { return this.infoAddress3[language]; },
+		'span.infoPhone' : 'infoPhone',
+		'span.infoStatement' : function() { return this.statement[language]; },
+	});
+
+	$p( 'div.experience-table' ).render( filterByCutoff(experienceJson, textCutoff), directive );
+	$p( 'div.education-table' ).render( filterByCutoff(educationJson, textCutoff), directive );
+
+	// Redraw
+	var graphStart = graphCutoffYear || startYear;
+	ReattachData(experienceJson, graphStart, "#svg", language);
+	ReattachData(hobbyJson, graphStart, "#svg-hobby", language);
+
+}
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-81331638-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
