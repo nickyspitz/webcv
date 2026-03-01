@@ -236,7 +236,7 @@
                     "de": "Java (Lombok, WireMock) and Python (PIL, etc)",
                     "en": "Java (Lombok, WireMock) and Python (PIL, etc)"
                 },
-                "skillKey": ",
+                "skillKey": "Software Engineering",
                 "weight": [
                     10,
                     7,
@@ -320,7 +320,7 @@
                     "de": "C#/.NET + Visual Studio für technische Anwendung des Maschinenbaus",
                     "en": "C#/.NET + Visual Studio for mechanical engineering applications"
                 },
-                "skillKey": ",
+                "skillKey": "Software Engineering",
                 "weight": [
                     3.5,
                     4,
@@ -391,7 +391,7 @@
                     "de": "C#/.NET + Visual Studio: Programm für rotordynamische Berechnung",
                     "en": "C#/.NET + Visual Studio: program for rotordynamics"
                 },
-                "skillKey": ",
+                "skillKey": "Software Engineering",
                 "weight": 6
             },
             {
@@ -437,7 +437,7 @@
                     "de": "Web-Applikationen mit Einsatz von Perl + modperl, Ruby on Rails und PostgreSQL/mySQL/Oracle",
                     "en": "Web applications using Perl + modperl, Ruby on Rails and PostgreSQL/mySQL/Oracle"
                 },
-                "skillKey": ",
+                "skillKey": "Software Engineering",
                 "weight": [
                     3,
                     5,
@@ -560,7 +560,7 @@
                     "de": "Modellbildung, Auswertung in MATLAB, MATLAB-Simulink",
                     "en": "Data modelling and evaluation in MATLAB, MATLAB-Simulink"
                 },
-                "skillKey": ",
+                "skillKey": "Software Engineering",
                 "weight": 2
             }
         ],
