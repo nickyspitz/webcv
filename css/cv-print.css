@@ -1,0 +1,10 @@
+@media print {
+  .no-print { display: none !important; }
+
+  body { font-size: 10pt; }
+
+  .container-fluid { padding: 0; }
+
+  /* avoid page breaks mid-entry */
+  .info-row { page-break-inside: avoid; }
+}
