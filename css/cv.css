@@ -1,74 +1,379 @@
-.awesome-font { font-family: 'Lato', sans-serif; }
-.awesome-font-header { font-family: 'Montserrat', sans-serif; }
-.btn:focus,.btn:active { outline: none !important; } 
-div.meta-experience { text-align:left; }
-div.meta-education { text-align:left; }
-div.meta-languages { text-align:left; }
-span.experience-label { text-transform:uppercase; }
-div.languages { margin:5px; }
-span.languages-label { text-transform:uppercase; }
-span.education-label { text-transform:uppercase; }
-
-.axis { font-size:8pt; fill:none; }
-.x.axis line { stroke:#fff;	}
-.tick line { opacity:0.2; }
-.tick text { font-size:12px; stroke:blue; }
-
-div.tooltip 
-{	
-   position: absolute;			
-   text-align: left;			
-   width: 600px;					
-   height: 78px;					
-   padding: 0px;				
-   font-size: 8pt;		
-   border: 0px;		
-   pointer-events: none;			
-	background-color:#eeeeee;
-	line-height:12px;
-	z-index:50;
+/* ===== DESIGN TOKENS ===== */
+:root {
+  --color-bg:      #FFFFFF;
+  --color-card:    #FFFAF4;
+  --color-coral:   #E07A5F;
+  --color-rose:    #C4637A;
+  --color-clay:    #9B4534;
+  --color-seafoam: #5BBFAD;
+  --color-sage:    #7CAF9E;
+  --color-text:    #2A2220;
+  --color-muted:   #7A6B5E;
+  --color-border:  #E8D8C8;
 }
 
-p.tooltip-header 
-{
-	padding:3px;
-	font-family: 'Montserrat', sans-serif; 
-	font-size:16pt;
-	line-height:30px;
-	font-weight:bold;
+/* ===== RESET / BASE ===== */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Lora', serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
 }
 
-div.svgXaxes
-{
-	position:absolute;
-	font-size:6pt;
-	font-weight:bold;
+a { color: var(--color-coral); text-decoration: none; }
+a:hover { color: var(--color-clay); }
+
+/* ===== HEADER ===== */
+.cv-header {
+  background: var(--color-bg);
+  border-bottom: 2px solid var(--color-border);
+  padding: 24px 40px 16px;
 }
 
-svg#svg { border-left:0.5px #fff solid; border-right:0.5px #fff solid; }
-
-#year 
-{
-	position:absolute;
-	text-align:center;
-	z-index:20;
-	width:60px;
-	height:20px;
-	top:0px;
-	background-color:#fff;
+.header-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
 }
-#vertical
-{
-	position:absolute;
-	z-index:19;
-	width:1px;
-	height:600px;
-	top:10px;
-	bottom:0px;
-	left:0px;
-	background:#fff;
-}
-a.lang-selected { font-weight:bold;}
-a.lang-selection:hover { color:#D26924; }
-span.skill-spotlight { font-weight:bold; }
 
+.header-name { flex: 0 0 auto; }
+
+.header-name h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cv-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: var(--color-coral);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+}
+
+.header-contact {
+  flex: 1;
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.contact-col-left,
+.contact-col-right {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  line-height: 1.75;
+  white-space: nowrap;
+}
+
+.contact-col-right {
+  flex: 1;
+  text-align: right;
+}
+
+.header-bottom {
+  margin-top: 10px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  font-size: 0.82rem;
+}
+
+.lang-selection {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--color-muted);
+  transition: color 0.15s;
+}
+
+.lang-selection:hover {
+  color: var(--color-coral);
+}
+
+a.lang-selected {
+  color: var(--color-coral) !important;
+}
+
+.lang-divider {
+  color: var(--color-border);
+  font-size: 0.72rem;
+}
+
+.print-link {
+  margin-left: 8px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--color-seafoam);
+  color: var(--color-seafoam);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+}
+
+.print-link:hover {
+  background: var(--color-seafoam);
+  color: #fff;
+}
+
+.header-statement {
+  font-size: 1.1rem;
+  color: var(--color-text);
+  flex: 1;
+}
+
+/* ===== MAIN ===== */
+.cv-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 40px 48px;
+}
+
+/* ===== SECTION LABELS (pure.js targets) ===== */
+.meta-experience,
+.meta-education,
+.meta-languages {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-muted);
+  border-left: 3px solid var(--color-coral);
+  padding: 4px 0 4px 12px;
+  margin: 28px 0 12px 0;
+}
+
+/* ===== STREAM GRAPH CONTAINERS ===== */
+/* Full-bleed wrapper — no horizontal padding so #svg-container starts at x=0.
+   The JS positions #vertical and #year using d3.event.pageX (absolute page
+   coordinates). If the container has a left offset, the line appears shifted
+   by exactly that offset. Zero left-padding keeps the math correct. */
+.cv-graphs {
+  padding: 12px 40px 4px;
+}
+
+.streamgraphContainer {
+  position: relative;
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+.svg-hobby-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+div.svgXaxes {
+  position: absolute;
+  font-size: 6pt;
+  font-weight: bold;
+  color: var(--color-muted);
+  pointer-events: none;
+}
+
+#year {
+  position: absolute;
+  text-align: center;
+  z-index: 20;
+  width: 60px;
+  height: 20px;
+  top: 0;
+  background-color: var(--color-bg);
+  font-size: 0.72rem;
+  color: var(--color-text);
+  pointer-events: none;
+}
+
+#vertical {
+  position: absolute;
+  z-index: 19;
+  width: 1px;
+  height: 600px;
+  top: 10px;
+  left: 0;
+  background: var(--color-muted);
+  opacity: 0;
+  pointer-events: none;
+}
+
+svg#svg,
+svg#svg-hobby {
+  border-left: 0.5px var(--color-bg) solid;
+  border-right: 0.5px var(--color-bg) solid;
+  display: block;
+}
+
+.axis { font-size: 8pt; fill: none; }
+.x.axis line { stroke: var(--color-bg); }
+.tick line { opacity: 0.2; }
+.tick text { font-size: 12px; stroke: var(--color-seafoam); }
+
+/* ===== TOOLTIP ===== */
+div.tooltip {
+  position: absolute;
+  text-align: left;
+  width: 600px;
+  height: 78px;
+  padding: 0;
+  font-size: 8pt;
+  border: 0;
+  pointer-events: none;
+  background-color: var(--color-card);
+  line-height: 12px;
+  z-index: 50;
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(42, 34, 32, 0.15);
+  opacity: 0;
+}
+
+p.tooltip-header {
+  padding: 3px 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14pt;
+  line-height: 30px;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 4px 4px 0 0;
+  margin: 0;
+}
+
+span.skill-spotlight { font-weight: bold; }
+
+/* ===== CARDS (.info-row) — scoped to .cv-main to not break pdf Bootstrap layout ===== */
+.cv-main .info-row {
+  display: flex;
+  gap: 0;
+  background: #FFFDF9;
+  border-radius: 0;
+  box-shadow: 0 1px 6px rgba(42, 34, 32, 0.08);
+  border-left: 3px solid var(--color-coral);
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.cv-main .info-row:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(42, 34, 32, 0.14);
+}
+
+.card-meta {
+  flex: 0 0 160px;
+  padding: 14px 16px;
+  border-right: 1px solid var(--color-border);
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.card-meta .location_name {
+  font-size: 0.72rem;
+  color: var(--color-muted);
+}
+
+.card-body {
+  flex: 1;
+  padding: 14px 20px;
+  min-width: 0;
+}
+
+.card-body .title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.92rem;
+  display: block;
+  color: var(--color-text);
+}
+
+.card-body .employer {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  display: block;
+  margin-bottom: 8px;
+}
+
+h5.details-list {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: normal;
+}
+
+.details-header {
+  font-size: 0.72rem;
+  color: var(--color-coral);
+  font-weight: 600;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 6px;
+}
+
+.details {
+  color: var(--color-muted);
+  display: block;
+  padding-left: 8px;
+  margin-bottom: 2px;
+}
+
+/* ===== LANGUAGES ===== */
+.languages {
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  padding: 4px 0 12px;
+}
+
+/* ===== ABOUT ===== */
+.meta-about {
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  padding: 4px 0 24px;
+  max-width: 80%;
+  border-left: 3px solid var(--color-sage);
+  padding-left: 12px;
+  margin-top: 8px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .cv-header { padding: 16px 20px 12px; }
+  .cv-graphs { padding: 8px 20px 4px; }
+  .header-top { flex-direction: column; gap: 12px; }
+  .header-contact { display: none; }
+  .header-bottom { flex-direction: column; gap: 8px; }
+  .cv-main { padding: 16px 20px 32px; }
+  .meta-about { max-width: 100%; }
+
+  .cv-main .info-row { flex-direction: column; }
+  .card-meta {
+    flex: none;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+}

@@ -31,11 +31,11 @@ function DrawStreamGraph(skillsHash, graphStartYear, svgName, height, colorSchem
   colors[4] = "#8EC0F2";
 
   if (colorSchema == 'orange')
-    colors = ["#E34A33", "#e26234", "#FC8D59", "#FDBB84", "#FDD49E", "#FEF0D9"];
+    colors = ["#E07A5F", "#C4637A", "#9B4534", "#F0A07A", "#F5C4A8", "#FDEBD8"];
   else if (colorSchema == 'green')
     colors = ["#1E5846", "#2D7D12", "#3E7E56", "#6BA55F", "#A4CA64", "#E8ED69"];
   else if (colorSchema == 'blue')
-    colors = ["#005EA3", "#0085E5", "#44A0DB", "#35A2FF", "#4FBBFF", "#A1DBFF", "#c9ebff", ];
+    colors = ["#3A9E8C", "#5BBFAD", "#7CCFC0", "#2A7E6E", "#A0DFD4", "#C8F0EB"];
 
   // Initial setup of our svg
   var containerWidth = document.getElementById("svg-container").clientWidth;
@@ -175,6 +175,16 @@ function attachListeners(xScale, graphStartYear, svgName) {
 
       adjustDivToFit('.tooltip');
 
+      var mousex = d3.event.clientX - svg[0][0].getBoundingClientRect().left;
+      vertical.style("left", mousex + "px").style("opacity", 0.9);
+      year.style("left", mousex + "px").style("top", "0px").style("opacity", 0.9);
+      startDate.style("opacity", 1);
+      endDate.style("opacity", 1);
+      allSvgs.forEach(function(svgId) {
+        d3.select(svgId).style("border-left", "0.5px #dddddd solid")
+                        .style("border-right", "0.5px #dddddd solid");
+      });
+
     })
 
     .on("mousemove", function(d, i) {
@@ -193,6 +203,10 @@ function attachListeners(xScale, graphStartYear, svgName) {
       adjustDivToFit('.tooltip');
 
       year.html(((mouseMonth % 12) + 1) + "." + (graphStartYear + Math.floor(mouseMonth / 12)));
+
+      var mousex = d3.event.clientX - svg[0][0].getBoundingClientRect().left;
+      vertical.style("left", mousex + "px").style("opacity", 0.9);
+      year.style("left", mousex + "px").style("top", "0px").style("opacity", 0.9);
 
     })
 
@@ -213,7 +227,7 @@ function attachListeners(xScale, graphStartYear, svgName) {
     });
 
   svg.on("mousemove", function() {
-      mousex = d3.event.pageX - 3;
+      mousex = d3.event.clientX - svg[0][0].getBoundingClientRect().left;
       mousey = d3.mouse(this)[1] + 20;
 
       vertical.style("left", mousex + "px");
@@ -227,7 +241,7 @@ function attachListeners(xScale, graphStartYear, svgName) {
 
     })
     .on("mouseenter", function() {
-      mousex = d3.event.pageX - 3;
+      mousex = d3.event.clientX - svg[0][0].getBoundingClientRect().left;
       mousey = d3.mouse(this)[1] + 20;
 
       vertical.style("left", mousex + "px");
