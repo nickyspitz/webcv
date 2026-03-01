@@ -161,7 +161,7 @@
     },
     "skills": [{
       "skillKey": "Yoga and Meditation",
-      "weight": [1, 2, 2, 4, 2],
+      "weight": [1, 2, 2, 4, 2, 0.5, 0.5],
       "context": {
         "en": "Hatha/Iyengar discipline: Group course 2x weekly, 2-5h weekly practice at home",
         "de": "Hatha/Iyengar Richtung: Gruppenkurs 1-2x pro Woche, 2-5h pro Woche eigene &Uuml;bung zu Hause"
@@ -170,7 +170,7 @@
   },
   {
     "startDate": "07.2013",
-    "endDate": "aktuell",
+    "endDate": "01.2018",
     "title": {
       "de": "Klettern",
       "en": "Climbing"
@@ -199,9 +199,47 @@
         "de": "Leidenschaftlicher Rennrad- und MTB-Fahrer: im Schnitt etwa 6kkm pro Jahr. Ab und zu Teilnahme an Rennen und Rundtourfahrten"
       }
     }]
+  },
+{
+    "startDate": "09.2021",
+    "endDate": "aktuell",
+    "title": {
+      "de": "Elternschaft",
+      "en": "Parenthood"
+    },
+    "skills": [{
+      "skillKey": "Family",
+      "weight": [3, 3, 3, 3, 3],
+      "context": {
+        "en": "The ultimate project management challenge: Raising a human and navigating the joys of family life.",
+        "de": "Die ultimative Herausforderung im Projektmanagement: Ein Kind großziehen und die Freuden des Familienlebens genießen."
+      }
+    }]
+  },
+  {
+    "startDate": "11.2024",
+    "endDate": "aktuell",
+    "title": {
+      "de": "Familien-Sabbatical",
+      "en": "Family Sabbatical"
+    },
+    "skills": [
+      {
+        "skillKey": "Travel",
+        "weight": [5, 5],
+        "context": {
+          "en": "Extended family travel: Living in Italy, overlanding through Colombia, and exploring the Southwest US.",
+          "de": "Ausgedehnte Familienreise: Leben in Italien, Overlanding durch Kolumbien und Erkundung des Südwestens der USA."
+        }
+      },
+      {
+        "skillKey": "Family",
+        "weight": [4, 4],
+        "context": {
+          "en": "Quality time with friends and family during a deliberate career break.",
+          "de": "Wertvolle Zeit mit Freunden und Familie während einer bewussten beruflichen Auszeit."
+        }
+      }
+    ]
   }
-
-
-
-
 ]
