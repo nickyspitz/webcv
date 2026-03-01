@@ -1,7 +1,7 @@
 
 <html>
 <head>
-	<title>nickspitzer.com</title>
+	<title>Nick Spitzer C.V. — Print / PDF</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -17,12 +17,20 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/cv.css">
+	<link rel="stylesheet" href="css/cv-print.css">
 
 </head>
 
 <body onLoad="Initialize();">
-<div style="position:relative;line-height:5vh;width:100%;background-color:#ffa100;text-align:center;">
-<b>This PDF only tells half the story!</b> Go to http://cv.nickspitzer.com to see the whole story in glorious data visuals.</div>
+<div class="no-print" style="position:relative;display:flex;align-items:center;justify-content:space-between;padding:10px 24px;background:#FBF3E8;border-bottom:2px solid #E8D8C8;">
+  <span style="font-family:'Lato',sans-serif;font-size:0.9rem;color:#7A6B5E;">
+    <b style="color:#2A2220;">This PDF only tells half the story.</b>
+    &nbsp;<a href="http://cv.nickspitzer.com" style="color:#E07A5F;font-weight:600;">See the full data visualization &rarr;</a>
+  </span>
+  <button onclick="window.print()" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.8rem;padding:8px 18px;background:#E07A5F;color:#fff;border:none;border-radius:20px;cursor:pointer;letter-spacing:0.5px;">
+    Print / Save PDF
+  </button>
+</div>
 <div class="tooltip" id="tooltip"></div>
 
 <div class="container-fluid">
@@ -154,6 +162,45 @@ var metaJson;
 
 var startYear = 2010;
 
+var BIRTH = { year: 1984, month: 10 };  // October 1984 — used to display age, not stored in JSON
+
+function calcAge() {
+  var now = new Date();
+  var age = now.getFullYear() - BIRTH.year;
+  if (now.getMonth() + 1 < BIRTH.month) age--;
+  return age;
+}
+
+// Cutoff dates — edit defaults directly, or override via URL params:
+//   ?graphCutoff=2012       (year the graph x-axis starts, year only)
+//   ?textCutoff=2016-06     (hide entries that ended before June 2016)
+var graphCutoffYear = null;  // null = show full timeline (back to startYear)
+var textCutoff      = null;  // null = show all entries; or {year, month} object
+
+function parseCutoff(str) {
+  if (!str) return null;
+  var parts = str.split('-');
+  return { year: parseInt(parts[0]), month: parts.length > 1 ? parseInt(parts[1]) : 1 };
+}
+
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  if (params.get('graphCutoff')) graphCutoffYear = parseInt(params.get('graphCutoff'));
+  if (params.get('textCutoff'))  textCutoff = parseCutoff(params.get('textCutoff'));
+})();
+
+function filterByCutoff(items, cutoff) {
+  if (!cutoff) return items;
+  return items.filter(function(item) {
+    if (item.endDate === 'aktuell') return true;
+    var parts = item.endDate.split('.');  // format: "MM.YYYY"
+    var endMonth = parseInt(parts[0]);
+    var endYear  = parseInt(parts[1]);
+    if (endYear !== cutoff.year) return endYear > cutoff.year;
+    return endMonth >= cutoff.month;
+  });
+}
+
 function Initialize()
 {
 
@@ -182,15 +229,17 @@ function Initialize()
 
 			SetLanguage("en");
 
-			var skillsHash = ProcessJson(experienceJson, startYear, language);
-			DrawStreamGraph(skillsHash, startYear, "#svg", 400, 'orange');
+			var graphStart = graphCutoffYear || startYear;
 
-			var hobbyHash = ProcessJson(hobbyJson, startYear, language);
-			DrawStreamGraph(hobbyHash, startYear, "#svg-hobby", 200, 'blue');
+			var skillsHash = ProcessJson(experienceJson, graphStart, language);
+			DrawStreamGraph(skillsHash, graphStart, "#svg", 400, 'orange');
+
+			var hobbyHash = ProcessJson(hobbyJson, graphStart, language);
+			DrawStreamGraph(hobbyHash, graphStart, "#svg-hobby", 200, 'blue');
 
 			// Redraw
-			ReattachData(experienceJson, startYear, "#svg", language);
-			ReattachData(hobbyJson, startYear, "#svg-hobby", language);
+			ReattachData(experienceJson, graphStart, "#svg", language);
+			ReattachData(hobbyJson, graphStart, "#svg-hobby", language);
 		}
 	);
 
@@ -236,7 +285,7 @@ function SetLanguage(language)
 	$p( 'div.cv-header-info' ).render( personalInfoJson,
 	{
 		'span.infoName' : 'infoName',
-		'span.infoBirthday' : function() { return this.infoBirthday[language]; },
+		'span.infoBirthday' : function() { return calcAge() + (language === 'de' ? ' Jahre alt' : ' years of age'); },
 		'span.infoNationality' : function() { return this.infoNationality[language]; },
 		'span.infoAddress1' : 'infoAddress1',
 		'span.infoAddress2' : 'infoAddress2',
@@ -245,12 +294,13 @@ function SetLanguage(language)
 		'span.infoStatement' : function() { return this.statement[language]; },
 	});
 
-	$p( 'div.experience-table' ).render( experienceJson, directive );
-	$p( 'div.education-table' ).render( educationJson, directive );
+	$p( 'div.experience-table' ).render( filterByCutoff(experienceJson, textCutoff), directive );
+	$p( 'div.education-table' ).render( filterByCutoff(educationJson, textCutoff), directive );
 
 	// Redraw
-	ReattachData(experienceJson, startYear, "#svg", language);
-	ReattachData(hobbyJson, startYear, "#svg-hobby", language);
+	var graphStart = graphCutoffYear || startYear;
+	ReattachData(experienceJson, graphStart, "#svg", language);
+	ReattachData(hobbyJson, graphStart, "#svg-hobby", language);
 
 //	JSON FAILED CODE: $.getJSON('cv-data/experience-test.json').then( function(json) { }).fail(function() { console.log("Json load failed for experience table!"); });
 
