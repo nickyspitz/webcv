@@ -168,7 +168,7 @@ function attachListeners(xScale, graphStartYear, svgName) {
 
       var mouseMonth = Math.floor(xScale.invert(d3.mouse(this)[0]));
       var areaColor = d3.rgb(d3.select(this).attr("style"));
-      var divHtml = getTooltipText(svgName, d, mouseMonth, areaColor);
+      var divHtml = getTooltipText(svgName, d, mouseMonth, areaColor, graphStartYear);
       tooltip.html(divHtml)
         .style("border", "1px " + areaColor.toString() + " solid")
         .style("left", $(svgName).offset().left + "px")
@@ -201,7 +201,7 @@ function attachListeners(xScale, graphStartYear, svgName) {
       var mouseMonth = Math.floor(xScale.invert(d3.mouse(this)[0]));
       var areaColor = d3.rgb(d3.select(this).attr("style"));
 
-      tooltip.html(getTooltipText(svgName, d, mouseMonth, areaColor))
+      tooltip.html(getTooltipText(svgName, d, mouseMonth, areaColor, graphStartYear))
       adjustDivToFit('.tooltip');
 
       year.html(((mouseMonth % 12) + 1) + "." + (graphStartYear + Math.floor(mouseMonth / 12)));
@@ -288,7 +288,7 @@ function adjustDivToFit(selector) {
 }
 
 
-function getTooltipText(svgName, d, mouseMonth, areaColor) {
+function getTooltipText(svgName, d, mouseMonth, areaColor, graphStartYear) {
 
   var nameString = d.name;
 
@@ -298,7 +298,15 @@ function getTooltipText(svgName, d, mouseMonth, areaColor) {
   var divHtml = "<p class='tooltip-header' style='background:" + areaColor.toString() + "'>" + nameString + "</p>";
   divHtml += "<div style='padding:3px;padding-top:0px;'>";
 
-  d.contexts.forEach(function(context) {
+  // Filter out contexts that ended before the visible graph window
+  var visibleContexts = d.contexts.filter(function(context) {
+    var endPart = context.split(';;')[0].split(' - ')[1];
+    if (endPart === 'current' || endPart === 'aktuell') return true;
+    var endYear = parseInt(endPart.split('.')[1]);
+    return endYear >= graphStartYear;
+  });
+
+  visibleContexts.forEach(function(context) {
 
     var bold = false;
     if (Array.isArray(d.values[mouseMonth].context)) {
