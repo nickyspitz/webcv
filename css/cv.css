@@ -217,8 +217,8 @@ div.svgXaxes {
   pointer-events: none;
 }
 
-#vertical       { height: 360px; }
-#vertical-hobby { height: 220px; }
+#vertical       { height: 300px; }
+#vertical-hobby { height: 300px; }
 
 svg#svg,
 svg#svg-hobby {

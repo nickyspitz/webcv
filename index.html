@@ -218,10 +218,10 @@ function Initialize()
 			var graphStart = graphCutoffYear || startYear;
 
 			var skillsHash = ProcessJson(experienceJson, graphStart, language);
-			DrawStreamGraph(skillsHash, graphStart, "#svg", 360, 'orange');
+			DrawStreamGraph(skillsHash, graphStart, "#svg", 300, 'orange');
 
 			var hobbyHash = ProcessJson(hobbyJson, graphStart, language);
-			DrawStreamGraph(hobbyHash, graphStart, "#svg-hobby", 220, 'blue');
+			DrawStreamGraph(hobbyHash, graphStart, "#svg-hobby", 300, 'blue');
 
 			// Redraw
 			ReattachData(experienceJson, graphStart, "#svg", language);

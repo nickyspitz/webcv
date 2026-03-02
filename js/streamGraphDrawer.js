@@ -321,8 +321,8 @@ function getTooltipText(svgName, d, mouseMonth, areaColor, graphStartYear) {
 
     if (bold) {
       divHtml += "<span class='skill-spotlight'>* " + context.split(';;')[2] + "</span> ";
-      divHtml += "<span class='skill-spotlight'>[" + context.split(';;')[0] + "]</span> ";
-      //			divHtml += "<span class='skill-spotlight'><u>" +context.split(';')[1] + "</u></span> ";
+      var employer = context.split(';;')[3];
+      if (employer) divHtml += "<span class='skill-spotlight'>[" + employer + "]</span> ";
     } else {
       divHtml += "- ";
       divHtml += context.split(';;')[2];
