@@ -1,8 +1,8 @@
 [
 	{
-		"startDate": "03.2021",
-		"endDate": "10.2024",
-		"title": {
+        "startDate": "03.2021",
+        "endDate": "10.2024",
+        "title": {
             "de": "Strategic Sales Director (vorher Sales Director EMEA)",
             "en": "Strategic Sales Director (previously Sales Director EMEA)"
         },
@@ -20,7 +20,7 @@
                     "de": "STRATEGISCHER VERTRIEB",
                     "en": "STRATEGIC SALES"
                 },
-				"description": {
+		"description": {
                     "de": "Verantwortlich für die erfolgreiche Einführung und Skalierung von dbt Cloud bei einer exklusiven Auswahl der größten Unternehmen im DACH-Raum.",
                     "en": "Responsible for productively launching and scaling dbt Cloud at a select handful of DACH's largest organizations."
                 }
@@ -40,7 +40,7 @@
             {
                 "context": {
                     "de": "Skalierung von Cloud-Daten-Lösungen bei DAX/Fortune-500 Unternehmen",
-                    "en": "Scaling cloud data solutions at DAX/Fortune-500 organizations"
+                    "en": "GTM skills in practice incl. methodology such as MEDDPICC. Contributed 7% of global revenue by time of departure"
                 },
                 "skillKey": "GTM & Strategy",
                 "weight": [6, 7, 9]
@@ -647,18 +647,7 @@
                 "skillKey": "Product Leadership",
                 "weight": 3
             },
-            {
-                "context": {
-                    "de": "WIG-Schweissen (Alu, Stähle), Drehen und Fräsen",
-                    "en": "Welding (TIG, MIG with Aluminum and Steels), machining"
-                },
-                "skillKey": "Technical Engineering",
-                "weight": [
-                    1,
-                    0
-                ]
-            },
-            {
+           {
                 "context": {
                     "de": "Auslegung/Design für Aufrüstungen für 40er-Serie Toyota LandCruiser: Scheibenbremsen, Servolenkung, Klimaanlage",
                     "en": "Design and testing of hardware modifications for 40 series Toyota LandCruiser: disc brakes, air conditioning and power steering "

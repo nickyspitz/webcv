@@ -146,7 +146,7 @@ var educationHtml;
 
 var metaJson;
 
-var startYear = 2010;
+var yearsBack = 15; // Number of years the streamgraphs should look back, by default (overrideable with ?graphCutoff=2010-01)
 
 var BIRTH = { year: 1984, month: 10 };  // October 1984 — used to display age, not stored in JSON
 
@@ -190,8 +190,7 @@ function filterByCutoff(items, cutoff) {
 function Initialize()
 {
 
-	var yearsBack = 15;
-	startYear = new Date().getFullYear() - yearsBack;
+	var startYear = new Date().getFullYear() - yearsBack;
 
 	// grab the template HTML
 	experienceHtml = $('.experience-table').html();
@@ -285,6 +284,7 @@ function SetLanguage(language)
 	$p( 'div.education-table' ).render( filterByCutoff(educationJson, textCutoff), directive );
 
 	// Redraw
+	var startYear = new Date().getFullYear() - yearsBack;
 	var graphStart = graphCutoffYear || startYear;
 	ReattachData(experienceJson, graphStart, "#svg", language);
 	ReattachData(hobbyJson, graphStart, "#svg-hobby", language);

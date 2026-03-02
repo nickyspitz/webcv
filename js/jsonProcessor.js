@@ -63,7 +63,7 @@ function ProcessJson(experienceJson, graphStartYear, language)
 	
 					// See if we've already used that skill in another context at this point in time!
 					if (skillsHash[skill.skillKey].values[startMonth + i] != undefined)
-						addToSkill(skillsHash[skill.skillKey].values[startMonth + i], skill.weight, contextText); 
+						addToSkill(skillsHash[skill.skillKey].values[startMonth + i], val, contextText);
 					else 
 						skillsHash[skill.skillKey].values[startMonth + i] = createNewSkill(startMonth + i, val, contextText);
 
