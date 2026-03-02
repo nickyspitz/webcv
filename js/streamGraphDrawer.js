@@ -148,7 +148,7 @@ function attachListeners(xScale, graphStartYear, svgName) {
   var year = d3.select("#year");
   var startDate = d3.select("#startDateSvg");
   var endDate = d3.select("#endDateSvg");
-  var vertical = d3.select("#vertical");
+  var vertical = d3.select(svgName === "#svg-hobby" ? "#vertical-hobby" : "#vertical");
 
   var allSvgs = ["#svg", "#svg-hobby"];
 

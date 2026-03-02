@@ -1,10 +1,20 @@
 @media print {
+  /* Hide the on-screen banner/button */
   .no-print { display: none !important; }
 
   body { font-size: 10pt; }
 
-  .container-fluid { padding: 0; }
+  /* Tighten padding for paper */
+  .cv-header { padding: 12px 24px 10px; }
+  .cv-main   { padding: 12px 24px 24px; }
 
-  /* avoid page breaks mid-entry */
+  /* Drop shadows and hover effects — they print poorly */
+  .info-row {
+    box-shadow: none !important;
+    border-bottom: 1px solid #E8D8C8;
+  }
+  .info-row:hover { transform: none !important; }
+
+  /* Avoid page breaks mid-entry */
   .info-row { page-break-inside: avoid; }
 }

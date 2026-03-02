@@ -43,7 +43,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="" onClick="SetLanguage('en');return false;" class="lang-selection" id="lang-en">EN</a>
           <span class="lang-divider">/</span>
           <a href="" onClick="SetLanguage('de');return false;" class="lang-selection" id="lang-de">DE</a>
-          <a href="index-pdf.html" class="print-link">PDF</a>
+          <a href="index-pdf.html?lang=en" class="print-link" id="pdf-link">PDF</a>
         </div>
       </div>
       <div class="header-contact">
@@ -78,6 +78,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <div class="svg-hobby-container">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg-hobby"></svg>
+    <div id="vertical-hobby"></div>
   </div>
 </div>
 
@@ -217,10 +218,10 @@ function Initialize()
 			var graphStart = graphCutoffYear || startYear;
 
 			var skillsHash = ProcessJson(experienceJson, graphStart, language);
-			DrawStreamGraph(skillsHash, graphStart, "#svg", 400, 'orange');
+			DrawStreamGraph(skillsHash, graphStart, "#svg", 360, 'orange');
 
 			var hobbyHash = ProcessJson(hobbyJson, graphStart, language);
-			DrawStreamGraph(hobbyHash, graphStart, "#svg-hobby", 200, 'blue');
+			DrawStreamGraph(hobbyHash, graphStart, "#svg-hobby", 220, 'blue');
 
 			// Redraw
 			ReattachData(experienceJson, graphStart, "#svg", language);
@@ -236,6 +237,7 @@ function SetLanguage(language)
 	// Highlight correct language button
 	$('.lang-selection').removeClass('lang-selected');
 	$('#lang-'+language).addClass('lang-selected');
+	$('#pdf-link').attr('href', 'index-pdf.html?lang=' + language);
 
 	// Clear the details list (it will duplicate itself otherwise)
 	$('.experience-table').html(experienceHtml);
