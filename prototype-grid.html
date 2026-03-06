@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grid Prototype — Nick Spitzer C.V.</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #FFFFFF;
+    --bg-warm:  #FFFAF4;
+    --surface:  #F0EBE5;
+    --border:   #E8D8C8;
+    --text:     #2A2220;
+    --text-dim: #9A8B7E;
+    --coral:    #E07A5F;
+    --seafoam:  #3A9E8C;
+    --sand:     #2A2220;
+    --clay:     #9B4534;
+    --rose:     #C4637A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Lora', serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 48px 40px;
+  }
+
+  header {
+    margin-bottom: 48px;
+  }
+
+  header h1 {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: var(--sand);
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+
+  header h1 span {
+    color: var(--coral);
+  }
+
+  header p {
+    font-size: 0.88rem;
+    color: var(--text-dim);
+    max-width: 600px;
+    line-height: 1.6;
+  }
+
+  .legend {
+    display: flex;
+    gap: 24px;
+    margin-top: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .legend-swatch {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+  }
+
+  /* ===== GRID SECTION ===== */
+  .grid-section {
+    position: relative;
+    margin-bottom: 0;
+  }
+
+  #hobby-section .grid-labels {
+    padding-top: 0;
+  }
+
+  .section-label {
+    flex: 0 0 auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 300;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--text-dim);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    padding-left: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .section-label-exp { color: var(--coral); opacity: 0.6; }
+  .section-label-hobby { color: var(--seafoam); opacity: 0.6; }
+
+  .grid-wrapper {
+    position: relative;
+    display: flex;
+    gap: 0;
+  }
+
+  /* Skill labels on the left */
+  .grid-labels {
+    flex: 0 0 160px;
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px; /* align with grid rows below year axis */
+    overflow: hidden;
+  }
+
+  .grid-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    font-weight: 400;
+    color: var(--text-dim);
+    height: var(--cell-h);
+    line-height: var(--cell-h);
+    padding-right: 12px;
+    text-align: right;
+    white-space: nowrap;
+    transition: color 0.15s;
+  }
+
+  .grid-label.active {
+    color: var(--sand);
+  }
+
+  /* The grid container */
+  .grid-container {
+    flex: 1;
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  /* Year axis */
+  .year-axis {
+    display: flex;
+    height: 18px;
+    margin-bottom: 2px;
+    position: relative;
+  }
+
+  .year-tick {
+    position: absolute;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem;
+    color: var(--text-dim);
+    transform: translateX(-50%);
+  }
+
+  /* The actual grid of cells */
+  .grid {
+    display: grid;
+    gap: 1px;
+    position: relative;
+  }
+
+  .grid-cell {
+    width: var(--cell-w);
+    height: var(--cell-h);
+    border-radius: 1.5px;
+    background: transparent;
+    transition: none; /* handled by JS for perf */
+    position: relative;
+  }
+
+  .grid-cell.filled {
+    cursor: crosshair;
+  }
+
+
+
+  /* ===== TOOLTIP ===== */
+  .tip {
+    position: fixed;
+    z-index: 100;
+    pointer-events: none;
+    background: var(--bg-warm);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 0.78rem;
+    color: var(--text);
+    line-height: 1.5;
+    max-width: 380px;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.15s, transform 0.15s;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  }
+
+  .tip.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .tip-skill {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 0.72rem;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .tip-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+
+  .tip-context {
+    color: var(--text-dim);
+    font-size: 0.72rem;
+  }
+
+  .tip-employer {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--coral);
+    margin-top: 2px;
+  }
+
+  .tip-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem;
+    color: var(--text-dim);
+    margin-top: 4px;
+    padding-top: 4px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ===== NOW MARKER ===== */
+  .now-line {
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: var(--coral);
+    opacity: 0.4;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  .now-label {
+    position: absolute;
+    top: -18px;
+    transform: translateX(-50%);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.54rem;
+    color: var(--coral);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* Scrollbar styling */
+  .grid-container::-webkit-scrollbar { height: 4px; }
+  .grid-container::-webkit-scrollbar-track { background: var(--bg); }
+  .grid-container::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  /* ===== AMBIENT PULSE ===== */
+  @keyframes cellPulse {
+    0%, 100% { opacity: var(--base-opacity); }
+    50% { opacity: calc(var(--base-opacity) * 1.15); }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header>
+    <h1>NICK SPITZER <span>▪</span> SKILL GRID</h1>
+    <p>Every cell is one month. Brightness is weight. Hover to explore — the glow follows your cursor.</p>
+    <div class="legend">
+      <div class="legend-item">
+        <div class="legend-swatch" style="background:var(--coral);"></div>
+        Experience
+      </div>
+      <div class="legend-item">
+        <div class="legend-swatch" style="background:var(--seafoam);"></div>
+        Hobbies
+      </div>
+    </div>
+  </header>
+
+  <div class="grid-section" id="experience-section">
+    <div class="grid-wrapper" id="exp-wrapper">
+      <div class="grid-labels" id="exp-labels"></div>
+      <div class="grid-container" id="exp-container">
+        <div class="year-axis" id="exp-years"></div>
+        <div class="grid" id="exp-grid"></div>
+      </div>
+      <div class="section-label section-label-exp">EXPERIENCE</div>
+    </div>
+  </div>
+
+  <div class="grid-section" id="hobby-section">
+    <div class="grid-wrapper" id="hobby-wrapper">
+      <div class="grid-labels" id="hobby-labels"></div>
+      <div class="grid-container" id="hobby-container">
+        <div class="grid" id="hobby-grid"></div>
+      </div>
+      <div class="section-label section-label-hobby">HOBBIES &amp; LIFE</div>
+    </div>
+  </div>
+</div>
+
+<div class="tip" id="tooltip"></div>
+
+<script>
+const CELL_W = 3;      // px per cell width
+const CELL_H = 16;     // px per cell height
+const GAP  = 1;        // px gap
+const STEP_X = CELL_W + GAP;
+const STEP_Y = CELL_H + GAP;
+const GLOW_RADIUS = 120; // px radius of the proximity glow
+
+document.documentElement.style.setProperty('--cell-w', CELL_W + 'px');
+document.documentElement.style.setProperty('--cell-h', CELL_H + 'px');
+
+const COLORS = {
+  orange: [
+    [224,122,95],  // coral
+    [196,99,122],  // rose
+    [155,69,52],   // clay
+    [240,160,122],
+    [184,74,106],
+    [212,149,110],
+    [160,56,40],
+    [248,213,192],
+  ],
+  blue: [
+    [58,158,140],  // seafoam
+    [91,191,173],
+    [124,207,192],
+    [42,126,110],
+    [160,223,212],
+    [200,240,235],
+    [30,122,104],
+    [137,197,187],
+  ]
+};
+
+const tooltip = document.getElementById('tooltip');
+let currentYear = new Date().getFullYear();
+let currentMonth = new Date().getMonth(); // 0-indexed
+let graphStartYear = currentYear - 20;
+
+function spanMonths() {
+  return currentMonth + currentYear * 12 - graphStartYear * 12;
+}
+
+// ===== PROCESS JSON INTO GRID DATA =====
+function processToGrid(json, colorScheme) {
+  const totalMonths = spanMonths();
+  const skillMap = {};
+  const colors = COLORS[colorScheme];
+  let skillIndex = 0;
+
+  json.forEach(function(entry) {
+    const startParts = entry.startDate.split('.');
+    let endParts;
+    if (entry.endDate === 'aktuell') {
+      endParts = [currentMonth, currentYear];
+    } else {
+      endParts = entry.endDate.split('.');
+    }
+
+    const startMonth = Number(startParts[1]) * 12 + Number(startParts[0]) - graphStartYear * 12;
+    const diffMonths = (Number(endParts[1]) - Number(startParts[1])) * 12 + (Number(endParts[0]) - Number(startParts[0]));
+
+    entry.skills.forEach(function(skill) {
+      if (!skillMap[skill.skillKey]) {
+        const ci = skillIndex % colors.length;
+        skillMap[skill.skillKey] = {
+          name: skill.skillKey,
+          color: colors[ci],
+          values: new Array(totalMonths).fill(0),
+          contexts: [],
+          contextMap: new Array(totalMonths).fill(null),
+        };
+        skillIndex++;
+      }
+
+      const s = skillMap[skill.skillKey];
+      const ctx = {
+        text: skill.context ? (skill.context.en || '') : '',
+        employer: entry.employer ? (entry.employer.en || '') : '',
+        title: entry.title ? (entry.title.en || '') : '',
+        dates: entry.startDate + ' – ' + (entry.endDate === 'aktuell' ? 'current' : entry.endDate),
+      };
+
+      for (let i = 0; i < diffMonths; i++) {
+        const idx = startMonth + i;
+        if (idx < 0 || idx >= totalMonths) continue;
+
+        let w;
+        if (Array.isArray(skill.weight)) {
+          const arrLen = skill.weight.length - 1;
+          if (arrLen <= 0) {
+            w = skill.weight[0] || 0;
+          } else {
+            const loc = Math.floor(arrLen * i / diffMonths);
+            const sw = skill.weight[loc];
+            const ew = skill.weight[Math.min(loc + 1, arrLen)];
+            const d = (i - loc * (diffMonths / arrLen)) / (diffMonths / arrLen);
+            w = sw + d * (ew - sw);
+          }
+        } else {
+          w = skill.weight;
+        }
+
+        s.values[idx] += w;
+        s.contextMap[idx] = ctx;
+      }
+    });
+  });
+
+  return Object.values(skillMap);
+}
+
+// ===== RENDER GRID =====
+function renderGrid(skills, gridId, labelsId, yearsId, colorScheme) {
+  const grid = document.getElementById(gridId);
+  const labels = document.getElementById(labelsId);
+  const yearsEl = yearsId ? document.getElementById(yearsId) : null;
+  const totalMonths = spanMonths();
+  const numRows = skills.length;
+
+  // Find global max weight for normalization
+  let maxW = 0;
+  skills.forEach(s => s.values.forEach(v => { if (v > maxW) maxW = v; }));
+  if (maxW === 0) maxW = 1;
+
+  // Set grid dimensions
+  grid.style.gridTemplateColumns = `repeat(${totalMonths}, ${CELL_W}px)`;
+  grid.style.gridTemplateRows = `repeat(${numRows}, ${CELL_H}px)`;
+
+  const gridW = totalMonths * STEP_X;
+  const gridH = numRows * STEP_Y;
+
+  // Render year ticks (skip if no year axis element)
+  if (yearsEl) {
+    yearsEl.style.width = gridW + 'px';
+    for (let y = graphStartYear; y <= currentYear; y++) {
+      const monthIdx = (y - graphStartYear) * 12;
+      const tick = document.createElement('div');
+      tick.className = 'year-tick';
+      tick.textContent = y;
+      tick.style.left = (monthIdx * STEP_X) + 'px';
+      yearsEl.appendChild(tick);
+    }
+  }
+
+  // Render labels
+  skills.forEach(s => {
+    const label = document.createElement('div');
+    label.className = 'grid-label';
+    label.textContent = s.name;
+    label.dataset.skill = s.name;
+    labels.appendChild(label);
+  });
+
+  // Render cells — store references for fast access
+  const cellElements = [];
+  skills.forEach((skill, row) => {
+    const rowCells = [];
+    for (let col = 0; col < totalMonths; col++) {
+      const cell = document.createElement('div');
+      cell.className = 'grid-cell';
+      const w = skill.values[col];
+
+      if (w > 0) {
+        const norm = Math.min(w / maxW, 1);
+        const [r, g, b] = skill.color;
+        if (colorScheme === 'blue') {
+          // Interpolate from muted sage to bright seafoam
+          const lo = [200, 230, 220]; // very light mint
+          const hi = [20, 90, 75];    // deep dark seafoam
+          const cr = Math.round(lo[0] + norm * (hi[0] - lo[0]));
+          const cg = Math.round(lo[1] + norm * (hi[1] - lo[1]));
+          const cb = Math.round(lo[2] + norm * (hi[2] - lo[2]));
+          cell.style.background = `rgb(${cr},${cg},${cb})`;
+        } else {
+          const opacity = 0.15 + norm * 0.85;
+          cell.style.background = `rgba(${r},${g},${b},${opacity})`;
+        }
+        cell.classList.add('filled');
+        cell.dataset.row = row;
+        cell.dataset.col = col;
+        cell.dataset.weight = w.toFixed(1);
+      }
+
+      grid.appendChild(cell);
+      rowCells.push(cell);
+    }
+    cellElements.push(rowCells);
+  });
+
+  const baseColor = colorScheme === 'orange' ? [224, 122, 95] : [58, 158, 140];
+
+  // ===== MOUSE INTERACTION — cell-based glow =====
+  const wrapper = grid.parentElement.parentElement;
+  let litCells = []; // track cells we've colored so we can reset them
+
+  function clearLit() {
+    litCells.forEach(c => { c.style.background = 'transparent'; });
+    litCells = [];
+  }
+
+  function onMove(e) {
+    const rect = grid.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left + grid.parentElement.scrollLeft;
+    const mouseY = e.clientY - rect.top;
+
+    clearLit();
+
+    // Figure out the cell range within glow radius
+    const colCenter = mouseX;
+    const rowCenter = mouseY;
+    const minCol = Math.max(0, Math.floor((colCenter - GLOW_RADIUS) / STEP_X));
+    const maxCol = Math.min(totalMonths - 1, Math.ceil((colCenter + GLOW_RADIUS) / STEP_X));
+    const minRow = Math.max(0, Math.floor((rowCenter - GLOW_RADIUS) / STEP_Y));
+    const maxRow = Math.min(numRows - 1, Math.ceil((rowCenter + GLOW_RADIUS) / STEP_Y));
+
+    for (let r = minRow; r <= maxRow; r++) {
+      for (let c = minCol; c <= maxCol; c++) {
+        const cell = cellElements[r][c];
+        if (cell.classList.contains('filled')) continue;
+
+        // Distance from mouse to cell center
+        const cx = c * STEP_X + CELL_W / 2;
+        const cy = r * STEP_Y + CELL_H / 2;
+        const dist = Math.sqrt((mouseX - cx) ** 2 + (mouseY - cy) ** 2);
+        if (dist > GLOW_RADIUS) continue;
+
+        const intensity = 1 - (dist / GLOW_RADIUS);
+        const alpha = intensity * intensity * 0.35; // quadratic falloff, subtle
+        cell.style.background = `rgba(${baseColor[0]},${baseColor[1]},${baseColor[2]},${alpha.toFixed(3)})`;
+        litCells.push(cell);
+      }
+    }
+
+    // Determine which cell we're over
+    const col = Math.floor(mouseX / STEP_X);
+    const row = Math.floor(mouseY / STEP_Y);
+
+    // Highlight label
+    document.querySelectorAll(`#${labelsId} .grid-label`).forEach((l, i) => {
+      l.classList.toggle('active', i === row);
+    });
+
+    // Tooltip
+    if (row >= 0 && row < numRows && col >= 0 && col < totalMonths) {
+      const skill = skills[row];
+      const w = skill.values[col];
+      if (w > 0) {
+        const ctxData = skill.contextMap[col];
+        const monthNum = ((col % 12) + 1);
+        const yearNum = graphStartYear + Math.floor(col / 12);
+
+        let html = `<div class="tip-skill"><span class="tip-dot" style="background:rgba(${skill.color.join(',')},1)"></span>${skill.name}</div>`;
+        if (ctxData && ctxData.text) html += `<div class="tip-context">${ctxData.text}</div>`;
+        if (ctxData && ctxData.employer) html += `<div class="tip-employer">${ctxData.employer}</div>`;
+        html += `<div class="tip-date">${String(monthNum).padStart(2,'0')}.${yearNum} · weight ${w.toFixed(1)}</div>`;
+
+        tooltip.innerHTML = html;
+        tooltip.classList.add('visible');
+        tooltip.style.left = Math.min(e.clientX + 16, window.innerWidth - 400) + 'px';
+        tooltip.style.top = (e.clientY - 10) + 'px';
+      } else {
+        tooltip.classList.remove('visible');
+      }
+    } else {
+      tooltip.classList.remove('visible');
+    }
+  }
+
+  function onLeave() {
+    clearLit();
+    tooltip.classList.remove('visible');
+    document.querySelectorAll(`#${labelsId} .grid-label`).forEach(l => l.classList.remove('active'));
+  }
+
+  wrapper.addEventListener('mousemove', onMove);
+  wrapper.addEventListener('mouseleave', onLeave);
+
+  // "NOW" marker
+  const nowIdx = currentMonth + (currentYear - graphStartYear) * 12;
+  const nowLine = document.createElement('div');
+  nowLine.className = 'now-line';
+  nowLine.style.left = (nowIdx * STEP_X) + 'px';
+  nowLine.style.height = gridH + 'px';
+  nowLine.style.top = '20px';
+  // no label, just the line
+  grid.parentElement.appendChild(nowLine);
+}
+
+// ===== LOAD DATA AND RENDER =====
+Promise.all([
+  fetch('cv-data/experience.json').then(r => r.json()),
+  fetch('cv-data/hobby.json').then(r => r.json()),
+]).then(function([expJson, hobbyJson]) {
+  const expSkills = processToGrid(expJson, 'orange');
+  const hobbySkills = processToGrid(hobbyJson, 'blue');
+
+  renderGrid(expSkills, 'exp-grid', 'exp-labels', 'exp-years', 'orange');
+  renderGrid(hobbySkills, 'hobby-grid', 'hobby-labels', null, 'blue');
+});
+</script>
+
+</body>
+</html>

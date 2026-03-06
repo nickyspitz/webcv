@@ -19,6 +19,7 @@ function ProcessJson(experienceJson, graphStartYear, language)
 	
 		e.skills.forEach( function(skill,iSkill)
 		{
+			if (skill.render === false) return;
 
 			//var contextText = e.title[language] + " at " + e.employer[language] + ": " + skill.context;
 			var textEndDate = e.endDate;

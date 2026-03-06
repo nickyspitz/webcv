@@ -233,40 +233,68 @@ svg#svg-hobby {
 .tick text { font-size: 12px; stroke: var(--color-seafoam); }
 
 /* ===== TOOLTIP ===== */
-div.tooltip {
-  position: absolute;
-  text-align: left;
-  width: 600px;
-  height: 78px;
-  padding: 0;
-  font-size: 8pt;
-  border: 0;
+.tip {
+  position: fixed;
+  z-index: 100;
   pointer-events: none;
-  background-color: var(--color-card);
-  line-height: 12px;
-  z-index: 50;
-  border-radius: 4px;
-  box-shadow: 0 4px 16px rgba(42, 34, 32, 0.15);
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 0.78rem;
+  color: var(--color-text);
+  line-height: 1.5;
+  max-width: 380px;
   opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.15s, transform 0.15s;
+  box-shadow: 0 8px 32px rgba(42, 34, 32, 0.12);
 }
 
-/* Description lines inside the tooltip — 15% larger than the 8pt base */
-div.tooltip div {
-  font-size: 9.2pt;
+.tip.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-p.tooltip-header {
-  padding: 3px 8px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14pt;
-  line-height: 30px;
-  font-weight: bold;
-  color: #fff;
-  border-radius: 4px 4px 0 0;
-  margin: 0;
+.tip-skill {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 0.82rem;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-span.skill-spotlight { font-weight: bold; }
+.tip-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.tip-context {
+  color: var(--color-muted);
+  font-size: 0.75rem;
+  padding: 1px 0;
+}
+
+.tip-employer {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--color-coral);
+  margin-top: 1px;
+}
+
+.tip-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--color-muted);
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px solid var(--color-border);
+}
 
 /* ===== CARDS (.info-row) — scoped to .cv-main to not break pdf Bootstrap layout ===== */
 .cv-main .info-row {

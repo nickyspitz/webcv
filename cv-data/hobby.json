@@ -129,6 +129,7 @@
     },
     "skills": [{
       "skillKey": "Food and farming",
+      "render": false,
       "weight": 10,
       "context": {
         "en": "Volunteered on organic farm in Minas Gerais, Brazil. From this point on vegetarian!",
@@ -161,7 +162,7 @@
     },
     "skills": [{
       "skillKey": "Yoga and Meditation",
-      "weight": [1, 2, 2, 4, 2, 0.5, 0.5],
+      "weight": [1, 2, 2, 4, 1, 0.5, 0.5],
       "context": {
         "en": "Hatha/Iyengar discipline: Group course 2x weekly, 2-5h weekly practice at home",
         "de": "Hatha/Iyengar Richtung: Gruppenkurs 1-2x pro Woche, 2-5h pro Woche eigene &Uuml;bung zu Hause"
@@ -193,7 +194,7 @@
     },
     "skills": [{
       "skillKey": "Cycling",
-      "weight": [3, 5, 1, 2, 2, 2, 3, 3, 2, 2, 2, 3, 4, 3, 8, 5, 7],
+      "weight": [3, 5, 1, 2, 2, 2, 3, 3, 2, 2, 2, 3, 4, 5, 8, 5, 1, 1],
       "context": {
         "en": "Passionate hobby road and mountain cyclist: max 10kkm/year. A couple events per year!",
         "de": "Leidenschaftlicher Rennrad- und MTB-Fahrer: im Schnitt etwa 6kkm pro Jahr. Ab und zu Teilnahme an Rennen und Rundtourfahrten"

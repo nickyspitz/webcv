@@ -162,20 +162,14 @@ function attachListeners(xScale, graphStartYear, svgName) {
           return j != i ? 0.6 : 1;
         });
 
-      tooltip.transition()
-        .duration(200)
-        .style("opacity", 0.95);
-
       var mouseMonth = Math.floor(xScale.invert(d3.mouse(this)[0]));
       var areaColor = d3.rgb(d3.select(this).attr("style"));
       var divHtml = getTooltipText(svgName, d, mouseMonth, areaColor, graphStartYear);
-      tooltip.html(divHtml)
-        .style("border", "1px " + areaColor.toString() + " solid")
-        .style("left", $(svgName).offset().left + "px")
-        .style("top", ($("#svg").offset().top + 300) + "px")
-        .style("height", (30 + (divHtml.split('<br>').length + 1) * 12) + "px");
-
-      adjustDivToFit('.tooltip');
+      tooltip.html(divHtml);
+      document.getElementById('tooltip').classList.add('visible');
+      var tipX = Math.min(d3.event.clientX + 2, window.innerWidth - 400);
+      var tipY = d3.event.clientY - 10;
+      tooltip.style("left", tipX + "px").style("top", tipY + "px");
 
       var mousex = d3.event.clientX - svg[0][0].getBoundingClientRect().left;
       vertical.style("left", mousex + "px").style("opacity", 0.9);
@@ -201,8 +195,10 @@ function attachListeners(xScale, graphStartYear, svgName) {
       var mouseMonth = Math.floor(xScale.invert(d3.mouse(this)[0]));
       var areaColor = d3.rgb(d3.select(this).attr("style"));
 
-      tooltip.html(getTooltipText(svgName, d, mouseMonth, areaColor, graphStartYear))
-      adjustDivToFit('.tooltip');
+      tooltip.html(getTooltipText(svgName, d, mouseMonth, areaColor, graphStartYear));
+      var tipX = Math.min(d3.event.clientX + 2, window.innerWidth - 400);
+      var tipY = d3.event.clientY - 10;
+      tooltip.style("left", tipX + "px").style("top", tipY + "px");
 
       year.html(((mouseMonth % 12) + 1) + "." + (graphStartYear + Math.floor(mouseMonth / 12)));
 
@@ -222,9 +218,7 @@ function attachListeners(xScale, graphStartYear, svgName) {
         .duration(250)
         .style("opacity", "1");
 
-      tooltip.transition()
-        .duration(200)
-        .style("opacity", 0);
+      document.getElementById('tooltip').classList.remove('visible');
 
     });
 
@@ -280,58 +274,41 @@ function attachListeners(xScale, graphStartYear, svgName) {
 
 }
 
-function adjustDivToFit(selector) {
-  if ($(selector)[0].clientHeight < $(selector)[0].scrollHeight) {
-    $(selector)[0].style.height = ($(selector)[0].scrollHeight) + "px";
-  }
-
-}
 
 
 function getTooltipText(svgName, d, mouseMonth, areaColor, graphStartYear) {
 
-  var nameString = d.name;
+  var isHobby = svgName.indexOf("hobby") != -1;
+  var nameString = isHobby ? "Hobby: " + d.name : d.name;
 
-  if (svgName.indexOf("hobby") != -1)
-    nameString = "Hobby: " + nameString;
+  var divHtml = "<div class='tip-skill'><span class='tip-dot' style='background:" + areaColor.toString() + "'></span>" + nameString + "</div>";
 
-  var divHtml = "<p class='tooltip-header' style='background:" + areaColor.toString() + "'>" + nameString + "</p>";
-  divHtml += "<div style='padding:3px;padding-top:0px;'>";
+  // Show only the active context(s) at the current mouse position
+  var activeContexts = [];
+  if (d.values[mouseMonth]) {
+    var ctx = d.values[mouseMonth].context;
+    if (Array.isArray(ctx)) {
+      activeContexts = ctx;
+    } else if (ctx) {
+      activeContexts = [ctx];
+    }
+  }
 
-  // Filter out contexts that ended before the visible graph window
-  var visibleContexts = d.contexts.filter(function(context) {
-    var endPart = context.split(';;')[0].split(' - ')[1];
-    if (endPart === 'current' || endPart === 'aktuell') return true;
-    var endYear = parseInt(endPart.split('.')[1]);
-    return endYear >= graphStartYear;
+  activeContexts.forEach(function(context) {
+    var contextText = context.split(';;')[2];
+    var employer = context.split(';;')[3];
+
+    if (employer && !isHobby) divHtml += "<div class='tip-employer'>" + employer + "</div>";
+    divHtml += "<div class='tip-context'>" + contextText + "</div>";
   });
 
-  visibleContexts.forEach(function(context) {
-
-    var bold = false;
-    if (Array.isArray(d.values[mouseMonth].context)) {
-      if ($.inArray(context, d.values[mouseMonth].context) > -1) {
-        bold = true;
-      }
-    } else {
-      if (context == d.values[mouseMonth].context) {
-        bold = true;
-      }
-    }
-
-    if (bold) {
-      divHtml += "<span class='skill-spotlight'>* " + context.split(';;')[2] + "</span> ";
-      var employer = context.split(';;')[3];
-      if (employer) divHtml += "<span class='skill-spotlight'>[" + employer + "]</span> ";
-    } else {
-      divHtml += "- ";
-      divHtml += context.split(';;')[2];
-    }
-    divHtml += "<br>";
-
-  });
-
-  divHtml += "</div>";
+  // Weight + date line at the bottom
+  var monthNum = (mouseMonth % 12) + 1;
+  var yearNum = graphStartYear + Math.floor(mouseMonth / 12);
+  var weight = d.values[mouseMonth] ? d.values[mouseMonth].y : 0;
+  var pct = Math.round(weight * 10);
+  var label = isHobby ? "of my free time" : "of my work";
+  divHtml += "<div class='tip-date'>" + pct + "% " + label + " in " + String(monthNum).padStart(2, '0') + "." + yearNum + "</div>";
 
   return divHtml;
 

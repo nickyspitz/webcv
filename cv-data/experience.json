@@ -43,7 +43,7 @@
                     "en": "GTM skills in practice incl. methodology such as MEDDPICC. Contributed 7% of global revenue by time of departure"
                 },
                 "skillKey": "GTM & Strategy",
-                "weight": [6, 7, 9]
+                "weight": [7, 8, 9]
             },
             {
                 "context": {
@@ -51,7 +51,7 @@
                     "en": "Establishing structures, processes, and people in a high-growth SaaS environment"
                 },
                 "skillKey": "Pioneering",
-                "weight": [4, 3, 1]
+                "weight": [4, 3, 2]
             }
         ]
     },
@@ -117,8 +117,8 @@
             },
             {
                 "context": {
-                    "de": "Planung und Erstellung einer Vision überhaupt für die Data-Funktion bei Beekeeper",
-                    "en": "Establishing and executing the mission, vision and roadmap of Data and Analytics at Beekeeper"
+                    "de": "Konzipierung und Etablierung der Mission, Vision und Roadmap für den Bereich Data & Analytics auf der grünen Wiese",
+                    "en": "Created mission, vision and roadmap of Data and Analytics function from scratch"
                 },
                 "skillKey": "Product Leadership",
                 "weight": [
@@ -324,7 +324,7 @@
                 "weight": [
                     3.5,
                     4,
-                    4
+                    3
                 ]
             },
             {
@@ -495,6 +495,7 @@
                     "de": "Linux für den Server (apache, sendmail, DNS), Netzwerk-Einrichtung und -Wartung",
                     "en": "Linux in server environments (apache, sendmail, DNS), network setup and admin"
                 },
+      		"render": false,
                 "skillKey": "General IT",
                 "weight": [
                     2,
@@ -646,6 +647,17 @@
                 },
                 "skillKey": "Product Leadership",
                 "weight": 3
+            },
+            {
+                "context": {
+                    "de": "WIG-Schweissen (Alu, Stähle), Drehen und Fräsen",
+                    "en": "Welding (TIG, MIG with Aluminum and Steels), machining"
+                },
+                "skillKey": "Technical Engineering",
+                "weight": [
+                    1,
+                    0
+                ]
             },
            {
                 "context": {
