@@ -19,6 +19,11 @@
 		"en" : "languages",
 		"de" : "sprachen"
 	},
+	"textTruncated" :
+	{
+		"en" : "This is an abridged history &mdash; ask Nick personally to go further back!",
+		"de" : "Dies ist ein gek&uuml;rzter Werdegang &mdash; frag Nick pers&ouml;nlich, um weiter zur&uuml;ckzugehen!"
+	},
 	"textAbout" :
 	{
 		"en" : "This page started as a small experiment to replace the traditional PDF résumé with something more dynamic and interactive — and it's been running ever since. Most recently rewritten using Claude Code, the stack is deliberately simple: <a href=\"https://getbootstrap.com\">Bootstrap</a> for layout, <a href=\"https://fonts.google.com\">Google Fonts</a> for typography, and <a href=\"https://d3js.org/\">d3.js</a> for the interactive skill visualizations. All data lives in plain JSON (<a href=\"cv-data/experience.json\">experience</a>, <a href=\"cv-data/hobby.json\">hobby</a>, <a href=\"cv-data/personal-info.json\">personal info</a>) and is rendered client-side via lightweight templating. Source on <a href=\"https://github.com/nickyspitz/webcv\">GitHub</a>.",

@@ -372,6 +372,17 @@ h5.details-list {
   margin-bottom: 2px;
 }
 
+/* ===== TRUNCATION NOTE ===== */
+/* Shown only when a cutoff param actually dropped entries (see index-pdf.html) */
+.truncation-note {
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--color-muted);
+  border-left: 3px solid var(--color-border);
+  padding: 4px 0 4px 12px;
+  margin: 2px 0 8px;
+}
+
 /* ===== LANGUAGES ===== */
 .languages {
   font-size: 0.97rem;
