@@ -95,6 +95,8 @@
     </div>
   </div>
 
+  <div class="truncation-note" style="display:none;"></div>
+
   <div class="meta-languages"><span class="languages-label"></span></div>
 
   <div class="languages">
@@ -127,9 +129,17 @@ function calcAge() {
   return age;
 }
 
-// Cutoff dates — override via URL param:
-//   ?textCutoff=2016-06     (hide entries that ended before June 2016)
+// Cutoff dates — hide entries that ENDED before the given month.
+// All formats are YYYY-MM (a bare YYYY is read as January of that year).
+// Override via URL params:
+//   ?textCutoff=2016-06     both lists
+//   ?expCutoff=2013-08      experience only — overrides textCutoff
+//   ?eduCutoff=2003-09      education only  — overrides textCutoff
+// e.g. index-pdf.html?lang=en&expCutoff=2013-08&eduCutoff=2003-09
+// Whenever anything is dropped, the truncation note is shown automatically.
 var textCutoff = null;
+var expCutoff  = null;
+var eduCutoff  = null;
 
 function parseCutoff(str) {
   if (!str) return null;
@@ -140,6 +150,8 @@ function parseCutoff(str) {
 (function() {
   var params = new URLSearchParams(window.location.search);
   if (params.get('textCutoff')) textCutoff = parseCutoff(params.get('textCutoff'));
+  if (params.get('expCutoff'))  expCutoff  = parseCutoff(params.get('expCutoff'));
+  if (params.get('eduCutoff'))  eduCutoff  = parseCutoff(params.get('eduCutoff'));
 })();
 
 function filterByCutoff(items, cutoff) {
@@ -225,8 +237,21 @@ function SetLanguage(language)
 		'span.infoStatement' : function() { return this.statement[language]; },
 	});
 
-	$p( 'div.experience-table' ).render( filterByCutoff(experienceJson, textCutoff), directive );
-	$p( 'div.education-table' ).render( filterByCutoff(educationJson, textCutoff), directive );
+	var shownExperience = filterByCutoff(experienceJson, expCutoff || textCutoff);
+	var shownEducation  = filterByCutoff(educationJson,  eduCutoff || textCutoff);
+
+	$p( 'div.experience-table' ).render( shownExperience, directive );
+	$p( 'div.education-table' ).render( shownEducation, directive );
+
+	// Only own up to an abridged history when something was actually dropped
+	var truncated = shownExperience.length < experienceJson.length ||
+	                shownEducation.length  < educationJson.length;
+
+	if (truncated) {
+		$('.truncation-note').html( metaJson.textTruncated[language] ).show();
+	} else {
+		$('.truncation-note').hide();
+	}
 
 }
 </script>

@@ -113,6 +113,11 @@
   .details         { padding-left: 6px; margin-bottom: 1px; }
 
   /* ===== TAIL SECTIONS ===== */
+  .truncation-note {
+    font-size: 0.82rem;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
   .languages  { font-size: 0.88rem; padding: 2px 0 8px; }
   .meta-about {
     font-size: 0.88rem;
