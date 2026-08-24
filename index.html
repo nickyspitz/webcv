@@ -132,6 +132,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 
+  <div class="truncation-note" style="display:none;"></div>
+
   <div class="meta-languages"><span class="languages-label"></span></div>
 
   <div class="languages">
@@ -167,11 +169,22 @@ function calcAge() {
   return age;
 }
 
-// Cutoff dates — edit defaults directly, or override via URL params:
+// Cutoff dates — hide entries that ENDED before the given month.
+// Defaults for a fresh visit: experience matches the graph window
+// (now - yearsBack, so viz and list agree), education shows uni-level
+// onward. Override via URL params (param beats default; an early year
+// like ?textCutoff=2000 shows the full history):
 //   ?graphCutoff=2012       (year the graph x-axis starts, year only)
-//   ?textCutoff=2016-06     (hide entries that ended before June 2016)
-var graphCutoffYear = null;  // null = show full timeline (back to startYear)
-var textCutoff      = null;  // null = show all entries; or {year, month} object
+//   ?textCutoff=2016-06     (both lists)
+//   ?expCutoff=2013-08      (experience only — overrides textCutoff)
+//   ?eduCutoff=2003-09      (education only  — overrides textCutoff)
+// Whenever anything is dropped, a truncation note is shown automatically.
+var graphCutoffYear = null;  // null = graph starts at now - yearsBack
+var expCutoffDefault = { year: new Date().getFullYear() - yearsBack, month: 1 };
+var eduCutoffDefault = { year: 2003, month: 9 };
+var textCutoff = null;
+var expCutoff  = null;
+var eduCutoff  = null;
 
 function parseCutoff(str) {
   if (!str) return null;
@@ -183,6 +196,8 @@ function parseCutoff(str) {
   var params = new URLSearchParams(window.location.search);
   if (params.get('graphCutoff')) graphCutoffYear = parseInt(params.get('graphCutoff'));
   if (params.get('textCutoff'))  textCutoff = parseCutoff(params.get('textCutoff'));
+  if (params.get('expCutoff'))   expCutoff  = parseCutoff(params.get('expCutoff'));
+  if (params.get('eduCutoff'))   eduCutoff  = parseCutoff(params.get('eduCutoff'));
 })();
 
 function filterByCutoff(items, cutoff) {
@@ -276,8 +291,21 @@ function SetLanguage(language)
 		'span.infoStatement' : function() { return this.statement[language]; },
 	});
 
-	$p( 'div.experience-table' ).render( filterByCutoff(experienceJson, textCutoff), directive );
-	$p( 'div.education-table' ).render( filterByCutoff(educationJson, textCutoff), directive );
+	var shownExperience = filterByCutoff(experienceJson, expCutoff || textCutoff || expCutoffDefault);
+	var shownEducation  = filterByCutoff(educationJson,  eduCutoff || textCutoff || eduCutoffDefault);
+
+	$p( 'div.experience-table' ).render( shownExperience, directive );
+	$p( 'div.education-table' ).render( shownEducation, directive );
+
+	// Only own up to an abridged history when something was actually dropped
+	var truncated = shownExperience.length < experienceJson.length ||
+	                shownEducation.length  < educationJson.length;
+
+	if (truncated) {
+		$('.truncation-note').html( metaJson.textTruncated[language] ).show();
+	} else {
+		$('.truncation-note').hide();
+	}
 
 	// Redraw the pixel grids in the selected language
 	var startYear = new Date().getFullYear() - yearsBack;
