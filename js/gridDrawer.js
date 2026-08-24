@@ -15,6 +15,13 @@ var GRID_GLOW_RADIUS = 120; // px radius of the cursor proximity glow
 
 document.documentElement.style.setProperty('--cell-h', GRID_CELL_H + 'px');
 
+// Uniform mode: one color per section, weight carried by opacity alone
+var gridMonoColor = false;
+var GRID_MONO_COLORS = {
+	orange: [192, 90, 60],   // burnt orange
+	blue:   [23, 94, 78]     // deep green
+};
+
 var GRID_COLORS = {
 	orange: [
 		[224,122,95],  // coral
@@ -163,8 +170,8 @@ function DrawPixelGrid(skills, opts)
 
 	// Stretch to the container's full width; on narrow screens clamp to a
 	// minimum cell width and let the container scroll horizontally.
-	var cellW = Math.max(GRID_MIN_CELL_W,
-		(container.clientWidth - (totalMonths - 1) * GRID_GAP) / totalMonths);
+	var cellW = Math.max(GRID_MIN_CELL_W, Math.floor(
+		(container.clientWidth - (totalMonths - 1) * GRID_GAP) / totalMonths * 100) / 100);
 	var stepX = cellW + GRID_GAP;
 
 	grid.style.gridTemplateColumns = 'repeat(' + totalMonths + ', ' + cellW + 'px)';
@@ -210,7 +217,12 @@ function DrawPixelGrid(skills, opts)
 			if (w > 0)
 			{
 				var norm = Math.min(w / maxW, 1);
-				if (opts.colorScheme === 'blue')
+				if (gridMonoColor)
+				{
+					var mc = GRID_MONO_COLORS[opts.colorScheme];
+					cell.style.background = 'rgba(' + mc[0] + ',' + mc[1] + ',' + mc[2] + ',' + (0.15 + norm * 0.85) + ')';
+				}
+				else if (opts.colorScheme === 'blue')
 				{
 					// Interpolate from light mint to deep seafoam
 					var lo = [200, 230, 220];
@@ -293,7 +305,8 @@ function DrawPixelGrid(skills, opts)
 			if (w > 0)
 			{
 				var nameString = isHobby ? 'Hobby: ' + skill.name : skill.name;
-				var html = '<div class="tip-skill"><span class="tip-dot" style="background:rgb(' + skill.color.join(',') + ')"></span>' + nameString + '</div>';
+				var dotColor = gridMonoColor ? GRID_MONO_COLORS[opts.colorScheme] : skill.color;
+				var html = '<div class="tip-skill"><span class="tip-dot" style="background:rgb(' + dotColor.join(',') + ')"></span>' + nameString + '</div>';
 
 				(skill.contextMap[col] || []).forEach(function(ctxData)
 				{
@@ -375,4 +388,14 @@ function RenderPixelGrids(experienceJson, hobbyJson, graphStartYear, language)
 		ProcessJsonToGrid(hobbyJson, graphStartYear, language, 'blue'),
 		{ gridId: 'hobby-grid', labelsId: 'hobby-labels', yearsId: null,
 		  colorScheme: 'blue', isHobby: true, graphStartYear: graphStartYear });
+}
+
+// ===== COLOR MODE TOGGLE =====
+function ToggleGridColorMode()
+{
+	gridMonoColor = !gridMonoColor;
+	var btn = document.getElementById('color-mode-toggle');
+	if (btn) btn.textContent = gridMonoColor ? 'color: uniform' : 'color: by skill';
+	if (__gridRenderArgs) RenderPixelGrids.apply(null, __gridRenderArgs);
+	return false;
 }

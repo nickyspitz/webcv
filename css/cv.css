@@ -43,7 +43,7 @@ a:hover { color: var(--color-clay); }
 .header-name { flex: 0 0 auto; }
 
 .header-name h1 {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   margin: 0;
@@ -98,7 +98,7 @@ a:hover { color: var(--color-clay); }
 }
 
 .lang-selection {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -125,7 +125,7 @@ a.lang-selected {
   border-radius: 20px;
   border: 1px solid var(--color-seafoam);
   color: var(--color-seafoam);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -153,7 +153,7 @@ a.lang-selected {
 .meta-experience,
 .meta-education,
 .meta-languages {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 0.88rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -183,6 +183,17 @@ a.lang-selected {
   align-items: center;
   gap: 6px;
 }
+
+.grid-mode-toggle {
+  margin-left: auto;
+  color: var(--color-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 2px 10px;
+  letter-spacing: 0.5px;
+}
+
+.grid-mode-toggle:hover { color: var(--color-coral); border-color: var(--color-coral); }
 
 .legend-swatch {
   width: 10px;
@@ -291,9 +302,8 @@ a.lang-selected {
   pointer-events: none;
 }
 
-.grid-container::-webkit-scrollbar { height: 4px; }
-.grid-container::-webkit-scrollbar-track { background: var(--color-bg); }
-.grid-container::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 2px; }
+.grid-container { scrollbar-width: none; }
+.grid-container::-webkit-scrollbar { display: none; }
 
 /* ===== TOOLTIP ===== */
 .tip {
@@ -363,16 +373,17 @@ a.lang-selected {
 .cv-main .info-row {
   display: flex;
   gap: 0;
-  background: #FFFDF9;
+  background: var(--color-bg);
   border-radius: 0;
-  box-shadow: 0 1px 6px rgba(42, 34, 32, 0.08);
   border-left: 3px solid var(--color-coral);
   margin-bottom: 10px;
   overflow: hidden;
-  transition: transform 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
 }
 
-.cv-main .info-row:hover {}
+.cv-main .info-row:hover {
+  box-shadow: 0 2px 12px rgba(42, 34, 32, 0.12);
+}
 
 .card-meta {
   flex: 0 0 160px;
@@ -398,7 +409,7 @@ a.lang-selected {
 }
 
 .card-body .title {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 700;
   font-size: 1rem;
   display: block;
