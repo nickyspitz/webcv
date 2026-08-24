@@ -21,6 +21,20 @@ var GRID_MONO_COLORS = {
 	orange: [192, 90, 60],   // burnt orange
 	blue:   [23, 94, 78]     // deep green
 };
+var GRID_MONO_COLORS_DARK = {
+	orange: [74, 222, 128],  // bright green
+	blue:   [167, 139, 250]  // purple
+};
+
+// Dark mode follows the tokens in cv.css: work goes bright green,
+// self goes purple.
+function gridIsDark()
+{
+	var root = document.documentElement;
+	if (root.classList.contains('theme-dark')) return true;
+	if (root.classList.contains('theme-light')) return false;
+	return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+}
 
 var GRID_COLORS = {
 	orange: [
@@ -45,6 +59,29 @@ var GRID_COLORS = {
 	]
 };
 
+var GRID_COLORS_DARK = {
+	orange: [        // bright greens (work)
+		[74,222,128],
+		[52,211,153],
+		[134,239,172],
+		[16,185,129],
+		[187,247,208],
+		[34,197,94],
+		[110,231,183],
+		[22,163,74]
+	],
+	blue: [          // purples (self)
+		[167,139,250],
+		[196,181,253],
+		[139,92,246],
+		[216,180,254],
+		[147,112,219],
+		[221,214,254],
+		[124,58,237],
+		[233,213,255]
+	]
+};
+
 function gridSpanMonths(graphStartYear)
 {
 	var now = new Date();
@@ -60,7 +97,7 @@ function ProcessJsonToGrid(json, graphStartYear, language, colorScheme)
 	var totalMonths = gridSpanMonths(graphStartYear);
 	var skillMap = {};
 	var skillList = [];
-	var colors = GRID_COLORS[colorScheme];
+	var colors = (gridIsDark() ? GRID_COLORS_DARK : GRID_COLORS)[colorScheme];
 	var skillIndex = 0;
 	var now = new Date();
 
@@ -153,6 +190,7 @@ function DrawPixelGrid(skills, opts)
 	var totalMonths = gridSpanMonths(opts.graphStartYear);
 	var numRows = skills.length;
 	var isHobby = !!opts.isHobby;
+	var dark = gridIsDark();
 
 	// Reset from any previous render
 	grid.innerHTML = '';
@@ -219,14 +257,15 @@ function DrawPixelGrid(skills, opts)
 				var norm = Math.min(w / maxW, 1);
 				if (gridMonoColor)
 				{
-					var mc = GRID_MONO_COLORS[opts.colorScheme];
+					var mc = (dark ? GRID_MONO_COLORS_DARK : GRID_MONO_COLORS)[opts.colorScheme];
 					cell.style.background = 'rgba(' + mc[0] + ',' + mc[1] + ',' + mc[2] + ',' + (0.15 + norm * 0.85) + ')';
 				}
 				else if (opts.colorScheme === 'blue')
 				{
-					// Interpolate from light mint to deep seafoam
-					var lo = [200, 230, 220];
-					var hi = [20, 90, 75];
+					// Light theme: light mint -> deep seafoam.
+					// Dark theme: deep violet -> bright lavender (brighter = more).
+					var lo = dark ? [52, 44, 78] : [200, 230, 220];
+					var hi = dark ? [200, 165, 255] : [20, 90, 75];
 					var cr = Math.round(lo[0] + norm * (hi[0] - lo[0]));
 					var cg = Math.round(lo[1] + norm * (hi[1] - lo[1]));
 					var cb = Math.round(lo[2] + norm * (hi[2] - lo[2]));
@@ -247,7 +286,9 @@ function DrawPixelGrid(skills, opts)
 		cellElements.push(rowCells);
 	});
 
-	var baseColor = opts.colorScheme === 'orange' ? [224, 122, 95] : [58, 158, 140];
+	var baseColor;
+	if (dark) baseColor = opts.colorScheme === 'orange' ? [74, 222, 128] : [167, 139, 250];
+	else      baseColor = opts.colorScheme === 'orange' ? [224, 122, 95] : [58, 158, 140];
 	var litCells = [];
 
 	function clearLit()
@@ -305,7 +346,7 @@ function DrawPixelGrid(skills, opts)
 			if (w > 0)
 			{
 				var nameString = isHobby ? 'Hobby: ' + skill.name : skill.name;
-				var dotColor = gridMonoColor ? GRID_MONO_COLORS[opts.colorScheme] : skill.color;
+				var dotColor = gridMonoColor ? (dark ? GRID_MONO_COLORS_DARK : GRID_MONO_COLORS)[opts.colorScheme] : skill.color;
 				var html = '<div class="tip-skill"><span class="tip-dot" style="background:rgb(' + dotColor.join(',') + ')"></span>' + nameString + '</div>';
 
 				(skill.contextMap[col] || []).forEach(function(ctxData)
@@ -378,6 +419,14 @@ function RenderPixelGrids(experienceJson, hobbyJson, graphStartYear, language)
 				RenderPixelGrids.apply(null, __gridRenderArgs);
 			}, 150);
 		});
+
+		if (window.matchMedia)
+		{
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function()
+			{
+				if (__gridRenderArgs) RenderPixelGrids.apply(null, __gridRenderArgs);
+			});
+		}
 	}
 	DrawPixelGrid(
 		ProcessJsonToGrid(experienceJson, graphStartYear, language, 'orange'),

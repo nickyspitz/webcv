@@ -6,6 +6,18 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 
+	<script>
+	// Dark mode: follows the browser (prefers-color-scheme) by default;
+	// force with ?dark=1 or ?dark=0.
+	(function() {
+		var root = document.documentElement;
+		root.classList.add('themable');
+		var dark = new URLSearchParams(window.location.search).get('dark');
+		if (dark === '1') root.classList.add('theme-dark');
+		else if (dark === '0') root.classList.add('theme-light');
+	})();
+	</script>
+
 	<!-- Google Tag Manager -->
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -67,9 +79,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="cv-graphs">
   <div class="grid-legend">
-    <div class="legend-item"><span class="legend-swatch" style="background:#E07A5F;"></span> Work</div>
-    <div class="legend-item"><span class="legend-swatch" style="background:#3A9E8C;"></span> Self</div>
-    <a href="" id="color-mode-toggle" class="grid-mode-toggle" onclick="return ToggleGridColorMode();">color: by skill</a>
+    <div class="legend-item"><span class="legend-swatch" style="background:var(--color-coral);"></span> Work</div>
+    <div class="legend-item"><span class="legend-swatch" style="background:var(--color-seafoam);"></span> Self</div>
+    <a href="" id="color-mode-toggle" class="grid-mode-toggle" style="display:none;" onclick="return ToggleGridColorMode();">color: by skill</a>
   </div>
   <div class="grid-section" id="experience-section">
     <div class="grid-wrapper" id="exp-wrapper">
@@ -170,9 +182,8 @@ function calcAge() {
 }
 
 // Cutoff dates — hide entries that ENDED before the given month.
-// Defaults for a fresh visit: experience matches the graph window
-// (now - yearsBack, so viz and list agree), education shows uni-level
-// onward. Override via URL params (param beats default; an early year
+// Defaults for a fresh visit: experience back to "Software Architect,
+// Engineer" (ends 08.2012) as the last entry, education uni-level onward. Override via URL params (param beats default; an early year
 // like ?textCutoff=2000 shows the full history):
 //   ?graphCutoff=2012       (year the graph x-axis starts, year only)
 //   ?textCutoff=2016-06     (both lists)
@@ -180,7 +191,7 @@ function calcAge() {
 //   ?eduCutoff=2003-09      (education only  — overrides textCutoff)
 // Whenever anything is dropped, a truncation note is shown automatically.
 var graphCutoffYear = null;  // null = graph starts at now - yearsBack
-var expCutoffDefault = { year: new Date().getFullYear() - yearsBack, month: 1 };
+var expCutoffDefault = { year: 2012, month: 6 };
 var eduCutoffDefault = { year: 2003, month: 9 };
 var textCutoff = null;
 var expCutoff  = null;

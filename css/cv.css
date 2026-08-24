@@ -13,6 +13,41 @@
   --color-grid-empty: #F8F2E9;  /* pale cream for empty grid pixels */
 }
 
+/* ===== DARK MODE =====
+   Bright green (work) + purple (self) on near-black. Applies only where
+   <html> carries .themable (index.html sets it; the PDF page never does).
+   Follows prefers-color-scheme; ?dark=1 / ?dark=0 force via theme-dark /
+   theme-light classes. The grid's cell palettes switch in gridDrawer.js. */
+:root.themable.theme-dark {
+  --color-bg:      #14121A;
+  --color-card:    #1C1926;
+  --color-coral:   #4ADE80;
+  --color-rose:    #C084FC;
+  --color-clay:    #86EFAC;
+  --color-seafoam: #A78BFA;
+  --color-sage:    #8B7BB8;
+  --color-text:    #F2F0F5;
+  --color-muted:   #A79FB8;
+  --color-border:  #322D42;
+  --color-grid-empty: #211D2E;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root.themable:not(.theme-light) {
+    --color-bg:      #14121A;
+    --color-card:    #1C1926;
+    --color-coral:   #4ADE80;
+    --color-rose:    #C084FC;
+    --color-clay:    #86EFAC;
+    --color-seafoam: #A78BFA;
+    --color-sage:    #8B7BB8;
+    --color-text:    #F2F0F5;
+    --color-muted:   #A79FB8;
+    --color-border:  #322D42;
+    --color-grid-empty: #211D2E;
+  }
+}
+
 /* ===== RESET / BASE ===== */
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -57,7 +92,7 @@ a:hover { color: var(--color-clay); }
   font-size: 0.7rem;
   font-weight: 700;
   background: var(--color-coral);
-  color: #fff;
+  color: var(--color-bg);
   padding: 4px 10px;
   border-radius: 4px;
   letter-spacing: 1px;
