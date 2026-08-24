@@ -7,14 +7,12 @@
 // Layout styles live in css/cv.css under "PIXEL GRID".
 // ============================================================
 
-var GRID_CELL_W = 3;      // px per cell width (one month)
 var GRID_CELL_H = 16;     // px per cell height (one skill row)
 var GRID_GAP = 1;         // px gap between cells
-var GRID_STEP_X = GRID_CELL_W + GRID_GAP;
+var GRID_MIN_CELL_W = 3;  // px floor — below this the grid scrolls (mobile)
 var GRID_STEP_Y = GRID_CELL_H + GRID_GAP;
 var GRID_GLOW_RADIUS = 120; // px radius of the cursor proximity glow
 
-document.documentElement.style.setProperty('--cell-w', GRID_CELL_W + 'px');
 document.documentElement.style.setProperty('--cell-h', GRID_CELL_H + 'px');
 
 var GRID_COLORS = {
@@ -163,10 +161,16 @@ function DrawPixelGrid(skills, opts)
 	skills.forEach(function(s) { s.values.forEach(function(v) { if (v > maxW) maxW = v; }); });
 	if (maxW === 0) maxW = 1;
 
-	grid.style.gridTemplateColumns = 'repeat(' + totalMonths + ', ' + GRID_CELL_W + 'px)';
+	// Stretch to the container's full width; on narrow screens clamp to a
+	// minimum cell width and let the container scroll horizontally.
+	var cellW = Math.max(GRID_MIN_CELL_W,
+		(container.clientWidth - (totalMonths - 1) * GRID_GAP) / totalMonths);
+	var stepX = cellW + GRID_GAP;
+
+	grid.style.gridTemplateColumns = 'repeat(' + totalMonths + ', ' + cellW + 'px)';
 	grid.style.gridTemplateRows = 'repeat(' + numRows + ', ' + GRID_CELL_H + 'px)';
 
-	var gridW = totalMonths * GRID_STEP_X;
+	var gridW = totalMonths * stepX - GRID_GAP;
 	var gridH = numRows * GRID_STEP_Y;
 
 	// Year ticks (experience grid only — the hobby grid shares its axis)
@@ -178,7 +182,7 @@ function DrawPixelGrid(skills, opts)
 			var tick = document.createElement('div');
 			tick.className = 'year-tick';
 			tick.textContent = y;
-			tick.style.left = ((y - opts.graphStartYear) * 12 * GRID_STEP_X) + 'px';
+			tick.style.left = ((y - opts.graphStartYear) * 12 * stepX) + 'px';
 			yearsEl.appendChild(tick);
 		}
 	}
@@ -236,7 +240,7 @@ function DrawPixelGrid(skills, opts)
 
 	function clearLit()
 	{
-		litCells.forEach(function(c) { c.style.background = 'transparent'; });
+		litCells.forEach(function(c) { c.style.background = ''; });
 		litCells = [];
 	}
 
@@ -249,8 +253,8 @@ function DrawPixelGrid(skills, opts)
 		clearLit();
 
 		// Proximity glow on empty cells
-		var minCol = Math.max(0, Math.floor((mouseX - GRID_GLOW_RADIUS) / GRID_STEP_X));
-		var maxCol = Math.min(totalMonths - 1, Math.ceil((mouseX + GRID_GLOW_RADIUS) / GRID_STEP_X));
+		var minCol = Math.max(0, Math.floor((mouseX - GRID_GLOW_RADIUS) / stepX));
+		var maxCol = Math.min(totalMonths - 1, Math.ceil((mouseX + GRID_GLOW_RADIUS) / stepX));
 		var minRow = Math.max(0, Math.floor((mouseY - GRID_GLOW_RADIUS) / GRID_STEP_Y));
 		var maxRow = Math.min(numRows - 1, Math.ceil((mouseY + GRID_GLOW_RADIUS) / GRID_STEP_Y));
 
@@ -261,7 +265,7 @@ function DrawPixelGrid(skills, opts)
 				var cell = cellElements[r][c];
 				if (cell.classList.contains('filled')) continue;
 
-				var cx = c * GRID_STEP_X + GRID_CELL_W / 2;
+				var cx = c * stepX + cellW / 2;
 				var cy = r * GRID_STEP_Y + GRID_CELL_H / 2;
 				var dist = Math.sqrt(Math.pow(mouseX - cx, 2) + Math.pow(mouseY - cy, 2));
 				if (dist > GRID_GLOW_RADIUS) continue;
@@ -273,7 +277,7 @@ function DrawPixelGrid(skills, opts)
 			}
 		}
 
-		var col = Math.floor(mouseX / GRID_STEP_X);
+		var col = Math.floor(mouseX / stepX);
 		var row = Math.floor(mouseY / GRID_STEP_Y);
 
 		// Highlight the hovered row's label
@@ -337,15 +341,31 @@ function DrawPixelGrid(skills, opts)
 	var nowIdx = new Date().getMonth() + (new Date().getFullYear() - opts.graphStartYear) * 12;
 	var nowLine = document.createElement('div');
 	nowLine.className = 'now-line';
-	nowLine.style.left = (nowIdx * GRID_STEP_X) + 'px';
+	nowLine.style.left = (nowIdx * stepX) + 'px';
 	nowLine.style.height = gridH + 'px';
 	nowLine.style.top = yearsEl ? '20px' : '0px';
 	container.appendChild(nowLine);
 }
 
 // ===== ENTRY POINT =====
+var __gridRenderArgs = null;
+
 function RenderPixelGrids(experienceJson, hobbyJson, graphStartYear, language)
 {
+	__gridRenderArgs = [experienceJson, hobbyJson, graphStartYear, language];
+	if (!window.__gridResizeHooked)
+	{
+		window.__gridResizeHooked = true;
+		var resizeTimer;
+		window.addEventListener('resize', function()
+		{
+			clearTimeout(resizeTimer);
+			resizeTimer = setTimeout(function()
+			{
+				RenderPixelGrids.apply(null, __gridRenderArgs);
+			}, 150);
+		});
+	}
 	DrawPixelGrid(
 		ProcessJsonToGrid(experienceJson, graphStartYear, language, 'orange'),
 		{ gridId: 'exp-grid', labelsId: 'exp-labels', yearsId: 'exp-years',
