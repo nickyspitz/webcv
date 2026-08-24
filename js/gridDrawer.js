@@ -363,8 +363,16 @@ function DrawPixelGrid(skills, opts)
 
 				tooltip.innerHTML = html;
 				tooltip.classList.add('visible');
-				tooltip.style.left = Math.min(e.clientX + 16, window.innerWidth - 400) + 'px';
-				tooltip.style.top = (e.clientY - 10) + 'px';
+
+				// Clamp to the viewport, and sit below the cursor so the
+				// hovered cell stays visible; flip above near the bottom edge.
+				var tipW = tooltip.offsetWidth;
+				var tipH = tooltip.offsetHeight;
+				var tipLeft = Math.max(8, Math.min(e.clientX + 16, window.innerWidth - tipW - 8));
+				var tipTop = e.clientY + 22;
+				if (tipTop + tipH > window.innerHeight - 8) tipTop = e.clientY - tipH - 14;
+				tooltip.style.left = tipLeft + 'px';
+				tooltip.style.top = tipTop + 'px';
 			}
 			else
 			{
@@ -399,6 +407,10 @@ function DrawPixelGrid(skills, opts)
 	nowLine.style.height = gridH + 'px';
 	nowLine.style.top = yearsEl ? '20px' : '0px';
 	container.appendChild(nowLine);
+
+	// When the grid overflows (narrow screens), start scrolled to "now"
+	// rather than the oldest years. No-op when it fits.
+	container.scrollLeft = container.scrollWidth;
 }
 
 // ===== ENTRY POINT =====
