@@ -211,7 +211,7 @@
     "skills": [
       {
         "skillKey": "Travel",
-        "weight": [5, 5],
+        "weight": [5, 5, 4],
         "context": {
           "en": "Extended family travel: Living in Italy, overlanding through Colombia, and exploring the Southwest US.",
           "de": "Ausgedehnte Familienreise: Leben in Italien, Overlanding durch Kolumbien und Erkundung des Südwestens der USA."
@@ -309,12 +309,28 @@
       },
       {
         "skillKey": "Cycling",
-        "weight": 2,
+        "weight": 1,
         "context": {
           "en": "Back on the bike after the sabbatical — ramping the volume back up",
           "de": "Nach dem Sabbatical zur&uuml;ck auf dem Rad — der Umfang steigt wieder"
         }
       }
     ]
+  },
+ {
+    "startDate": "11.2025",
+    "endDate": "08.2026",
+    "title": {
+      "de": "Wieder im Sattel",
+      "en": "Back in the saddle"
+    },
+    "skills": [{
+      "skillKey": "Cycling",
+      "weight": [0, 1],
+      "context": {
+        "en": "Riding volume creeping back up through the tail of the sabbatical",
+        "de": "Der Radumfang steigt gegen Ende des Sabbaticals langsam wieder"
+      }
+    }]
   }
 ]
