@@ -10,6 +10,42 @@
   --color-text:    #2A2220;
   --color-muted:   #7A6B5E;
   --color-border:  #E8D8C8;
+  --color-grid-empty: #F8F2E9;  /* pale cream for empty grid pixels */
+}
+
+/* ===== DARK MODE =====
+   Bright green (work) + purple (self) on near-black. Applies only where
+   <html> carries .themable (index.html sets it; the PDF page never does).
+   Follows prefers-color-scheme; ?dark=1 / ?dark=0 force via theme-dark /
+   theme-light classes. The grid's cell palettes switch in gridDrawer.js. */
+:root.themable.theme-dark {
+  --color-bg:      #14121A;
+  --color-card:    #1C1926;
+  --color-coral:   #4ADE80;
+  --color-rose:    #C084FC;
+  --color-clay:    #86EFAC;
+  --color-seafoam: #A78BFA;
+  --color-sage:    #8B7BB8;
+  --color-text:    #F2F0F5;
+  --color-muted:   #A79FB8;
+  --color-border:  #322D42;
+  --color-grid-empty: #211D2E;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root.themable:not(.theme-light) {
+    --color-bg:      #14121A;
+    --color-card:    #1C1926;
+    --color-coral:   #4ADE80;
+    --color-rose:    #C084FC;
+    --color-clay:    #86EFAC;
+    --color-seafoam: #A78BFA;
+    --color-sage:    #8B7BB8;
+    --color-text:    #F2F0F5;
+    --color-muted:   #A79FB8;
+    --color-border:  #322D42;
+    --color-grid-empty: #211D2E;
+  }
 }
 
 /* ===== RESET / BASE ===== */
@@ -42,7 +78,7 @@ a:hover { color: var(--color-clay); }
 .header-name { flex: 0 0 auto; }
 
 .header-name h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   margin: 0;
@@ -56,7 +92,7 @@ a:hover { color: var(--color-clay); }
   font-size: 0.7rem;
   font-weight: 700;
   background: var(--color-coral);
-  color: #fff;
+  color: var(--color-bg);
   padding: 4px 10px;
   border-radius: 4px;
   letter-spacing: 1px;
@@ -97,7 +133,7 @@ a:hover { color: var(--color-clay); }
 }
 
 .lang-selection {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -124,7 +160,7 @@ a.lang-selected {
   border-radius: 20px;
   border: 1px solid var(--color-seafoam);
   color: var(--color-seafoam);
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -152,7 +188,7 @@ a.lang-selected {
 .meta-experience,
 .meta-education,
 .meta-languages {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 0.88rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -163,74 +199,146 @@ a.lang-selected {
   margin: 28px 0 12px 0;
 }
 
-/* ===== STREAM GRAPH CONTAINERS ===== */
-/* Full-bleed wrapper — no horizontal padding so #svg-container starts at x=0.
-   The JS positions #vertical and #year using d3.event.pageX (absolute page
-   coordinates). If the container has a left offset, the line appears shifted
-   by exactly that offset. Zero left-padding keeps the math correct. */
+/* ===== PIXEL GRID (replaces the d3 streamgraphs) ===== */
 .cv-graphs {
   padding: 12px 40px 4px;
 }
 
-.streamgraphContainer {
-  position: relative;
-  width: 100%;
-  margin-bottom: 4px;
-}
-
-.svg-hobby-container {
-  position: relative;
-  width: 100%;
-  margin-bottom: 4px;
-}
-
-div.svgXaxes {
-  position: absolute;
-  font-size: 6pt;
-  font-weight: bold;
+.grid-legend {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
   color: var(--color-muted);
-  pointer-events: none;
 }
 
-#year {
+.grid-legend .legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.grid-mode-toggle {
+  margin-left: auto;
+  color: var(--color-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 2px 10px;
+  letter-spacing: 0.5px;
+}
+
+.grid-mode-toggle:hover { color: var(--color-coral); border-color: var(--color-coral); }
+
+.legend-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.grid-section { position: relative; }
+
+.grid-wrapper {
+  position: relative;
+  display: flex;
+  gap: 0;
+}
+
+/* Skill labels on the left */
+.grid-labels {
+  flex: 0 0 160px;
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px; /* clears the year axis so labels align with grid rows */
+  overflow: hidden;
+}
+
+#hobby-section .grid-labels { padding-top: 0; }
+
+.grid-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--color-muted);
+  height: var(--cell-h);
+  line-height: var(--cell-h);
+  padding-right: 12px;
+  text-align: right;
+  white-space: nowrap;
+  transition: color 0.15s;
+}
+
+.grid-label.active { color: var(--color-text); }
+
+.grid-container {
+  flex: 1;
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.year-axis {
+  position: relative;
+  height: 18px;
+  margin-bottom: 2px;
+}
+
+.year-tick {
   position: absolute;
-  text-align: center;
-  z-index: 20;
-  width: 60px;
-  height: 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  color: var(--color-muted);
+  transform: translateX(-50%);
+}
+
+.grid {
+  display: grid;
+  gap: 1px;
+  position: relative;
+}
+
+.grid-cell {
+  /* width comes from the grid's column tracks (computed per viewport in JS) */
+  height: var(--cell-h);
+  border-radius: 1.5px;
+  background: var(--color-grid-empty);
+  position: relative;
+}
+
+.grid-cell.filled { cursor: crosshair; }
+
+/* Vertical section names on the right */
+.section-label {
+  flex: 0 0 auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 300;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--color-muted);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  padding-left: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-label-exp   { color: var(--color-coral); opacity: 0.6; }
+.section-label-hobby { color: var(--color-seafoam); opacity: 0.6; }
+
+.now-line {
+  position: absolute;
   top: 0;
-  background-color: var(--color-bg);
-  font-size: 0.72rem;
-  color: var(--color-text);
-  pointer-events: none;
-}
-
-#vertical,
-#vertical-hobby {
-  position: absolute;
-  z-index: 19;
   width: 1px;
-  top: 0;
-  left: 0;
-  background: var(--color-muted);
-  opacity: 0;
+  background: var(--color-coral);
+  opacity: 0.4;
+  z-index: 3;
   pointer-events: none;
 }
 
-#vertical       { height: 300px; }
-#vertical-hobby { height: 300px; }
-
-svg#svg,
-svg#svg-hobby {
-  border-left: 0.5px var(--color-bg) solid;
-  border-right: 0.5px var(--color-bg) solid;
-  display: block;
-}
-
-.axis { font-size: 8pt; fill: none; }
-.x.axis line { stroke: var(--color-bg); }
-.tick line { opacity: 0.2; }
-.tick text { font-size: 12px; stroke: var(--color-seafoam); }
+.grid-container { scrollbar-width: none; }
+.grid-container::-webkit-scrollbar { display: none; }
 
 /* ===== TOOLTIP ===== */
 .tip {
@@ -300,16 +408,17 @@ svg#svg-hobby {
 .cv-main .info-row {
   display: flex;
   gap: 0;
-  background: #FFFDF9;
+  background: var(--color-bg);
   border-radius: 0;
-  box-shadow: 0 1px 6px rgba(42, 34, 32, 0.08);
   border-left: 3px solid var(--color-coral);
   margin-bottom: 10px;
   overflow: hidden;
-  transition: transform 0.15s, box-shadow 0.15s;
+  transition: box-shadow 0.15s;
 }
 
-.cv-main .info-row:hover {}
+.cv-main .info-row:hover {
+  box-shadow: 0 2px 12px rgba(42, 34, 32, 0.12);
+}
 
 .card-meta {
   flex: 0 0 160px;
@@ -335,7 +444,7 @@ svg#svg-hobby {
 }
 
 .card-body .title {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 700;
   font-size: 1rem;
   display: block;
@@ -408,6 +517,9 @@ h5.details-list {
 @media screen and (max-width: 768px) {
   .cv-header { padding: 16px 20px 12px; }
   .cv-graphs { padding: 8px 20px 4px; }
+  .grid-labels { flex: 0 0 92px; width: 92px; }
+  .grid-label { font-size: 0.55rem; }
+  .section-label { display: none; }
   .header-top { flex-direction: column; gap: 12px; }
   .header-contact { display: none; }
   .header-bottom { flex-direction: column; gap: 8px; }

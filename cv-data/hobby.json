@@ -194,7 +194,7 @@
     },
     "skills": [{
       "skillKey": "Cycling",
-      "weight": [3, 5, 1, 2, 2, 2, 3, 3, 2, 2, 2, 3, 4, 5, 8, 5, 1, 1],
+      "weight": [3, 5, 1, 2, 2, 2, 3, 3, 2, 2, 2, 3, 1.5, 2, 2.5, 2, 1, 1],
       "context": {
         "en": "Passionate hobby road and mountain cyclist: max 10kkm/year. A couple events per year!",
         "de": "Leidenschaftlicher Rennrad- und MTB-Fahrer: im Schnitt etwa 6kkm pro Jahr. Ab und zu Teilnahme an Rennen und Rundtourfahrten"
@@ -203,7 +203,7 @@
   },
  {
     "startDate": "11.2024",
-    "endDate": "aktuell",
+    "endDate": "08.2026",
     "title": {
       "de": "Familien-Sabbatical",
       "en": "Family Sabbatical"
@@ -223,6 +223,96 @@
         "context": {
           "en": "Quality time with friends and family during a deliberate career break.",
           "de": "Wertvolle Zeit mit Freunden und Familie während einer bewussten beruflichen Auszeit."
+        }
+      }
+    ]
+  },
+ {
+    "startDate": "09.2021",
+    "endDate": "11.2024",
+    "title": {
+      "de": "Geburt meines Sohnes",
+      "en": "Birth of my son"
+    },
+    "skills": [{
+      "skillKey": "Family",
+      "weight": [6, 4, 4],
+      "context": {
+        "en": "My son was born in September 2021 — family is at least 40% of my free time from day one",
+        "de": "Mein Sohn kam im September 2021 zur Welt — Familie macht seither mindestens 40% meiner freien Zeit aus"
+      }
+    }]
+  },
+ {
+    "startDate": "05.2025",
+    "endDate": "10.2025",
+    "title": {
+      "de": "Italienisch",
+      "en": "Italian"
+    },
+    "skills": [{
+      "skillKey": "Language",
+      "weight": [1.5, 2],
+      "context": {
+        "en": "Italian picked back up through Ligurian village life and lessons with the local librarian (6mo)",
+        "de": "Italienisch durch das Dorfleben in Ligurien und Stunden mit der Dorfbibliothekarin (6 Monate)"
+      }
+    }]
+  },
+ {
+    "startDate": "01.2025",
+    "endDate": "04.2025",
+    "title": {
+      "de": "Spanisch",
+      "en": "Spanish"
+    },
+    "skills": [{
+      "skillKey": "Language",
+      "weight": 1.5,
+      "context": {
+        "en": "Spanish re-started through travels in Spain (3mo)",
+        "de": "Spanisch wieder aufgenommen durch Reisen in Spanien (3 Monate)"
+      }
+    }]
+  },
+ {
+    "startDate": "10.2025",
+    "endDate": "04.2026",
+    "title": {
+      "de": "Spanisch",
+      "en": "Spanish"
+    },
+    "skills": [{
+      "skillKey": "Language",
+      "weight": [1, 2],
+      "context": {
+        "en": "Spanish immersion while overlanding through Colombia (6mo)",
+        "de": "Spanisch-Immersion beim Overlanding durch Kolumbien (6 Monate)"
+      }
+    }]
+  },
+ {
+    "startDate": "08.2026",
+    "endDate": "aktuell",
+    "title": {
+      "de": "Zur&uuml;ck zu Hause",
+      "en": "Back home"
+    },
+    "skills": [
+      {
+        "skillKey": "Family",
+        "weight": 3.5,
+        "context": {
+          "en": "Family time stays front and center after the sabbatical",
+          "de": "Familienzeit bleibt auch nach dem Sabbatical an erster Stelle"
+        }
+      },
+      {
+        "skillKey": "Cycling",
+        "weight": 2,
+        "context": {
+          "en": "Back on the bike after the sabbatical — ramping the volume back up",
+          "de": "Nach dem Sabbatical zur&uuml;ck auf dem Rad — der Umfang steigt wieder"
         }
       }
     ]
