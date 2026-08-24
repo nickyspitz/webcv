@@ -203,7 +203,7 @@
   },
  {
     "startDate": "11.2024",
-    "endDate": "aktuell",
+    "endDate": "08.2026",
     "title": {
       "de": "Familien-Sabbatical",
       "en": "Family Sabbatical"
@@ -244,8 +244,8 @@
     }]
   },
  {
-    "startDate": "11.2024",
-    "endDate": "05.2025",
+    "startDate": "05.2025",
+    "endDate": "10.2025",
     "title": {
       "de": "Italienisch",
       "en": "Italian"
@@ -260,8 +260,8 @@
     }]
   },
  {
-    "startDate": "06.2025",
-    "endDate": "08.2025",
+    "startDate": "01.2025",
+    "endDate": "04.2025",
     "title": {
       "de": "Spanisch",
       "en": "Spanish"
@@ -276,8 +276,8 @@
     }]
   },
  {
-    "startDate": "09.2025",
-    "endDate": "02.2026",
+    "startDate": "10.2025",
+    "endDate": "04.2026",
     "title": {
       "de": "Spanisch",
       "en": "Spanish"
@@ -290,5 +290,31 @@
         "de": "Spanisch-Immersion beim Overlanding durch Kolumbien (6 Monate)"
       }
     }]
+  },
+ {
+    "startDate": "08.2026",
+    "endDate": "aktuell",
+    "title": {
+      "de": "Zur&uuml;ck zu Hause",
+      "en": "Back home"
+    },
+    "skills": [
+      {
+        "skillKey": "Family",
+        "weight": 3.5,
+        "context": {
+          "en": "Family time stays front and center after the sabbatical",
+          "de": "Familienzeit bleibt auch nach dem Sabbatical an erster Stelle"
+        }
+      },
+      {
+        "skillKey": "Cycling",
+        "weight": 2,
+        "context": {
+          "en": "Back on the bike after the sabbatical — ramping the volume back up",
+          "de": "Nach dem Sabbatical zur&uuml;ck auf dem Rad — der Umfang steigt wieder"
+        }
+      }
+    ]
   }
 ]
