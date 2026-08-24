@@ -16,10 +16,7 @@
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/pure.js"></script>
-	<script src="js/d3.v2.min.js"></script>
-
-	<script src="js/streamGraphDrawer.js"></script>
-	<script src="js/jsonProcessor.js"></script>
+	<script src="js/gridDrawer.js"></script>
 
 	<link href="css/google-fonts.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -69,17 +66,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </header>
 
 <div class="cv-graphs">
-  <div id="svg-container" class="streamgraphContainer">
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg"></svg>
-    <div id="vertical"></div>
-    <div id="year"></div>
-    <div class="svgXaxes" id="startDateSvg"></div>
-    <div class="svgXaxes" id="endDateSvg"></div>
-    <div class="svgXaxes" id="fullTimeMarker" style="opacity:0;">FULL-TIME WORK</div>
+  <div class="grid-legend">
+    <div class="legend-item"><span class="legend-swatch" style="background:#E07A5F;"></span> Experience</div>
+    <div class="legend-item"><span class="legend-swatch" style="background:#3A9E8C;"></span> Hobbies</div>
   </div>
-  <div class="svg-hobby-container">
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg-hobby"></svg>
-    <div id="vertical-hobby"></div>
+  <div class="grid-section" id="experience-section">
+    <div class="grid-wrapper" id="exp-wrapper">
+      <div class="grid-labels" id="exp-labels"></div>
+      <div class="grid-container" id="exp-container">
+        <div class="year-axis" id="exp-years"></div>
+        <div class="grid" id="exp-grid"></div>
+      </div>
+      <div class="section-label section-label-exp">EXPERIENCE</div>
+    </div>
+  </div>
+  <div class="grid-section" id="hobby-section">
+    <div class="grid-wrapper" id="hobby-wrapper">
+      <div class="grid-labels" id="hobby-labels"></div>
+      <div class="grid-container" id="hobby-container">
+        <div class="grid" id="hobby-grid"></div>
+      </div>
+      <div class="section-label section-label-hobby">HOBBIES &amp; LIFE</div>
+    </div>
   </div>
 </div>
 
@@ -191,8 +199,6 @@ function filterByCutoff(items, cutoff) {
 function Initialize()
 {
 
-	var startYear = new Date().getFullYear() - yearsBack;
-
 	// grab the template HTML
 	experienceHtml = $('.experience-table').html();
 	educationHtml = $('.education-table').html();
@@ -214,18 +220,6 @@ function Initialize()
 			// 	language = "de";
 			
 			SetLanguage(language);
-
-			var graphStart = graphCutoffYear || startYear;
-
-			var skillsHash = ProcessJson(experienceJson, graphStart, language);
-			DrawStreamGraph(skillsHash, graphStart, "#svg", 300, 'orange');
-
-			var hobbyHash = ProcessJson(hobbyJson, graphStart, language);
-			DrawStreamGraph(hobbyHash, graphStart, "#svg-hobby", 300, 'blue');
-
-			// Redraw
-			ReattachData(experienceJson, graphStart, "#svg", language);
-			ReattachData(hobbyJson, graphStart, "#svg-hobby", language);
 		}
 	);
 
@@ -284,11 +278,10 @@ function SetLanguage(language)
 	$p( 'div.experience-table' ).render( filterByCutoff(experienceJson, textCutoff), directive );
 	$p( 'div.education-table' ).render( filterByCutoff(educationJson, textCutoff), directive );
 
-	// Redraw
+	// Redraw the pixel grids in the selected language
 	var startYear = new Date().getFullYear() - yearsBack;
 	var graphStart = graphCutoffYear || startYear;
-	ReattachData(experienceJson, graphStart, "#svg", language);
-	ReattachData(hobbyJson, graphStart, "#svg-hobby", language);
+	RenderPixelGrids(experienceJson, hobbyJson, graphStart, language);
 
 }
 </script>

@@ -163,74 +163,136 @@ a.lang-selected {
   margin: 28px 0 12px 0;
 }
 
-/* ===== STREAM GRAPH CONTAINERS ===== */
-/* Full-bleed wrapper — no horizontal padding so #svg-container starts at x=0.
-   The JS positions #vertical and #year using d3.event.pageX (absolute page
-   coordinates). If the container has a left offset, the line appears shifted
-   by exactly that offset. Zero left-padding keeps the math correct. */
+/* ===== PIXEL GRID (replaces the d3 streamgraphs) ===== */
 .cv-graphs {
   padding: 12px 40px 4px;
 }
 
-.streamgraphContainer {
-  position: relative;
-  width: 100%;
-  margin-bottom: 4px;
-}
-
-.svg-hobby-container {
-  position: relative;
-  width: 100%;
-  margin-bottom: 4px;
-}
-
-div.svgXaxes {
-  position: absolute;
-  font-size: 6pt;
-  font-weight: bold;
+.grid-legend {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
   color: var(--color-muted);
-  pointer-events: none;
 }
 
-#year {
+.grid-legend .legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.grid-section { position: relative; }
+
+.grid-wrapper {
+  position: relative;
+  display: flex;
+  gap: 0;
+}
+
+/* Skill labels on the left */
+.grid-labels {
+  flex: 0 0 160px;
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px; /* clears the year axis so labels align with grid rows */
+  overflow: hidden;
+}
+
+#hobby-section .grid-labels { padding-top: 0; }
+
+.grid-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--color-muted);
+  height: var(--cell-h);
+  line-height: var(--cell-h);
+  padding-right: 12px;
+  text-align: right;
+  white-space: nowrap;
+  transition: color 0.15s;
+}
+
+.grid-label.active { color: var(--color-text); }
+
+.grid-container {
+  flex: 1;
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.year-axis {
+  position: relative;
+  height: 18px;
+  margin-bottom: 2px;
+}
+
+.year-tick {
   position: absolute;
-  text-align: center;
-  z-index: 20;
-  width: 60px;
-  height: 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  color: var(--color-muted);
+  transform: translateX(-50%);
+}
+
+.grid {
+  display: grid;
+  gap: 1px;
+  position: relative;
+}
+
+.grid-cell {
+  width: var(--cell-w);
+  height: var(--cell-h);
+  border-radius: 1.5px;
+  background: transparent;
+  position: relative;
+}
+
+.grid-cell.filled { cursor: crosshair; }
+
+/* Vertical section names on the right */
+.section-label {
+  flex: 0 0 auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 300;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--color-muted);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  padding-left: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-label-exp   { color: var(--color-coral); opacity: 0.6; }
+.section-label-hobby { color: var(--color-seafoam); opacity: 0.6; }
+
+.now-line {
+  position: absolute;
   top: 0;
-  background-color: var(--color-bg);
-  font-size: 0.72rem;
-  color: var(--color-text);
-  pointer-events: none;
-}
-
-#vertical,
-#vertical-hobby {
-  position: absolute;
-  z-index: 19;
   width: 1px;
-  top: 0;
-  left: 0;
-  background: var(--color-muted);
-  opacity: 0;
+  background: var(--color-coral);
+  opacity: 0.4;
+  z-index: 3;
   pointer-events: none;
 }
 
-#vertical       { height: 300px; }
-#vertical-hobby { height: 300px; }
-
-svg#svg,
-svg#svg-hobby {
-  border-left: 0.5px var(--color-bg) solid;
-  border-right: 0.5px var(--color-bg) solid;
-  display: block;
-}
-
-.axis { font-size: 8pt; fill: none; }
-.x.axis line { stroke: var(--color-bg); }
-.tick line { opacity: 0.2; }
-.tick text { font-size: 12px; stroke: var(--color-seafoam); }
+.grid-container::-webkit-scrollbar { height: 4px; }
+.grid-container::-webkit-scrollbar-track { background: var(--color-bg); }
+.grid-container::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 2px; }
 
 /* ===== TOOLTIP ===== */
 .tip {
@@ -408,6 +470,9 @@ h5.details-list {
 @media screen and (max-width: 768px) {
   .cv-header { padding: 16px 20px 12px; }
   .cv-graphs { padding: 8px 20px 4px; }
+  .grid-labels { flex: 0 0 92px; width: 92px; }
+  .grid-label { font-size: 0.55rem; }
+  .section-label { display: none; }
   .header-top { flex-direction: column; gap: 12px; }
   .header-contact { display: none; }
   .header-bottom { flex-direction: column; gap: 8px; }
