@@ -258,13 +258,15 @@ a.lang-selected {
 
 .grid-label {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.62rem;
+  font-size: 0.72rem;
   color: var(--color-muted);
   height: var(--cell-h);
   line-height: var(--cell-h);
   padding-right: 12px;
   text-align: right;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   transition: color 0.15s;
 }
 
@@ -352,7 +354,7 @@ a.lang-selected {
   font-size: 0.78rem;
   color: var(--color-text);
   line-height: 1.5;
-  max-width: 380px;
+  max-width: min(380px, calc(100vw - 16px));
   opacity: 0;
   transform: translateY(4px);
   transition: opacity 0.15s, transform 0.15s;
@@ -517,8 +519,8 @@ h5.details-list {
 @media screen and (max-width: 768px) {
   .cv-header { padding: 16px 20px 12px; }
   .cv-graphs { padding: 8px 20px 4px; }
-  .grid-labels { flex: 0 0 92px; width: 92px; }
-  .grid-label { font-size: 0.55rem; }
+  .grid-labels { flex: 0 0 112px; width: 112px; }
+  .grid-label { font-size: 0.62rem; }
   .section-label { display: none; }
   .header-top { flex-direction: column; gap: 12px; }
   .header-contact { display: none; }
