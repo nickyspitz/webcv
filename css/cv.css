@@ -530,8 +530,12 @@ h5.details-list {
 
   .cv-main .info-row { flex-direction: column; }
   .card-meta {
+    /* block instead of flex-column: the date spans flow inline as
+       "03.2021 - 10.2024" rather than stacking three lines tall */
+    display: block;
     flex: none;
     border-right: none;
     border-bottom: 1px solid var(--color-border);
   }
+  .card-meta .location_name { display: block; margin-top: 2px; }
 }
