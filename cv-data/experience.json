@@ -31,8 +31,8 @@
                     "en": "EMEA MARKET EXPANSION"
                 },
                 "description": {
-                    "de": "Gründungsmitglied des EMEA-Teams von dbt Labs (das bei meinem Ausscheiden über 40 Mitarbeitende umfasste), mit einem persönlichen Beitrag von 7% zum globalen wiederkehrenden Umsatz (ARR). Ausgezeichnet mit der 'The Builder'-Trophäe für den Aufbau angrenzender Fachbereiche in der neuen Region durch die Etablierung von Prozessen sowie aktives Recruiting in den Funktionen Partner-Management, Marketing und Recht.",
-                    "en": "Founding member of dbt Labs' EMEA team (which was over 40 people at time of leaving), having personally contributed 7% of global recurring revenue. Awarded 'The Builder' trophy for helping to grow ancillary functions of a new region by influencing and establishing processes, as well as actively hiring within partner, marketing and legal functions."
+                    "de": "Bei dbt Labs bei <1M ARR eingestiegen und bei >100M ARR ausgeschieden — mit einem persönlichen Beitrag von 7% zu dieser Zahl. Ausgezeichnet mit dem 'The Builder'-Award dafür, neben der AE-Rolle unser Wachstum in der EMEA-Region unterstützt zu haben: durch das Entdecken und Etablieren unseres ICP und unserer Best Practices, die Verbesserung von Prozessen sowie aktives Recruiting in den Funktionen Partner-Management, Marketing und Recht.",
+                    "en": "Joined dbt Labs at <1m and left at >100m ARR, having personally contributed 7% of that number. Received 'The Builder' award for, next to the AE role, supporting our growth in the EMEA region by discovering and establishing our ICP and best practices, improving processes, and actively hiring within partner, marketing and legal functions."
                 }
             }
         ],
@@ -73,8 +73,8 @@
         "details": [
             {
                 "header": {
-                    "de": "DATENKULTUR",
-                    "en": "DATA CULTURE"
+                    "de": "DATA FOUNDER",
+                    "en": "DATA FOUNDER"
                 },
 				"description": {
                     "de": "Gründer der Datenfunktion bei Beekeeper. Verantwortlich für die firmenweite Strategie und Umsetzung einer datengetriebenen Entscheidungskultur mittels zuverlässige Daten, Tools und Ausbildung.",
@@ -87,8 +87,8 @@
                     "en": "BUSINESS INTELLIGENCE"
                 },
                 "description": {
-                    "de": "Grundlegende Analysen, welche zum B2B-SaaS Segment gehören: Wirtschaftlichtkeit, Kundenakquise sowie \"-schrumpfung\", Produktnutzung inkl. Userverhalten, alles um die Vertriebspipeline herum. Anwendung fortgeschrittener SQL-Methodik inkl. CTEs, Aggregation und Window Functions.",
-                    "en": "Analysis around health and growth aspects of a B2B SaaS organization, including: profitability, customer acquisition, churn and lifetime value, product user retention and behavior, and the sales pipeline. Use of advanced SQL analysis and modelling involving CTEs, aggregates and window functions."
+                    "de": "Verantwortlich für die Analytik, die ein skalierendes B2B-SaaS steuerte — Akquise, Churn und LTV, Produkt-Retention, Pipeline-Gesundheit — alles in fortgeschrittenem SQL (CTEs, Window Functions). Die Zahlen hinter dem Ziel, Frontline-Teams in den digitalen Arbeitsplatz zu holen.",
+                    "en": "Owned the analytics that steered a scaling B2B SaaS — acquisition, churn and LTV, product retention, pipeline health — all in advanced SQL (CTEs, window functions). The numbers behind bringing frontline teams into the digital workplace."
                 }
             },
             {
@@ -97,8 +97,8 @@
                     "en": "DATA ENGINEERING"
                 },
                 "description": {
-                    "de": "Wir bringen Daten an die richtigen Stellen, um diese sauber und dokumentiert der Firma zu exponieren. Wir machen das möglich hauptsächlich mittels dbt (mitsamt tests!), AWS S3 und Redshift ..und natürlich Looker. Orchestriert werden unsere unzähligen ELT/ETL Prozesse, welche durch den Singer tap/target Standard genormt sind, durch Airflow.",
-                    "en": "We transport and bring order to our data to expose it to the company in a clean, reliable and documented fashion. Our data stack consists primarily of dbt (with many tests!), AWS S3 and Redshift, and Looker. The unsung hero is Airflow, which orchestrates numerous ETL/ELT processes, practically all written to the Singer standard of taps and targets."
+                    "de": "Baute die Pipelines, die Daten firmenweit verlässlich machten: dbt (mitsamt vielen Tests!), S3/Redshift und Looker — orchestriert von Airflow mit ETL/ELT nach Singer-Standard.",
+                    "en": "Built the pipes that made data dependable company-wide: dbt (with many tests!), S3/Redshift and Looker, orchestrated by Airflow with Singer-standard ETL/ELT."
                 }
             }
         ],
@@ -147,22 +147,12 @@
         "details": [
             {
                 "description": {
-                    "de": "Erstellung und Ausführung des benutzerfokussierten Entwicklungsplans mit einem sechsköpfigen Team. Übersah App-Freigabe-Zyklen für Android, iOS und Web Plattformen. Arbeitsablauf mittels JIRA, github.",
-                    "en": "Discovery, curation and execution of feature roadmap with a six-person team and focus on end-user experience. Release Management for Android, iOS and web apps. Constant stakeholder management in a high-growth environment. Workflow using JIRA and github."
+                    "de": "Discovery, Kuratierung und Umsetzung der Feature-Roadmap mit einem sechsköpfigen Team — gebaut für die Frontline-Mitarbeitenden, denen Beekeeper eine bessere Arbeitswelt bieten will. Release Management für Android, iOS und Web sowie laufendes Stakeholder-Management in einem High-Growth-Umfeld. Nutzerverhaltens-Analysen in Looker/Redshift (inkl. anfänglichem Aufbau der DWH-Lösung!) zur Untermauerung und Verteidigung von Roadmap-Entscheidungen.",
+                    "en": "Discovery, curation and execution of the feature roadmap with a six-person team — building for the disenchanted frontline workers Beekeeper set out to better serve. Release management for Android, iOS and web apps, with constant stakeholder management in a high-growth environment. Leveraged user behavior analysis in Looker/Redshift (while initially standing up the DWH solution!) to influence and defend roadmap items."
                 },
                 "header": {
                     "de": "PRODUCT OWNER, 'EMPLOYEE EXPERIENCE' TEAM",
                     "en": "PRODUCT OWNER, 'EMPLOYEE EXPERIENCE' TEAM"
-                }
-            },
-            {
-                "description": {
-                    "de": "Führende Kraft hinter interner Datawarehousing-Lösung und Anwendung dessen für eine grosse Breite an Benutzer-Analysen",
-                    "en": "Managed technical side of data warehouse and conducted user behavior analysis using Looker and AWS Redshift to understand our users and our product better"
-                },
-                "header": {
-                    "de": "DATENANALYSE",
-                    "en": "DATA ANALYTICS"
                 }
             }
         ],
@@ -197,8 +187,8 @@
         "startDate": "04.2017",
         "endDate": "10.2017",
         "title": {
-            "de": "Software-Entwickler",
-            "en": "Software Engineer"
+            "de": "Leitender Software-Entwickler",
+            "en": "Lead Software Engineer"
         },
         "employer": {
             "de": "Beekeeper AG",
