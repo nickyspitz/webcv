@@ -87,8 +87,8 @@
                     "en": "BUSINESS INTELLIGENCE"
                 },
                 "description": {
-                    "de": "Grundlegende Analysen, welche zum B2B-SaaS Segment gehören: Wirtschaftlichtkeit, Kundenakquise sowie \"-schrumpfung\", Produktnutzung inkl. Userverhalten, alles um die Vertriebspipeline herum. Anwendung fortgeschrittener SQL-Methodik inkl. CTEs, Aggregation und Window Functions.",
-                    "en": "Analysis around health and growth aspects of a B2B SaaS organization, including: profitability, customer acquisition, churn and lifetime value, product user retention and behavior, and the sales pipeline. Use of advanced SQL analysis and modelling involving CTEs, aggregates and window functions."
+                    "de": "Verantwortlich für die Analytik, die ein skalierendes B2B-SaaS steuerte — Akquise, Churn und LTV, Produkt-Retention, Pipeline-Gesundheit — alles in fortgeschrittenem SQL (CTEs, Window Functions). Die Zahlen hinter dem Ziel, Frontline-Teams in den digitalen Arbeitsplatz zu holen.",
+                    "en": "Owned the analytics that steered a scaling B2B SaaS — acquisition, churn and LTV, product retention, pipeline health — all in advanced SQL (CTEs, window functions). The numbers behind bringing frontline teams into the digital workplace."
                 }
             },
             {
@@ -97,8 +97,8 @@
                     "en": "DATA ENGINEERING"
                 },
                 "description": {
-                    "de": "Wir bringen Daten an die richtigen Stellen, um diese sauber und dokumentiert der Firma zu exponieren. Wir machen das möglich hauptsächlich mittels dbt (mitsamt tests!), AWS S3 und Redshift ..und natürlich Looker. Orchestriert werden unsere unzähligen ELT/ETL Prozesse, welche durch den Singer tap/target Standard genormt sind, durch Airflow.",
-                    "en": "We transport and bring order to our data to expose it to the company in a clean, reliable and documented fashion. Our data stack consists primarily of dbt (with many tests!), AWS S3 and Redshift, and Looker. The unsung hero is Airflow, which orchestrates numerous ETL/ELT processes, practically all written to the Singer standard of taps and targets."
+                    "de": "Baute die Pipelines, die Daten firmenweit verlässlich machten: dbt (mitsamt vielen Tests!), S3/Redshift und Looker — orchestriert von Airflow mit ETL/ELT nach Singer-Standard.",
+                    "en": "Built the pipes that made data dependable company-wide: dbt (with many tests!), S3/Redshift and Looker, orchestrated by Airflow with Singer-standard ETL/ELT."
                 }
             }
         ],
